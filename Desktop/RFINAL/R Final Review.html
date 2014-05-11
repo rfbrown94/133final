@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="description" content="">
+    
+
+    
+    <meta name="author" content="">
+    
+
+    <!--NEW RELIC Start Perf Measurement-->
+    <script type="text/javascript" async="" src="./R Final Review_files/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o?o:n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({D5DuLP:[function(t,n){function e(t,n){var e=r[t];return e?e.apply(this,n):(o[t]||(o[t]=[]),void o[t].push(n))}var r={},o={};n.exports=e,e.queues=o,e.handlers=r},{}],handle:[function(t,n){n.exports=t("D5DuLP")},{}],G9z0Bl:[function(t,n){function e(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&p&&p.body){l.proto="https"===f.split(":")[0]||t.sslForHttp?"https://":"http://",i("mark",["onload",a()]);var n=p.createElement("script");n.src=l.proto+t.agent,p.body.appendChild(n)}}function r(){"complete"===p.readyState&&o()}function o(){i("mark",["domContent",a()])}function a(){return(new Date).getTime()}var i=t("handle"),u=window,p=u.document,s="addEventListener",c="attachEvent",f=(""+location).split("?")[0],l=n.exports={offset:a(),origin:f,features:[]};p[s]?(p[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(p[c]("onreadystatechange",r),u[c]("onload",e)),i("mark",["firstbyte",a()])},{handle:"D5DuLP"}],loader:[function(t,n){n.exports=t("G9z0Bl")},{}]},{},["G9z0Bl"]);</script>
+    <!--NREND-->
+
+    <!-- Le styles -->
+    <!--<link href="/static/css/bootstrap.css" rel="stylesheet">-->
+    <link href="http://nbviewer.ipython.org/static/css/docs.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/animate.css/animate.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/nbviewer.css" rel="stylesheet">
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://nbviewer.ipython.org/static/ico/ipynb_icon_16x16.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+    
+
+    
+
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    <meta name="twitter:title" content="Notebook on nbviewer">
+    
+
+    
+    <meta name="twitter:description" content="Check out this IPython notebook!">
+    
+
+    
+    <meta name="twitter:domain" content="nbviewer.ipython.org">
+    
+
+    <meta name="twitter:image:src" content="http://ipython.org/ipython-doc/dev/_images/ipynb_icon_128x128.png">
+    
+    
+    
+
+    <link href="http://nbviewer.ipython.org/ipython-static/style/ipython.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/pygments.css" rel="stylesheet">
+    <style type="text/css" media="screen and (min-width:980px)">
+   
+    body {
+        padding-top: 40px;
+    }
+
+    </style>
+    <style type="text/css">
+    .imgwrap {
+        text-align: center;
+    }
+
+    @media (max-width: 767px){
+
+        div.input, div.output_area {
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-orient: vertical;
+        }
+
+        div.prompt {
+            text-align:left;
+        }
+
+    }
+
+    
+    </style>
+    
+    <script src="./R Final Review_files/MathJax.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    init_mathjax = function() {
+        if (window.MathJax) {
+            // MathJax loaded
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 0}},
+                    linebreaks: { automatic: true }
+                }
+            });
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+    
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 0; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" style=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+  <!-- These are loaded at the top of the body so they are available to notebook
+  cells when they are loaded below. -->
+  <script src="./R Final Review_files/jquery.min.js"></script>
+  <script src="./R Final Review_files/require.js"></script>
+  <script src="./R Final Review_files/moment.min.js"></script>
+
+  <!-- Navbar
+  ================================================== -->
+    <div id="menubar" class="navbar navbar-fixed-top hidden-print animated">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+
+                <li>
+        <a href="http://nbviewer.ipython.org/" title="nbviewer">
+            <strong>
+            <span>nbviewer</span>
+            </strong>
+        </a>
+    </li>
+                <li>
+        <a href="http://nbviewer.ipython.org/faq" title="FAQ">
+            
+            <span>FAQ</span>
+            
+        </a>
+    </li>
+
+              <li class="">
+                <a href="http://www.ipython.org/">IPython</a>
+              </li>
+            </ul>
+            <ul class="nav pull-right"> 
+              
+              
+      
+        <li>
+        <a href="https://db.tt/4onLImB0" title="Download Notebook" download="">
+            <span class="fa fa-download fa-2x menu-icon"></span>
+            <span class="menu-text">Download Notebook</span>
+        </a>
+    </li>
+    
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+     
+    
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Review-Final---Vectors,-Lists,-Functions,-and-Classes-in-R">Review Final - Vectors, Lists, Functions, and Classes in R<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Review-Final---Vectors,-Lists,-Functions,-and-Classes-in-R">¶</a></h1>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+<span class="o">%</span><span class="k">R</span> <span class="n">rm</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+NL <span class="o">=</span> <span class="kr">function</span><span class="p">()</span> cat<span class="p">(</span><span class="s">'\n\n'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Review Session Topics:</strong></p>
+<p>In this review section, we will focus on some of the key features of the R language: Vectorized computation, arrays, lists, and classes:</p>
+<ul>
+<li><strong>Vectorized programming in R</strong>: vectors and functions</li>
+</ul>
+<ul>
+<li><strong>Object-oriented programming in R</strong>: lists and classes</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R is an <a href="http://en.wikipedia.org/wiki/Array_programming">array programming language</a> (or vectorized language) which means that its <strong>basic data types</strong> (i.e. numbers, Booleans, and strings) come in the form of <strong>vectors</strong>, which are <strong>homogeneous containers</strong> (or collections) of numbers, strings, or Boolean. This vectorized basic types are particular suited for data analysis: they are used to store values of <strong>statistical variables</strong> from a <strong>population sample</strong>. A vectors in R corresponds to the information stored in  <strong>a data table column</strong>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Parallely, R has a single <strong>basic data structure</strong>, called <code>list</code>, which is a <strong>heterogenous container</strong>. List can store collection of elements with different types, and can be thought of as representing the information stored in a <strong>data table row</strong>. </p>
+<p>Both vectors and lists are <strong>labelled containers</strong>, which means that their elements can be assigned <strong>labels</strong> or <strong>names</strong>. In terms of statistics, vector labels can be regarded as <strong>individual identifier</strong> for the individuals in the sample, while list labels can be thought of as <strong>variable names</strong> in a data table (i.e. the <strong>header labels</strong>).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Programming in R would be very similar to programming in Python if we were allowed only to use dictionaries (corresponding to R lists) and Numpy arrays (corresponding to R vectors), in guise of data structures and data types. </p>
+<p>There are two ways of programming with <strong>classes and objects</strong> in R. The less used one (<strong>S4 classes</strong>) ressembles much the object-oriented framework in Python, but we didn't see that in class. The most popular object-oriented framework in R (<strong>S3 classes</strong>) is very diffent from that of Python. It ressembles more a set of programming conventions than a strongly enforced framework provided by the language. S3 programming is quick and dirty, as one says in programming, and instanciating classes with wrong attributes is very easy...</p>
+<p>Basically, <strong>basic data types (vectors) and basic data structures (lists) can be promoted to classes by setting the hidden attribute "class"</strong> to a custom name: the name of the class to which we are promoting the given vector or list to. </p>
+<p>Class attributes are stored as named elements of the underlying list, using the <strong>dollar sign operator</strong> <code>X$attributeName</code>, corresponding to the <strong>period operator</strong> in Python: <code>X.attributeName</code>.</p>
+<p>Methods are then normal functions that check the class name and act accordingly.</p>
+<p>A data frames is a S3 class used to represent a data table. Data frame come up with a variety of methods to transform, analyse, and visualyse the data contained in the data frame. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Vectorized-programming-in-R:-vectors-and-functions">Vectorized programming in R: vectors and functions<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Vectorized-programming-in-R:-vectors-and-functions">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Ressources:</strong> Phil Spector Stat 133 lecture notes</p>
+<ul>
+<li><a href="http://www.stat.berkeley.edu/users/spector/s133/R-2a.html">Vectors and Matrices</a></li>
+<li><a href="http://www.stat.berkeley.edu/users/spector/s133/R-6a.html">Functions</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Basic types in R are <strong>vectors</strong>. R does not have <strong>scalar</strong> types as in Python: a single string or a single number is always understood by R as a character or numeric vector <strong>with one element</strong>.</p>
+<p>The elements of a vector are all of the same <strong>mode</strong> or <strong>type</strong>, which is queried upon using the functions <code>mode(x)</code> and <code>typeof(x)</code> (the latter function having a "finer grain" than the former, since it distinguishes between <code>integer</code> and <code>double</code>. Here are the different types in R:</p>
+<ul>
+<li><strong>numeric vectors:</strong> elements are <em>numbers</em><ul>
+<li><code>mode(x)</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-1" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2"><span class="mo" id="MathJax-Span-3" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1">\longrightarrow</script> <code>numeric</code> </li>
+<li><code>typeof(x)</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-2-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-4" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-5"><span class="mo" id="MathJax-Span-6" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-2">\longrightarrow</script> <code>integer</code> or <code>double</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>character vectors:</strong> elements are <em>strings</em><ul>
+<li><code>mode(x), typeof(x)</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-3-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-7" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-8"><span class="mo" id="MathJax-Span-9" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-3">\longrightarrow</script> <code>character</code> </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>logical vectors:</strong> elements are <em>Booleans</em>, i.e., either <code>TRUE</code> (short: <code>T</code>) or <code>FALSE</code> (short: <code>F</code>)</p>
+<ul>
+<li><code>mode(x), typeof(x)</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-4-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-10" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-11"><span class="mo" id="MathJax-Span-12" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-4">\longrightarrow</script> <code>logical</code> </li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Convertion-between-types">Convertion between types<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Convertion-between-types">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Convertions between basic types are possible using the <strong>convertion function family</strong></p>
+<pre><code>as.logical(x)
+as.integer(x)
+as.double(x)
+as.numeric(x)
+as.character(x)
+</code></pre><p>However, not all convertions are possible without loss of information (i.e. one can not or loose information by converting back to the original type). Here is the convertion chain with <strong>no information loss</strong> or errors:</p>
+<p><code>logical</code><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-5-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-13" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-14"><span class="mo" id="MathJax-Span-15" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-5">\longrightarrow</script><code>integer</code><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-6-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-16" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-17"><span class="mo" id="MathJax-Span-18" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-6">\longrightarrow</script><code>double</code>
+<span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-19" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-20"><span class="mo" id="MathJax-Span-21" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-7">\longrightarrow</script><code>character</code></p>
+<p><strong>Forcing conversion by going in the opposite arrow direction may result in an error or in a loss of information:</strong></p>
+<ul>
+<li><code>integer</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-8-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-22" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-23"><span class="mo" id="MathJax-Span-24" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-8">\longrightarrow</script> <code>logical</code> will only keep the information of whether the integer is zero or non-zero (see below)</li>
+</ul>
+<ul>
+<li><code>double</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-9-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-25" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-26"><span class="mo" id="MathJax-Span-27" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-9">\longrightarrow</script> <code>integer</code> results in the <strong>decimal part is being lost</strong></li>
+</ul>
+<ul>
+<li><code>character</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-10-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-28" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-29"><span class="mo" id="MathJax-Span-30" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-10">\longrightarrow</script> <code>double</code> returns <strong>missing value</strong> <code>NA</code> provided the string is not a string resulting from the conversion of the lower types to <code>character</code> types (e.g. "34.5" or "0")</li>
+</ul>
+<p><strong>Conversion involving Booleans are a bit special:</strong> </p>
+<ul>
+<li><code>T</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-11-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-31" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-32"><span class="mo" id="MathJax-Span-33" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-11">\longleftrightarrow</script> 1 and <code>F</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-12-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-34" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-35"><span class="mo" id="MathJax-Span-36" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-12">\longleftrightarrow</script> 0</li>
+</ul>
+<ul>
+<li><code>T</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-13-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-37" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-38"><span class="mo" id="MathJax-Span-39" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-13">\longleftrightarrow</script> "1" and <code>F</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-14-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-40" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-41"><span class="mo" id="MathJax-Span-42" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-14">\longleftrightarrow</script> "0"</li>
+</ul>
+<ul>
+<li><code>T</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-15-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-43" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-44"><span class="mo" id="MathJax-Span-45" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-15">\longleftrightarrow</script> "TRUE" and <code>F</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-16-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-46" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-47"><span class="mo" id="MathJax-Span-48" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-16">\longleftrightarrow</script> "FALSE"</li>
+</ul>
+<ul>
+<li><code>T</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-17-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-49" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-50"><span class="mo" id="MathJax-Span-51" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-17">\longleftrightarrow</script> "true" and <code>F</code> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-18-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-52" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-53"><span class="mo" id="MathJax-Span-54" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-18">\longleftrightarrow</script> "false"</li>
+</ul>
+<ul>
+<li>non-zero number <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-19-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-55" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-56"><span class="mo" id="MathJax-Span-57" style="font-family: STIXGeneral;">⟷</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-19">\longleftrightarrow</script> <code>T</code></li>
+</ul>
+<p><strong>Remark:</strong> These convertions are important when creating data frame for text files in order to understand which <strong>mode</strong> will be assigned to the data frame columns.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+a <span class="o">=</span> c<span class="p">(</span><span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">)</span>
+
+char <span class="o">=</span> as.character<span class="p">(</span>a<span class="p">)</span>
+numb <span class="o">=</span> as.integer<span class="p">(</span>a<span class="p">)</span>
+
+print<span class="p">(</span>char<span class="p">)</span>
+print<span class="p">(</span>numb<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "TRUE"  "FALSE" "TRUE"  "FALSE" "FALSE"
+[1] 1 0 1 0 0
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Generating-vectors">Generating vectors<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Generating-vectors">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are several way to generate vectors in R. In term of statistics, vectors corresponds to <strong>statitical variables</strong>. Simulating (or generating) variables is an important task in statistics.</p>
+<p><strong>Remark:</strong> Do not confuse the term <em>variable</em> as used in programming (which is just a <strong>name</strong> used to hold a <strong>value</strong>) and the term  <em>variable</em> as used in statistics. Statistical variables correspond to vectors in R. Statistical variables, i.e. vectors, can be stored in R variables. However, R variables can also be used to store lists, data frames, or instances of classes. </p>
+<p>Here is a list of function very useful to generate vectors (hence: statistical variables).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/c.html">The <strong>concatenate</strong> function</a> </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[4]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> c<span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/rep.html">The <strong>replicate</strong> function</a> </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[5]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+x <span class="o">=</span> rep<span class="p">(</span><span class="k-Variable">T</span><span class="p">,</span> times<span class="o">=</span><span class="m">30</span><span class="p">)</span>
+x <span class="o">=</span> rep<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> lenght<span class="o">=</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/seq.html">The <strong>sequence generation</strong> function</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[6]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+x <span class="o">=</span> seq<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> by<span class="o">=</span><span class="m">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/paste.html">The <strong>string concatenate</strong> function</a> </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R      
+x <span class="o">=</span> paste<span class="p">(</span>c<span class="p">(</span><span class="s">'X'</span><span class="p">,</span> <span class="s">'Y'</span><span class="p">,</span> <span class="s">'Z'</span><span class="p">),</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/Colon.html">The <strong>colon operator</strong></a> </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[8]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+x <span class="o">=</span> <span class="m">12</span><span class="o">:</span><span class="m">49</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/sample.html">The <strong>random sample and permutation</strong> function</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[9]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> sample<span class="p">(</span><span class="m">100</span><span class="p">)</span>
+y <span class="o">=</span> sample<span class="p">(</span>c<span class="p">(</span><span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Luc'</span><span class="p">,</span> <span class="s">'Martin'</span><span class="p">),</span> <span class="m">100</span><span class="p">,</span> replace<span class="o">=</span><span class="k-Variable">T</span><span class="p">,</span> prob<span class="o">=</span>c<span class="p">(</span><span class="m">0.2</span><span class="p">,</span> <span class="m">0.5</span><span class="p">,</span> <span class="m">0.3</span><span class="p">))</span>
+           
+print<span class="p">(</span>x<span class="p">)</span>
+print<span class="p">(</span>y<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>  [1]  52  29  21  83  39  18  40  84  23   5  74  46  65  11  57  56  86  47
+ [19]  19  27  41  78  48  97  62  44  54   8  33  68  87  79  80   7  76  60
+ [37]  22  93  59  14  91   1  20  34  64  45  70  85  82  36  95  88  10  25
+ [55]   6  17  13 100  50  51  31  24  77  72   3  75  96   9  38  37  55  66
+ [73]  94  81  35  28   2  89  58  16  73  98  69  53  99   4  32  30  42  71
+ [91]  12  61  43  15  67  90  26  92  63  49
+  [1] "Martin" "Bob"    "Luc"    "Martin" "Luc"    "Bob"    "Bob"    "Luc"   
+  [9] "Bob"    "Martin" "Bob"    "Luc"    "Luc"    "Luc"    "Luc"    "Bob"   
+ [17] "Martin" "Bob"    "Luc"    "Luc"    "Martin" "Luc"    "Luc"    "Martin"
+ [25] "Luc"    "Luc"    "Luc"    "Bob"    "Luc"    "Luc"    "Bob"    "Martin"
+ [33] "Martin" "Luc"    "Bob"    "Luc"    "Bob"    "Martin" "Martin" "Luc"   
+ [41] "Martin" "Luc"    "Martin" "Martin" "Luc"    "Bob"    "Bob"    "Luc"   
+ [49] "Bob"    "Bob"    "Martin" "Bob"    "Luc"    "Luc"    "Luc"    "Luc"   
+ [57] "Luc"    "Luc"    "Martin" "Martin" "Luc"    "Luc"    "Martin" "Martin"
+ [65] "Martin" "Martin" "Luc"    "Luc"    "Luc"    "Luc"    "Martin" "Luc"   
+ [73] "Luc"    "Luc"    "Luc"    "Luc"    "Bob"    "Bob"    "Luc"    "Luc"   
+ [81] "Martin" "Bob"    "Martin" "Luc"    "Martin" "Martin" "Luc"    "Luc"   
+ [89] "Martin" "Luc"    "Luc"    "Luc"    "Luc"    "Luc"    "Luc"    "Luc"   
+ [97] "Luc"    "Bob"    "Luc"    "Bob"   
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><a href="http://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html">The normal random sample function</a> and  <a href="http://stat.ethz.ch/R-manual/R-devel/library/stats/html/Uniform.html">the uniform random sample function</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[10]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> rnorm<span class="p">(</span><span class="m">100</span><span class="p">,</span> mean<span class="o">=</span><span class="m">0</span><span class="p">,</span> sd<span class="o">=</span><span class="m">1</span><span class="p">)</span>
+x <span class="o">=</span> runif<span class="p">(</span><span class="m">100</span><span class="p">,</span> min<span class="o">=</span><span class="m">0</span><span class="p">,</span> max<span class="o">=</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Vectorized-code">Vectorized code<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Vectorized-code">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R is a <strong>vectorized</strong> programming language (or <a href="http://en.wikipedia.org/wiki/Array_programming">array programming language</a>): i.e., operations involving <strong>vectors</strong> (1D array), <strong>matrices</strong> (2D array), or more generally <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-20-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-58" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-59"><span class="mi" id="MathJax-Span-60" style="font-family: STIXGeneral; font-style: italic;">n</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-20">n</script>-dimensional <strong>array</strong> can be performed with <strong>single</strong> or <strong>atomic instructions</strong>, instead of <strong>loops</strong> accessing the array elements one at a time. For instance, the core of the Python language is not vectorized (one uses loops or list comprehension to iterate over collections), but the Numpy part of the language is vectorized. </p>
+<p>Languages allowing for vectorized computations offer several advantages over standard "collection looping languages:"</p>
+<ul>
+<li><p>The code involving array computations is <strong>clearer</strong> and <strong>shorter</strong>, resulting into a gain of developping time and an easier maintenance</p>
+</li>
+<li><p>When using computers with multiple processors, atomic vectorized instructions will be distributed in parallely over the processors, resulting into a <strong>speed gain</strong>. </p>
+</li>
+</ul>
+<p>The main three array programming languages in the spot lights in data science nowdays are <strong>R</strong>, <strong>Octave</strong> (a GNU version of Mathlab), and <strong>Python with Numpy</strong>. You already know how to use two of them, and learning Octave after this course will be very easy. </p>
+<p>Here is an example of a <strong>non-vectorized code</strong>, where we add two vectors <code>x</code> and <code>y</code> by accessing the elments one at a time in a <code>for</code> loop, add them and store the result into the corresponding component of a previously intialized vector <code>z</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[11]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> sample<span class="p">(</span><span class="m">10</span><span class="p">)</span>
+y <span class="o">=</span> sample<span class="p">(</span><span class="m">10</span><span class="p">)</span>
+
+z <span class="o">=</span> rep<span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+<span class="kr">for</span><span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>length<span class="p">(</span>x<span class="p">)){</span>
+    z<span class="p">[</span>i<span class="p">]</span> <span class="o">=</span> x<span class="p">[</span>i<span class="p">]</span> <span class="o">+</span> y<span class="p">[</span>i<span class="p">]</span>
+<span class="p">}</span>
+
+print<span class="p">(</span>x<span class="p">);</span> print<span class="p">(</span>y<span class="p">);</span> print<span class="p">(</span>z<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre> [1]  6  3 10  4  5  8  1  9  7  2
+ [1]  3  4  6 10  8  5  1  2  9  7
+ [1]  9  7 16 14 13 13  2 11 16  9
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we do the same with <strong>vectorized code</strong>, using the <strong>vectorized addition operation:</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[12]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+z <span class="o">=</span> x <span class="o">+</span> y
+print<span class="p">(</span>x<span class="p">);</span> print<span class="p">(</span>y<span class="p">);</span> print<span class="p">(</span>z<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre> [1]  6  3 10  4  5  8  1  9  7  2
+ [1]  3  4  6 10  8  5  1  2  9  7
+ [1]  9  7 16 14 13 13  2 11 16  9
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another example of standard looping and branching code together with the equivalent vectorized code. Given a vector <code>x</code> of integers between 1 and 10, we want to keep only those integers that are above 5. </p>
+<p><strong>Make sure that you understand that the vectorized equivalent of branching statements in a loop is usually achieved using logical indexing.</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[13]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> sample<span class="p">(</span><span class="m">10</span><span class="p">)</span>
+z <span class="o">=</span> c<span class="p">()</span>
+j <span class="o">=</span> <span class="m">1</span>
+<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">){</span>
+    <span class="kr">if</span><span class="p">(</span>x<span class="p">[</span>i<span class="p">]</span> <span class="o">&gt;=</span> <span class="m">5</span><span class="p">){</span>
+        z<span class="p">[</span>j<span class="p">]</span> <span class="o">=</span> x<span class="p">[</span>i<span class="p">]</span>
+        j <span class="o">=</span> j <span class="o">+</span> <span class="m">1</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+print<span class="p">(</span>z<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 10  7  8  5  6  9
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[14]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+<span class="c1">#Equivalent vectorized code</span>
+
+z <span class="o">=</span> x<span class="p">[</span>x <span class="o">&gt;=</span> <span class="m">5</span><span class="p">]</span>
+print<span class="p">(</span>z<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 10  7  8  5  6  9
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To make a long story short, <strong>writing vectorized code is nothing but using only vectorized opearations when dealing with vectors, or more generally with arrays</strong>. You should be able to go back an forth between standard <code>for</code>, <code>if</code>, <code>else</code> code and corresponding vectorized code. </p>
+<p>Using only the following functions and operations on the basic types will generate vectorized code:</p>
+<ul>
+<li><p><strong><a href="http://www.statmethods.net/management/functions.html">Numeric fuctions and operations</a>:</strong> </p>
+<pre><code>  abs(x)
+  sqrt(x)     
+  ceiling(x) 
+  floor(x)     
+  trunc(x) 
+  round(x, digits=n) 
+  cos(x), sin(x), tan(x)     also acos(x), cosh(x), acosh(x), etc.
+  log(x) 
+
+  +   -   *   /   %% (modulo)   %/% (integer division)   ^ 
+</code></pre></li>
+<li><p><strong>Boolean functions and operations:</strong></p>
+<pre><code>  any(x) (returns true if any of the elemenst in x is true, otherwise false)
+  all(x) (returns true if all the elements in x are true, otherwise false)
+  &amp; (and)   | (or)   ! (not)
+  &lt;   &gt;   &lt;=   &gt;=   ==   !=
+</code></pre></li>
+<li><p><strong><a href="http://www.statmethods.net/management/functions.html">Character functions and operations</a>:</strong> </p>
+<pre><code>  paste(x, y, etc., sep=s)
+  substr(x, start=i, stop=j)
+  grep(pattern, x , ignore.case=FALSE, fixed=FALSE)
+  sub(pattern, replacement, x, ignore.case =FALSE, fixed=FALSE)
+  strsplit(x, split)
+  toupper(x)
+  tolower(x)
+</code></pre></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>These operation are <strong>vectorized</strong> way: i.e., they are performed <strong>component wise</strong>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Vector-hidden-attributes:-names,-class,-and-dim">Vector hidden attributes: names, class, and dim<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Vector-hidden-attributes:-names,-class,-and-dim">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R vectors have a number of <strong>attributes</strong> (different from the vector elements) that can be set using <strong>special functions</strong>. These attributes condition the way vectors are handled in computation and the way vectors are displayed while printed or evaluated. Attributes can be displayed using the function</p>
+<pre><code>attributes(x)
+</code></pre><p>which returns a list of the attributes set for <code>x</code>.</p>
+<p>By default, a vector has no attributes set, and the function <code>attributes</code> will return NULL upon a vector with no attribute set. Here is a list of the special functions that will set vector attributes:</p>
+<p>The function <code>names</code> used as followed</p>
+<pre><code>names(x) = labels
+</code></pre><p>will set the names attribute specifying the vector element labels using the strings in the character vector <code>labels</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[15]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">8</span><span class="p">)</span>
+print<span class="p">(</span>x<span class="p">)</span>
+
+names<span class="p">(</span>x<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="s">'A'</span><span class="p">,</span><span class="s">'B'</span><span class="p">,</span><span class="s">'C'</span><span class="p">,</span><span class="s">'D'</span><span class="p">,</span><span class="s">'E'</span><span class="p">,</span><span class="s">'F'</span><span class="p">,</span><span class="s">'G'</span><span class="p">,</span><span class="s">'H'</span><span class="p">)</span>
+NL<span class="p">()</span>
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 1 2 3 4 5 6 7 8
+
+
+A B C D E F G H 
+1 2 3 4 5 6 7 8 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The function <code>class</code> used as followed</p>
+<pre><code>class(x) = className
+</code></pre><p>will give the vector <code>x</code> the class name stored in the string <code>className</code>. We will come back to classes in the <code>list</code> section.     </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[16]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>class<span class="p">(</span>x<span class="p">))</span>
+
+class<span class="p">(</span>x<span class="p">)</span> <span class="o">=</span> <span class="s">'Cookie'</span>
+
+print<span class="p">(</span>class<span class="p">(</span>x<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "numeric"
+[1] "Cookie"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The function <code>dim</code> used as followed</p>
+<pre><code>dim(x) = dimVect
+</code></pre><p>will set the dimension attribute of <code>x</code> to the integer vector <code>dimVect</code>. For instance, setting the dimension attribute to <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-21-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-61" style="width: 2.708em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.059em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-62"><span class="mo" id="MathJax-Span-63" style="font-family: STIXGeneral;">(</span><span class="mn" id="MathJax-Span-64" style="font-family: STIXGeneral;">2</span><span class="mo" id="MathJax-Span-65" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-66" style="font-family: STIXGeneral; padding-left: 0.165em;">3</span><span class="mo" id="MathJax-Span-67" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-21">(2,3)</script> will tell R to organize the elements contained in the vector <code>x</code> as an <strong>array</strong> (or here a <strong>matrix</strong>) with 2 rows and 3 colums. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[17]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+dim<span class="p">(</span>x<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>     [,1] [,2] [,3] [,4]
+[1,]    1    3    5    7
+[2,]    2    4    6    8
+attr(,"class")
+[1] "Cookie"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If we set the dimenstion attribute to be <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-22-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-68" style="width: 3.953em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.979em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-69"><span class="mo" id="MathJax-Span-70" style="font-family: STIXGeneral;">(</span><span class="mn" id="MathJax-Span-71" style="font-family: STIXGeneral;">2</span><span class="mo" id="MathJax-Span-72" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-73" style="font-family: STIXGeneral; padding-left: 0.165em;">2</span><span class="mo" id="MathJax-Span-74" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-75" style="font-family: STIXGeneral; padding-left: 0.165em;">2</span><span class="mo" id="MathJax-Span-76" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-22">(2,2,2)</script>, this will tell R to interpret <code>x</code> has a 3D array of numbers, the first <strong>axis</strong> having 2 columns, the second and the third axis as well:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[18]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+dim<span class="p">(</span>x<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>, , 1
+
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+
+, , 2
+
+     [,1] [,2]
+[1,]    5    7
+[2,]    6    8
+
+attr(,"class")
+[1] "Cookie"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To create directly multidimentional arrays, without first creating a vector and setting its dimension attribute, one can use the function</p>
+<pre><code>x = matrix(aVect, ncol=k, nrow=l) (for 2D arrays or matrix)
+x = array(aVect, dim=c(k,l,m,o,p))
+</code></pre><p>All the vectorized operations we show above will be performed on the underlying "flat" vector, and the result will be interpreted back as an array of the corresponding dimension.</p>
+<p>Conclusion: basic types in R are vectors with dimension: hence <strong>arrays</strong>!!!! That's why some people call this vector programming, <strong>array programming</strong>. This is completely similar to what we saw with Numpy arrays!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[19]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+A <span class="o">=</span> matrix<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">25</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">5</span><span class="p">)</span>
+print<span class="p">(</span>A<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    6   11   16   21
+[2,]    2    7   12   17   22
+[3,]    3    8   13   18   23
+[4,]    4    9   14   19   24
+[5,]    5   10   15   20   25
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[20]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+B <span class="o">=</span> array<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span> dim<span class="o">=</span>c<span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+print<span class="p">(</span>B<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>, , 1
+
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+
+, , 2
+
+     [,1] [,2]
+[1,]    5    7
+[2,]    6    8
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Recycling-or-Broadcasting-(Python-term)">Recycling or Broadcasting (Python term)<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Recycling-or-Broadcasting-(Python-term)">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When vectorial operations involve vectors of <strong>different size</strong>, R will <strong>cycle</strong> through the elements of the smallest vector, as to make the two involved vectors of <strong>equal length</strong>. Then the vectorized operation will be performed on the equal length vectors that result:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[21]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+a <span class="o">=</span> c<span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">);</span> b<span class="o">=</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+print<span class="p">(</span>a<span class="o">+</span>b<span class="p">)</span>
+print<span class="p">(</span>a<span class="o">*</span>b<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 3 4 3 4
+[1] 2 3 2 3
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[22]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> paste<span class="p">(</span>c<span class="p">(</span><span class="s">'X'</span><span class="p">,</span><span class="s">'Y'</span><span class="p">),</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> <span class="s">'#'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "X1#" "Y2#" "X3#" "Y4#"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Applying-function-to-vectors">Applying function to vectors<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Applying-function-to-vectors">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose we have a function that takes a scalar <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-23-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-77" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-78"><span class="mi" id="MathJax-Span-79" style="font-family: STIXGeneral; font-style: italic;">a</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-23">a</script> (i.e. a vector of length 1) and return a vector <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-24-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-80" style="width: 0.598em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.436em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.817em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-81"><span class="mi" id="MathJax-Span-82" style="font-family: STIXGeneral; font-style: italic;">y</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-24">y</script> of a fixed length <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-25-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-83" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-84"><span class="mi" id="MathJax-Span-85" style="font-family: STIXGeneral; font-style: italic;">n</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-25">n</script>:</p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-26-Frame" style=""><nobr><span class="math" id="MathJax-Span-86" style="width: 15.046em; display: inline-block;"><span style="display: inline-block; position: relative; width: 11.366em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.951em 1000.003em 3.628em -0.647em); top: -3.028em; left: 0.003em;"><span class="mrow" id="MathJax-Span-87"><span class="mi" id="MathJax-Span-88" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span class="mo" id="MathJax-Span-89" style="font-family: STIXGeneral; padding-left: 0.327em;">:</span><span class="mi" id="MathJax-Span-90" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.327em;">a</span><span class="mo" id="MathJax-Span-91" style="font-family: STIXGeneral; padding-left: 0.327em;">⟶</span><span class="texatom" id="MathJax-Span-92" style="padding-left: 0.327em;"><span class="mrow" id="MathJax-Span-93"><span class="mo" id="MathJax-Span-94" style="vertical-align: -0.268em;"><span><span style="font-size: 110%; font-family: STIXSizeOneSym;">(</span></span></span></span></span><span class="msubsup" id="MathJax-Span-95"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-96" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mn" id="MathJax-Span-97" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-98" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-99" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mo" id="MathJax-Span-100" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-101" style="font-family: STIXGeneral;">,</span><span class="mspace" id="MathJax-Span-102" style="height: 0.003em; vertical-align: 0.003em; width: 0.165em; display: inline-block; overflow: hidden;"></span><span class="mo" id="MathJax-Span-103" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-104" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="mspace" id="MathJax-Span-105" style="height: 0.003em; vertical-align: 0.003em; width: 0.165em; display: inline-block; overflow: hidden;"></span><span class="msubsup" id="MathJax-Span-106" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-107" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mi" id="MathJax-Span-108" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-109" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-110" style="font-family: STIXGeneral; font-style: italic;">a</span><span class="mo" id="MathJax-Span-111" style="font-family: STIXGeneral;">)</span><span class="texatom" id="MathJax-Span-112"><span class="mrow" id="MathJax-Span-113"><span class="mo" id="MathJax-Span-114" style="vertical-align: -0.268em;"><span><span style="font-size: 110%; font-family: STIXSizeOneSym;">)</span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.033em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.932em; vertical-align: -0.639em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-26">f:a \longrightarrow \big(f_1(a),\,\dots,\, f_m(a)\big)</script></p>
+<p>At times, we'd like to apply the function <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-27-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-115" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-116"><span class="mi" id="MathJax-Span-117" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-27">f</script> to each component of a given vector <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-28-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-118" style="width: 8.282em; display: inline-block;"><span style="display: inline-block; position: relative; width: 6.28em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-119"><span class="mi" id="MathJax-Span-120" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-121" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-122" style="font-family: STIXGeneral; padding-left: 0.327em;">(</span><span class="msubsup" id="MathJax-Span-123"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-124" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mn" id="MathJax-Span-125" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-126" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-127" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-128" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="msubsup" id="MathJax-Span-129" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-130" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mi" id="MathJax-Span-131" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-132" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-28">x=(x_1,\dots, x_n)</script> and have the <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-29-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-133" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-134"><span class="mi" id="MathJax-Span-135" style="font-family: STIXGeneral; font-style: italic;">m</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-29">m</script> vectors that result stored into a <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-30-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-136" style="width: 3.141em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.384em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.734em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-137"><span class="mi" id="MathJax-Span-138" style="font-family: STIXGeneral; font-style: italic;">m</span><span class="mo" id="MathJax-Span-139" style="font-family: STIXGeneral; padding-left: 0.273em;">×</span><span class="mi" id="MathJax-Span-140" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.273em;">n</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.861em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-30">m \times n</script> matrix:</p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-31-Frame" style=""><nobr><span class="math" id="MathJax-Span-141" style="width: 17.373em; display: inline-block;"><span style="display: inline-block; position: relative; width: 13.152em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.951em 1000.003em 7.633em -0.484em); top: -5.03em; left: 0.003em;"><span class="mrow" id="MathJax-Span-142"><span class="mrow" id="MathJax-Span-143"><span class="mo" id="MathJax-Span-144" style="vertical-align: 2.925em;"><span style="display: inline-block; position: relative; width: 0.436em; height: 0px;"><span style="position: absolute; font-family: STIXSizeOneSym; top: -3.298em; left: 0.003em;">⎛<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="position: absolute; font-family: STIXSizeOneSym; top: 1.031em; left: 0.003em;">⎝<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -2.432em; left: 0.003em;">⎜<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -1.567em; left: 0.003em;">⎜<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -0.701em; left: 0.003em;">⎜<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: 0.165em; left: 0.003em;">⎜<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span></span></span><span class="mtable" id="MathJax-Span-145" style="padding-right: 0.165em; padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 11.907em; height: 0px;"><span style="position: absolute; clip: rect(3.249em 1000.003em 8.823em -0.647em); top: -6.22em; left: 0.003em;"><span style="display: inline-block; position: relative; width: 2.546em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -4.543em; left: 50%; margin-left: -1.188em;"><span class="mtd" id="MathJax-Span-146"><span class="mrow" id="MathJax-Span-147"><span class="msubsup" id="MathJax-Span-148"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-149" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mn" id="MathJax-Span-150" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-151" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-152"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-153" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-154"><span class="mrow" id="MathJax-Span-155"><span class="mn" id="MathJax-Span-156" style="font-size: 70.7%; font-family: STIXGeneral;">1</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-157" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -3.19em; left: 50%; margin-left: -1.188em;"><span class="mtd" id="MathJax-Span-185"><span class="mrow" id="MathJax-Span-186"><span class="msubsup" id="MathJax-Span-187"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-188" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mn" id="MathJax-Span-189" style="font-size: 70.7%; font-family: STIXGeneral;">2</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-190" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-191"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-192" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-193"><span class="mrow" id="MathJax-Span-194"><span class="mn" id="MathJax-Span-195" style="font-size: 70.7%; font-family: STIXGeneral;">1</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-196" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.247em 1000.003em 2.708em -0.268em); top: -1.512em; left: 50%; margin-left: -0.214em;"><span class="mtd" id="MathJax-Span-224"><span class="mrow" id="MathJax-Span-225"><span class="mo" id="MathJax-Span-226" style="font-family: STIXGeneral;">⋮</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.572em 1000.003em 2.871em -0.647em); top: -0.268em; left: 50%; margin-left: -1.242em;"><span class="mtd" id="MathJax-Span-234"><span class="mrow" id="MathJax-Span-235"><span class="msubsup" id="MathJax-Span-236"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-237" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mi" id="MathJax-Span-238" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-239" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-240"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-241" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-242"><span class="mrow" id="MathJax-Span-243"><span class="mn" id="MathJax-Span-244" style="font-size: 70.7%; font-family: STIXGeneral;">1</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-245" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="display: inline-block; width: 0px; height: 6.226em;"></span></span><span style="position: absolute; clip: rect(3.249em 1000.003em 8.823em -0.647em); top: -6.22em; left: 3.682em;"><span style="display: inline-block; position: relative; width: 2.546em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -4.543em; left: 50%; margin-left: -1.188em;"><span class="mtd" id="MathJax-Span-158"><span class="mrow" id="MathJax-Span-159"><span class="msubsup" id="MathJax-Span-160"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-161" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mn" id="MathJax-Span-162" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-163" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-164"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-165" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-166"><span class="mrow" id="MathJax-Span-167"><span class="mn" id="MathJax-Span-168" style="font-size: 70.7%; font-family: STIXGeneral;">2</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-169" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -3.19em; left: 50%; margin-left: -1.188em;"><span class="mtd" id="MathJax-Span-197"><span class="mrow" id="MathJax-Span-198"><span class="msubsup" id="MathJax-Span-199"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-200" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mn" id="MathJax-Span-201" style="font-size: 70.7%; font-family: STIXGeneral;">2</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-202" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-203"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-204" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-205"><span class="mrow" id="MathJax-Span-206"><span class="mn" id="MathJax-Span-207" style="font-size: 70.7%; font-family: STIXGeneral;">2</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-208" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(3.845em 1000.003em 4.169em -0.484em); top: -3.082em; left: 50%; margin-left: 0.003em;"><span class="mtd" id="MathJax-Span-227"><span class="mrow" id="MathJax-Span-228"></span></span><span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="position: absolute; clip: rect(1.572em 1000.003em 2.871em -0.647em); top: -0.268em; left: 50%; margin-left: -1.242em;"><span class="mtd" id="MathJax-Span-246"><span class="mrow" id="MathJax-Span-247"><span class="msubsup" id="MathJax-Span-248"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-249" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mi" id="MathJax-Span-250" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-251" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-252"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-253" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-254"><span class="mrow" id="MathJax-Span-255"><span class="mn" id="MathJax-Span-256" style="font-size: 70.7%; font-family: STIXGeneral;">2</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-257" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="display: inline-block; width: 0px; height: 6.226em;"></span></span><span style="position: absolute; clip: rect(2.817em 1000.003em 7.578em -0.484em); top: -5.409em; left: 7.362em;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.951em 1000.003em 2.438em -0.376em); top: -4.543em; left: 50%; margin-left: -0.43em;"><span class="mtd" id="MathJax-Span-170"><span class="mrow" id="MathJax-Span-171"><span class="mo" id="MathJax-Span-172" style="font-family: STIXGeneral;">⋯</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.951em 1000.003em 2.438em -0.376em); top: -3.19em; left: 50%; margin-left: -0.43em;"><span class="mtd" id="MathJax-Span-209"><span class="mrow" id="MathJax-Span-210"><span class="mo" id="MathJax-Span-211" style="font-family: STIXGeneral;">⋯</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(3.845em 1000.003em 4.169em -0.484em); top: -3.082em; left: 50%; margin-left: 0.003em;"><span class="mtd" id="MathJax-Span-229"><span class="mrow" id="MathJax-Span-230"></span></span><span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="position: absolute; clip: rect(1.951em 1000.003em 2.438em -0.376em); top: -0.268em; left: 50%; margin-left: -0.43em;"><span class="mtd" id="MathJax-Span-258"><span class="mrow" id="MathJax-Span-259"><span class="mo" id="MathJax-Span-260" style="font-family: STIXGeneral;">⋯</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="display: inline-block; width: 0px; height: 5.414em;"></span></span><span style="position: absolute; clip: rect(3.249em 1000.003em 8.823em -0.647em); top: -6.22em; left: 9.364em;"><span style="display: inline-block; position: relative; width: 2.546em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -4.543em; left: 50%; margin-left: -1.188em;"><span class="mtd" id="MathJax-Span-173"><span class="mrow" id="MathJax-Span-174"><span class="msubsup" id="MathJax-Span-175"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-176" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mn" id="MathJax-Span-177" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-178" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-179"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-180" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-181"><span class="mrow" id="MathJax-Span-182"><span class="mi" id="MathJax-Span-183" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-184" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -3.19em; left: 50%; margin-left: -1.188em;"><span class="mtd" id="MathJax-Span-212"><span class="mrow" id="MathJax-Span-213"><span class="msubsup" id="MathJax-Span-214"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-215" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mn" id="MathJax-Span-216" style="font-size: 70.7%; font-family: STIXGeneral;">2</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-217" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-218"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-219" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-220"><span class="mrow" id="MathJax-Span-221"><span class="mi" id="MathJax-Span-222" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-223" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.247em 1000.003em 2.708em -0.268em); top: -1.512em; left: 50%; margin-left: -0.214em;"><span class="mtd" id="MathJax-Span-231"><span class="mrow" id="MathJax-Span-232"><span class="mo" id="MathJax-Span-233" style="font-family: STIXGeneral;">⋮</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; clip: rect(1.572em 1000.003em 2.871em -0.647em); top: -0.268em; left: 50%; margin-left: -1.242em;"><span class="mtd" id="MathJax-Span-261"><span class="mrow" id="MathJax-Span-262"><span class="msubsup" id="MathJax-Span-263"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-264" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.327em;"><span class="mi" id="MathJax-Span-265" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-266" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-267"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-268" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="texatom" id="MathJax-Span-269"><span class="mrow" id="MathJax-Span-270"><span class="mi" id="MathJax-Span-271" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-272" style="font-family: STIXGeneral;">)</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="display: inline-block; width: 0px; height: 6.226em;"></span></span></span></span><span class="mo" id="MathJax-Span-273" style="vertical-align: 2.925em;"><span style="display: inline-block; position: relative; width: 0.436em; height: 0px;"><span style="position: absolute; font-family: STIXSizeOneSym; top: -3.298em; left: 0.003em;">⎞<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="position: absolute; font-family: STIXSizeOneSym; top: 1.031em; left: 0.003em;">⎠<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -2.432em; left: 0.003em;">⎟<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -1.567em; left: 0.003em;">⎟<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: -0.701em; left: 0.003em;">⎟<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span><span style="font-family: STIXSizeOneSym; position: absolute; top: 0.165em; left: 0.003em;">⎟<span style="display: inline-block; width: 0px; height: 4.007em;"></span></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 5.035em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 7.218em; vertical-align: -3.282em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-31">\left( \begin{array}{ccc}
+f_1(x_{1}) & f_1(x_{2}) & \cdots & f_1(x_{n}) \\
+f_2(x_{1}) & f_2(x_{2}) & \cdots & f_2(x_{n}) \\
+\vdots &        &        & \vdots \\
+f_m(x_{1}) & f_m(x_{2}) & \cdots & f_m(x_{n})
+\end{array} \right)
+</script></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's try to do that with the following function that, given a scalar, returns a vector of length 3:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+f <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>a<span class="p">)</span> <span class="kr">return</span><span class="p">(</span>c<span class="p">(</span>a<span class="p">,</span> a<span class="o">^</span><span class="m">2</span><span class="p">,</span> a<span class="o">^</span><span class="m">3</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A non-vectorized way to do that would be the following:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[24]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span>
+
+M <span class="o">=</span> matrix<span class="p">(</span>rep<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">15</span><span class="p">),</span> ncol<span class="o">=</span><span class="m">5</span><span class="p">)</span>
+
+<span class="kr">for</span> <span class="p">(</span>j <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">){</span>
+    <span class="kr">for</span><span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">){</span>
+        M<span class="p">[</span>i<span class="p">,</span> j<span class="p">]</span> <span class="o">=</span> f<span class="p">(</span>x<span class="p">[</span>j<span class="p">])[</span>i<span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+print<span class="p">(</span>M<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    1    4    9   16   25
+[3,]    1    8   27   64  125
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>vectorized way</strong> of doing this is to use one of the <strong><a href="http://www.stat.berkeley.edu/users/spector/s133/R-6a.html">apply family functions</a></strong></p>
+<pre><code>sapply(x, f)
+</code></pre><p>that will do just that:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[25]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+M <span class="o">=</span> sapply<span class="p">(</span>x<span class="p">,</span> f<span class="p">)</span>
+print<span class="p">(</span>M<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    2    3    4    5
+[2,]    1    4    9   16   25
+[3,]    1    8   27   64  125
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Applying-function-to-matrices">Applying function to matrices<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Applying-function-to-matrices">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose now that we want to apply a given function <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-32-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-274" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-275"><span class="mi" id="MathJax-Span-276" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-32">f</script> to the rows or columns of a matrix <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-33-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-277" style="width: 0.814em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-278"><span class="mi" id="MathJax-Span-279" style="font-family: STIXGeneral; font-style: italic;">A</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-33">A</script> and that the result be organized into a matrix whose columns contained the outputs of <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-34-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-280" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-281"><span class="mi" id="MathJax-Span-282" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-34">f</script> when applied to the rows or columns of <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-35-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-283" style="width: 0.814em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-284"><span class="mi" id="MathJax-Span-285" style="font-family: STIXGeneral; font-style: italic;">A</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-35">A</script>.  </p>
+<p>For that one can use the following function from the <strong>apply family</strong>:</p>
+<pre><code>apply(A, axis, f)
+</code></pre><p>where <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-36-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-286" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-287"><span class="mi" id="MathJax-Span-288" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-36">f</script> will be applied sequencially to the <strong>rows</strong> of <code>A,</code> if <code>axis=1</code>, or to the <strong>columns</strong> of <code>A</code> if <code>axis=2</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[44]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+A <span class="o">=</span> matrix<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">3</span><span class="p">)</span>
+
+row.sum <span class="o">=</span> apply<span class="p">(</span>A<span class="p">,</span> <span class="m">1</span><span class="p">,</span> sum<span class="p">)</span>
+col.sum <span class="o">=</span> apply<span class="p">(</span>A<span class="p">,</span> <span class="m">2</span><span class="p">,</span> sum<span class="p">)</span>
+
+print<span class="p">(</span>A<span class="p">);</span>NL<span class="p">();</span> print<span class="p">(</span>row.sum<span class="p">);</span> NL<span class="p">();</span> print<span class="p">(</span>col.sum<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+
+
+[1] 12 15 18
+
+
+[1]  6 15 24
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Subsetting-vectors-(and-arrays)">Subsetting vectors (and arrays)<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Subsetting-vectors-(and-arrays)">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You need to know how to retrieve (and modify if needed) <strong>subsets</strong> of vectors (and matrices), using the <strong>bracket operator:</strong></p>
+<pre><code>y = x[ind] (copy of a subset of x into the variable y)
+x[ind] = a (modification of x itself)
+</code></pre><p>where <code>ind</code> is a vector of the same size of the vector x, which can be</p>
+<ul>
+<li><strong>Boolean vectors:</strong>  <code>x[ind]</code> is a handle on the elements of <code>x</code> whose indices correspond to elements in <code>ind</code> with value <code>TRUE</code>.  </li>
+</ul>
+<ul>
+<li><strong>integer vectors:</strong> <code>x[ind]</code> is a handle on the elements of <code>x</code> whose indices are in <code>ind</code>.  </li>
+</ul>
+<ul>
+<li><strong>character vectors:</strong> <code>x[ind]</code> is a handle on the elements of <code>x</code> whose labels (or names) are in <code>ind</code>. </li>
+</ul>
+<p><strong>Remark:</strong> Recall the two ways of naming to elements of a vector:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[27]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+v <span class="o">=</span> c<span class="p">(</span><span class="s">'a'</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="s">'b'</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+print<span class="p">(</span>v<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>a b 
+1 2 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[28]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+w <span class="o">=</span> c<span class="p">(</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+names<span class="p">(</span>w<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Luc'</span><span class="p">)</span>
+
+print<span class="p">(</span>w<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>Bob Luc 
+  3   4 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remark:</strong> If <code>ind</code> is an integer vector with non-negative entries, than <code>x[-ind]</code> will keep only the elements in <code>x</code> whose indices are not in <code>ind</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[29]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+names<span class="p">(</span>x<span class="p">)</span> <span class="o">=</span> LETTERS<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+
+
+print<span class="p">(</span>x<span class="p">)</span>
+
+y <span class="o">=</span> x<span class="p">[</span><span class="o">-</span>c<span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)]</span>
+
+print<span class="p">(</span>y<span class="p">)</span>
+
+x<span class="p">[</span><span class="o">-</span>c<span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)]</span> <span class="o">=</span> <span class="m">444</span>
+
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre> A  B  C  D  E  F  G  H  I  J 
+ 1  2  3  4  5  6  7  8  9 10 
+ A  E  F  G  H  I  J 
+ 1  5  6  7  8  9 10 
+  A   B   C   D   E   F   G   H   I   J 
+444   2   3   4 444 444 444 444 444 444 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remark:</strong> Subsetting for matrices, arrays, and data frames works exaclty the same, except that we have now several axis to specify ranges to:</p>
+<pre><code>A[ind1, ind2]
+</code></pre><p>In this case: </p>
+<pre><code>A[ind1, ] "means" only rows as specified by ind1 BUT ALL COLUMNS
+A[, ind2] "means" only col as specified by ind2, BUT ALL ROWS
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Object-oriented-programming-in-R:-List-and-Classes">Object-oriented programming in R: List and Classes<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Object-oriented-programming-in-R:-List-and-Classes">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In R, <strong>vectors</strong> are the <strong>basic data types</strong> (representing statistical variables or columns in a data table), while <strong>lists</strong> are the <strong>basisc data structures</strong> (representing variable values for sample individuals or data table rows). </p>
+<p>Lists are <strong>heterogeneous and labelled containers</strong>. Its elements can have a <strong>name</strong> or <strong>label</strong> and they can be of any type, including lists. </p>
+<p>Lists are the building block of (S3) object oriented programming in R. </p>
+<p>Similarly to vectors, list can have <strong>special attributes set</strong> through <strong>sepcial functions</strong>:</p>
+<pre><code>names(x) = labels
+class(x) = className
+</code></pre><p>These functions works the same as for vectors. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="List-creation">List creation<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#List-creation">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As example, we create a list whose elements are named according the variable names:</p>
+<ul>
+<li><strong>first element</strong> (with label 'employee'): a character vector with element</li>
+</ul>
+<ul>
+<li><strong>second element</strong> (with label 'childrenAges'): a character vector with two elements</li>
+</ul>
+<ul>
+<li><strong>third element</strong> (with label 'luckyMarix'): a <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-37-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-289" style="width: 2.871em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.167em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-290"><span class="mn" id="MathJax-Span-291" style="font-family: STIXGeneral;">5</span><span class="mo" id="MathJax-Span-292" style="font-family: STIXGeneral; padding-left: 0.273em;">×</span><span class="mn" id="MathJax-Span-293" style="font-family: STIXGeneral; padding-left: 0.273em;">5</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-37">5\times 5</script> matrix</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[30]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> list<span class="p">(</span>Employee<span class="o">=</span><span class="s">'Bob Durant'</span><span class="p">,</span> childrenAges<span class="o">=</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> luckyMatrix<span class="o">=</span>matrix<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">25</span><span class="p">,</span>ncol<span class="o">=</span><span class="m">5</span><span class="p">))</span>
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$Employee
+[1] "Bob Durant"
+
+$childrenAges
+[1] 1 3
+
+$luckyMatrix
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    6   11   16   21
+[2,]    2    7   12   17   22
+[3,]    3    8   13   18   23
+[4,]    4    9   14   19   24
+[5,]    5   10   15   20   25
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Subsetting-with-the-single-bracket-operator">Subsetting with the single bracket operator<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Subsetting-with-the-single-bracket-operator">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One can retrieve a sublist <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-38-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-294" style="width: 0.598em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.436em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.817em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-295"><span class="mi" id="MathJax-Span-296" style="font-family: STIXGeneral; font-style: italic;">y</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-38">y</script> from a list <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-39-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-297" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-298"><span class="mi" id="MathJax-Span-299" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-39">x</script> as for vectors using the <strong>single bracket operator:</strong></p>
+<pre><code>y = x[ind]
+</code></pre><p>where, again, the range <code>ind</code> can be </p>
+<ul>
+<li>a integer vector of indices</li>
+<li>a character vector of labels</li>
+</ul>
+<p><strong>Remark</strong> Since the single bracket operator return a <strong>sublist</strong>, the following subsetting</p>
+<pre><code>y = x[i]
+y = x[label]
+</code></pre><p>will return <strong>a list with one element</strong> and not the <strong>element itself</strong>. For instance, in our example</p>
+<pre><code>x[3]
+</code></pre><p>is not a matrix, but a list with one element containing a matrix. This can lead to nasty errors, if not paid due care.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[31]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>x<span class="p">[</span><span class="m">3</span><span class="p">])</span>
+print<span class="p">(</span>class<span class="p">(</span>x<span class="p">[</span><span class="m">3</span><span class="p">]))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$luckyMatrix
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    6   11   16   21
+[2,]    2    7   12   17   22
+[3,]    3    8   13   18   23
+[4,]    4    9   14   19   24
+[5,]    5   10   15   20   25
+
+[1] "list"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Double-bracket-operator-and-dollar-sign">Double bracket operator and dollar sign<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Double-bracket-operator-and-dollar-sign">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To retrieve the actual list elements, one needs to use the <strong>double bracket operator</strong> or the <em>*dollar sign</em>:</p>
+<pre><code>y = x$elementLabel
+y = x[['elementLabel']]
+y = x[[i]]
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[32]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+print<span class="p">(</span>x<span class="p">[[</span><span class="m">3</span><span class="p">]])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>     [,1] [,2] [,3] [,4] [,5]
+[1,]    1    6   11   16   21
+[2,]    2    7   12   17   22
+[3,]    3    8   13   18   23
+[4,]    4    9   14   19   24
+[5,]    5   10   15   20   25
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[33]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>x<span class="o">$</span>Employee<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Bob Durant"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[34]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+print<span class="p">(</span>x<span class="p">[[</span><span class="s">'childrenAges'</span><span class="p">]])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 1 3
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Applying-a-function-to-a-list">Applying a function to a list<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Applying-a-function-to-a-list">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us consider the function</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[35]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+f <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="kr">return</span><span class="p">(</span>x<span class="o">*</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and the list</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[36]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+L <span class="o">=</span> list<span class="p">(</span>number<span class="o">=</span><span class="m">3</span><span class="p">,</span> vector<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span>matrix<span class="o">=</span>matrix<span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">9</span><span class="p">,</span> ncol<span class="o">=</span><span class="m">3</span><span class="p">))</span>
+print<span class="p">(</span>L<span class="p">)</span>
+print<span class="p">(</span>names<span class="p">(</span>L<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$number
+[1] 3
+
+$vector
+ [1]  1  2  3  4  5  6  7  8  9 10
+
+$matrix
+     [,1] [,2] [,3]
+[1,]    1    4    7
+[2,]    2    5    8
+[3,]    3    6    9
+
+[1] "number" "vector" "matrix"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose we want to apply the function <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-40-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-300" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-301"><span class="mi" id="MathJax-Span-302" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-40">f</script> above to each of the elements of the list <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-41-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-303" style="width: 0.814em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-304"><span class="mi" id="MathJax-Span-305" style="font-family: STIXGeneral; font-style: italic;">L<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-41">L</script> so that the output is store back into a list. </p>
+<p>A <strong>non-vectorized way</strong> to do that would be:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[37]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+Lout <span class="o">=</span> list<span class="p">(</span><span class="kc">NULL</span><span class="p">,</span> <span class="kc">NULL</span><span class="p">,</span> <span class="kc">NULL</span><span class="p">)</span>
+names<span class="p">(</span>Lout<span class="p">)</span> <span class="o">=</span> names<span class="p">(</span>L<span class="p">)</span>
+
+
+<span class="kr">for</span><span class="p">(</span>name <span class="kr">in</span> names<span class="p">(</span>L<span class="p">)){</span>
+       Lout<span class="p">[[</span>name<span class="p">]]</span> <span class="o">=</span> f<span class="p">(</span>L<span class="p">[[</span>name<span class="p">]])</span>
+<span class="p">}</span>
+
+print<span class="p">(</span>Lout<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$number
+[1] 9
+
+$vector
+ [1]   1   4   9  16  25  36  49  64  81 100
+
+$matrix
+     [,1] [,2] [,3]
+[1,]    1   16   49
+[2,]    4   25   64
+[3,]    9   36   81
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The corresponding <strong>vectorized code</strong> makes us the the <strong>apply family function</strong></p>
+<pre><code>lapply(L, f)
+</code></pre><p>which return a list of whose elements are the output of the function <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-42-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-306" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-307"><span class="mi" id="MathJax-Span-308" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-42">f</script> while iterating on the elements of <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-43-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-309" style="width: 0.814em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-310"><span class="mi" id="MathJax-Span-311" style="font-family: STIXGeneral; font-style: italic;">L<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-43">L</script>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[38]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+Lout <span class="o">=</span> lapply<span class="p">(</span>L<span class="p">,</span> f<span class="p">)</span>
+
+print<span class="p">(</span>Lout<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$number
+[1] 9
+
+$vector
+ [1]   1   4   9  16  25  36  49  64  81 100
+
+$matrix
+     [,1] [,2] [,3]
+[1,]    1   16   49
+[2,]    4   25   64
+[3,]    9   36   81
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If one uses the <strong>apply family function</strong></p>
+<pre><code>sapply(L, f)
+</code></pre><p>the output list will be <strong>simplified</strong> into an array (i.e. vector, matrix, etc.) whenever it makes sense. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[39]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+L <span class="o">=</span> list<span class="p">(</span>sample<span class="p">(</span><span class="m">5</span><span class="p">),</span> sample<span class="p">(</span><span class="m">5</span><span class="p">),</span> sample<span class="p">(</span><span class="m">5</span><span class="p">))</span>
+Lout <span class="o">=</span> sapply<span class="p">(</span>L<span class="p">,</span> f<span class="p">)</span>
+
+print<span class="p">(</span>Lout<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>     [,1] [,2] [,3]
+[1,]   16    9   16
+[2,]    1   25   25
+[3,]    9    4    1
+[4,]    4   16    9
+[5,]   25    1    4
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Oject-and-classes-in-R-using-lists">Oject and classes in R using lists<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#Oject-and-classes-in-R-using-lists">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In R, one create a class by simply setting the <strong>class attribute</strong> of a list. </p>
+<p>To insure that <strong>instances</strong> of a given class are always intanciated the same way, it is recommended to write a <strong>constructor</strong> for your class that will take care of creating the right number of elements with the rigth names, and setting the class attribute to the correct value.</p>
+<p>Access to the attributes is given using the <strong>dollar sign operator</strong></p>
+<pre><code>myClass$attribute
+</code></pre><p>using the fact that underlying our object is a mere list. This is the analog to the <strong>period operator</strong> in Python.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[40]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+bankAccount <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>holderName<span class="p">,</span> checking<span class="p">,</span> saving<span class="p">)</span>
+<span class="p">{</span>
+    object <span class="o">=</span> list<span class="p">(</span>holderName<span class="o">=</span>holderName<span class="p">,</span> checking<span class="o">=</span>checking<span class="p">,</span> saving<span class="o">=</span>saving<span class="p">)</span>
+    class<span class="p">(</span>object<span class="p">)</span> <span class="o">=</span> <span class="s">'bankAccount'</span>
+    <span class="kr">return</span><span class="p">(</span>object<span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[41]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+BobAccount <span class="o">=</span> bankAccount<span class="p">(</span>holderName<span class="o">=</span><span class="s">'Bob Durant'</span><span class="p">,</span> checking<span class="o">=</span><span class="m">12</span><span class="p">,</span> saving<span class="o">=</span><span class="m">0</span><span class="p">)</span>
+
+print<span class="p">(</span>class<span class="p">(</span>BobAccount<span class="p">))</span>
+
+saving <span class="o">=</span> BobAccount<span class="o">$</span>saving
+
+print<span class="p">(</span>saving<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "bankAccount"
+[1] 0
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Methods</strong> are just usual function whose names should follow a <strong>naming convention</strong></p>
+<pre><code>action.className(object, arg1, arg2, etc.)
+</code></pre><p>Then <strong>associated generic functions</strong> are created according to the <code>action</code></p>
+<pre><code>action = function(object, arg1, arg2, etc.)
+{
+     UseMethod('action',object)
+}
+</code></pre><p>Now if <code>x</code> is an object of <code>className</code>, invoking</p>
+<pre><code>action(x)
+</code></pre><p>will trigger the function </p>
+<pre><code>UseMethod('action',object)
+</code></pre><p>that will retrieve the string <code>className</code> from <code>object</code> and look up if a function with name</p>
+<pre><code>action.className
+</code></pre><p>exists. If yes, <code>UseMethod</code> will invoke this function with the corresponding argument.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[42]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+display.bankAccount <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>object<span class="p">)</span>
+<span class="p">{</span>
+    cat<span class="p">(</span><span class="s">'Account holder'</span><span class="p">,</span> object<span class="o">$</span>holderName<span class="p">,</span> <span class="s">'has'</span><span class="p">,</span> object<span class="o">$</span>checking<span class="p">,</span>
+        <span class="s">'dollars in checking and'</span><span class="p">,</span> object<span class="o">$</span>saving<span class="p">,</span> <span class="s">'dollars in saving.'</span><span class="p">)</span> 
+<span class="p">}</span>
+
+display <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>object<span class="p">)</span>
+<span class="p">{</span>
+    UseMethod<span class="p">(</span><span class="s">'display'</span><span class="p">,</span> object<span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[43]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+display<span class="p">(</span>BobAccount<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>Account holder Bob Durant has 12 dollars in checking and 0 dollars in saving.
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[43]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+     <!-- <hr/> -->
+     <div class="row hidden-print">
+      <div class="span12 text-center">
+        <a href="http://nbviewer.ipython.org/urls/db.tt/4onLImB0?create=1#">Back to top</a>
+      </div>
+    </div>
+
+     <!-- Footer
+     ================================================== -->
+      
+      <footer class="footer hidden-print">
+      <div class="span12 row-fluid footer-row">
+          <div class="span4">
+            <p>This web site does not host notebooks, it only renders notebooks available on other websites.</p>
+          </div>
+
+          <div class="span4">
+            <p>Thanks to <a href="http://www.rackspace.com/">Rackspace</a> for hosting.</p>
+            <p>nbviewer GitHub <a href="https://github.com/ipython/nbviewer">repository</a>.</p>
+            <p>nbviewer <a href="https://github.com/ipython/nbviewer/blob/master/LICENSE.txt" target="_blank">license</a>.</p>
+          </div>
+
+          <div class="span4">
+            
+
+              
+                <p>
+                    nbviewer version:
+                    <a href="https://github.com/ipython/nbviewer/commit/fa9f5980ddb257274275b60d202eca62fad9f58f">fa9f598</a>
+                </p>
+              
+            
+
+<p class="text-muted">
+    IPython version: 3.0.0-dev
+    
+    (<a href="https://github.com/ipython/ipython/commit/ad534f8">
+      ad534f8
+    </a>)
+    
+</p>
+
+
+            
+
+            
+
+<p class="text-muted">
+Rendered <span class="date" data-date="Sun, 11 May 2014 18:26:16 UTC" title="Sun, 11 May 2014 18:26:16 UTC">5 minutes ago</span>
+</p>
+
+
+          </div>
+      </div>
+      </footer>
+      
+
+    </div><!-- /container -->
+
+    <script src="./R Final Review_files/bootstrap-collapse.js"></script>
+    <script src="./R Final Review_files/headroom.min.js"></script>
+    <script src="./R Final Review_files/jQuery.headroom.min.js"></script>
+
+
+    
+    
+    
+    <script>
+    $(document).ready(
+                function(){
+                    $("#menubar").headroom({
+                        "tolerance": 5,
+                        "offset": 205,
+                        "classes": {
+                            "initial": "animated",
+                            "pinned": "slideInDown",
+                            "unpinned": "slideOutUp"
+                        }
+                    })
+                }
+            );
+    </script>
+
+
+    <!-- Analytics
+    ================================================== -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-38683231-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    <script>
+        var update_date  = function(){
+            var str = window.moment($('.date').data('date')).fromNow();
+            $('.date').text(str);
+        }
+        setInterval(update_date , 61*1000);
+        $(update_date);
+    </script>
+    <!--NEW RELIC Stop Perf Measurement-->
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-5.newrelic.com","queueTime":0,"licenseKey":"7c83165904","agent":"js-agent.newrelic.com/nr-411.min.js","transactionName":"Y1YAMUFQXEZYUEcIVlocJBBdUkZcVl0cD1tCWgcSVkMcXVhdVw1cRkBYBlJSWlBdbF4ETVxcBg==","applicationID":"3045974","errorBeacon":"jserror.newrelic.com","applicationTime":5437}</script>
+    <!--NEW RELIC End-->
+  
+<script src="./R Final Review_files/nr-411.min.js"></script><script type="text/javascript" src="./R Final Review_files/7c83165904"></script><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;">ˆ</div></body></html>

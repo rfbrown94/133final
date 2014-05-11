@@ -1,0 +1,2480 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="description" content="">
+    
+
+    
+    <meta name="author" content="">
+    
+
+    <!--NEW RELIC Start Perf Measurement-->
+    <script type="text/javascript" async="" src="./R Data Gathering_files/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o?o:n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({D5DuLP:[function(t,n){function e(t,n){var e=r[t];return e?e.apply(this,n):(o[t]||(o[t]=[]),void o[t].push(n))}var r={},o={};n.exports=e,e.queues=o,e.handlers=r},{}],handle:[function(t,n){n.exports=t("D5DuLP")},{}],G9z0Bl:[function(t,n){function e(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&p&&p.body){l.proto="https"===f.split(":")[0]||t.sslForHttp?"https://":"http://",i("mark",["onload",a()]);var n=p.createElement("script");n.src=l.proto+t.agent,p.body.appendChild(n)}}function r(){"complete"===p.readyState&&o()}function o(){i("mark",["domContent",a()])}function a(){return(new Date).getTime()}var i=t("handle"),u=window,p=u.document,s="addEventListener",c="attachEvent",f=(""+location).split("?")[0],l=n.exports={offset:a(),origin:f,features:[]};p[s]?(p[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(p[c]("onreadystatechange",r),u[c]("onload",e)),i("mark",["firstbyte",a()])},{handle:"D5DuLP"}],loader:[function(t,n){n.exports=t("G9z0Bl")},{}]},{},["G9z0Bl"]);</script>
+    <!--NREND-->
+
+    <!-- Le styles -->
+    <!--<link href="/static/css/bootstrap.css" rel="stylesheet">-->
+    <link href="http://nbviewer.ipython.org/static/css/docs.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/animate.css/animate.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/nbviewer.css" rel="stylesheet">
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://nbviewer.ipython.org/static/ico/ipynb_icon_16x16.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+    
+
+    
+
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    <meta name="twitter:title" content="Notebook on nbviewer">
+    
+
+    
+    <meta name="twitter:description" content="Check out this IPython notebook!">
+    
+
+    
+    <meta name="twitter:domain" content="nbviewer.ipython.org">
+    
+
+    <meta name="twitter:image:src" content="http://ipython.org/ipython-doc/dev/_images/ipynb_icon_128x128.png">
+    
+    
+    
+
+    <link href="http://nbviewer.ipython.org/ipython-static/style/ipython.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/pygments.css" rel="stylesheet">
+    <style type="text/css" media="screen and (min-width:980px)">
+   
+    body {
+        padding-top: 40px;
+    }
+
+    </style>
+    <style type="text/css">
+    .imgwrap {
+        text-align: center;
+    }
+
+    @media (max-width: 767px){
+
+        div.input, div.output_area {
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-orient: vertical;
+        }
+
+        div.prompt {
+            text-align:left;
+        }
+
+    }
+
+    
+    </style>
+    
+    <script src="./R Data Gathering_files/MathJax.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    init_mathjax = function() {
+        if (window.MathJax) {
+            // MathJax loaded
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 0}},
+                    linebreaks: { automatic: true }
+                }
+            });
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+    
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 0; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" style=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+  <!-- These are loaded at the top of the body so they are available to notebook
+  cells when they are loaded below. -->
+  <script src="./R Data Gathering_files/jquery.min.js"></script>
+  <script src="./R Data Gathering_files/require.js"></script>
+  <script src="./R Data Gathering_files/moment.min.js"></script>
+
+  <!-- Navbar
+  ================================================== -->
+    <div id="menubar" class="navbar navbar-fixed-top hidden-print animated">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+
+                <li>
+        <a href="http://nbviewer.ipython.org/" title="nbviewer">
+            <strong>
+            <span>nbviewer</span>
+            </strong>
+        </a>
+    </li>
+                <li>
+        <a href="http://nbviewer.ipython.org/faq" title="FAQ">
+            
+            <span>FAQ</span>
+            
+        </a>
+    </li>
+
+              <li class="">
+                <a href="http://www.ipython.org/">IPython</a>
+              </li>
+            </ul>
+            <ul class="nav pull-right"> 
+              
+              
+      
+        <li>
+        <a href="https://db.tt/MBDpPDwj" title="Download Notebook" download="">
+            <span class="fa fa-download fa-2x menu-icon"></span>
+            <span class="menu-text">Download Notebook</span>
+        </a>
+    </li>
+    
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+     
+    
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lecture-14:-Data-gathering">Lecture 14: Data gathering<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#Lecture-14:-Data-gathering">¶</a></h1>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[6]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The rmagic extension is already loaded. To reload it, use:
+  %reload_ext rmagic
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="File-and-directory-manipulations">File and directory manipulations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#File-and-directory-manipulations">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R offers a bunch of functions to </p>
+<ul>
+<li><p><strong>list the files and directories</strong> (see <a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/list.files.html">here</a>):</p>
+<pre><code>  list.files(path = ".")    
+  list.dirs(path = ".")
+</code></pre></li>
+<li><p><strong>create and modify files</strong> (see <a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/files.html">here</a> for details):</p>
+<pre><code>  file.create(path1, path2, etc.)
+  file.remove(path1, path2, etc.)
+</code></pre></li>
+<li><p><strong>create directories</strong> (see <a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/files2.html">here</a> for details)</p>
+<pre><code>  dir.create(path)
+</code></pre></li>
+<li><p><strong>navigate the file system</strong> (see <a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/getwd.html">here</a>):</p>
+</li>
+</ul>
+<pre><code>    getwd()
+    setwd(dir)
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us create</p>
+<ul>
+<li>a directory <code>'DATA'</code> to help us organize our data</li>
+</ul>
+<ul>
+<li>a subdirectory <code>'raw'</code> to store the <strong>raw data</strong> collected from the web</li>
+</ul>
+<ul>
+<li>a subdirectory <code>'cleaned'</code> to stored our final data after having cleaned the raw data</li>
+</ul>
+<p>and then let us set move to the raw directory.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[2]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+data_dir    <span class="o">=</span> <span class="s">'./data'</span>
+raw_dir     <span class="o">=</span> paste<span class="p">(</span>data_dir<span class="p">,</span> <span class="s">'/raw'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+cleaned_dir <span class="o">=</span> paste<span class="p">(</span>data_dir<span class="p">,</span> <span class="s">'/cleaned'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+
+dir.create<span class="p">(</span>data_dir<span class="p">)</span>
+dir.create<span class="p">(</span>raw_dir<span class="p">)</span>
+dir.create<span class="p">(</span>cleaned_dir<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[3]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">!</span>ls data/
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansiblue">cleaned</span> <span class="ansiblue">raw</span>
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Downloading-files-from-the-web">Downloading files from the web<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#Downloading-files-from-the-web">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To download a file from the internet in R and store it on the local file system, one uses the function:</p>
+<pre><code>    download.file(fileUrl, destfile, method="curl")
+</code></pre><p>It is also a <strong>good practice to keep track of the date</strong> the data was downloaded, since data from the web may likely be updated. For that, one can</p>
+<ul>
+<li>retrieve the current data with the function <code>date()</code></li>
+</ul>
+<ul>
+<li>include the date as part of the data file name</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example:</strong> The <a href="https://data.baltimorecity.gov/Transportation/Baltimore-Fixed-Speed-Cameras/dz54-2aru">city of Baltimore</a> offers an <strong>API</strong> (Application Programming Interface) allowing us to gather data on speed infractions in <strong>different formats</strong>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><p><strong>csv</strong> (Comma Separated Values)</p>
+</li>
+<li><p><strong>xml</strong> (Extensible Markup Language)</p>
+</li>
+<li><p><strong>jason</strong> (JavaScript Object Notation)</p>
+</li>
+<li><p><strong>xls</strong> (Microsoft Excel file format)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To access this different data format, one neeed to use different urls:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[7]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+csv_url <span class="o">=</span> <span class="s">'https://data.baltimorecity.gov/api/views/dz54-2aru/rows.csv?accessType=DOWNLOAD'</span>
+
+xml_url <span class="o">=</span> <span class="s">'https://data.baltimorecity.gov/api/views/dz54-2aru/rows.xml?accessType=DOWNLOAD'</span>
+
+jason_url <span class="o">=</span> <span class="s">'https://data.baltimorecity.gov/api/views/dz54-2aru/rows.json?accessType=DOWNLOAD'</span>
+
+xls_url <span class="o">=</span> <span class="s">'https://data.baltimorecity.gov/api/views/dz54-2aru/rows.xls?accessType=DOWNLOAD'</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us prepare prepare the names of the files in which we will store the data:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[11]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+date <span class="o">=</span> paste<span class="p">(</span>strsplit<span class="p">(</span>date<span class="p">(),</span> split<span class="o">=</span><span class="s">' '</span><span class="p">)[[</span><span class="m">1</span><span class="p">]],</span> collapse<span class="o">=</span><span class="s">'_'</span><span class="p">)</span>
+
+csv_file     <span class="o">=</span> paste<span class="p">(</span>raw_dir<span class="p">,</span><span class="s">'/cameras_'</span><span class="p">,</span> date<span class="p">,</span> <span class="s">'.csv'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+xml_file     <span class="o">=</span> paste<span class="p">(</span>raw_dir<span class="p">,</span><span class="s">'/cameras_'</span><span class="p">,</span> date<span class="p">,</span> <span class="s">'.xml'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+jason_file   <span class="o">=</span> paste<span class="p">(</span>raw_dir<span class="p">,</span><span class="s">'/cameras_'</span><span class="p">,</span> date<span class="p">,</span> <span class="s">'.jason'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+xls_file     <span class="o">=</span> paste<span class="p">(</span>raw_dir<span class="p">,</span><span class="s">'/cameras_'</span><span class="p">,</span> date<span class="p">,</span> <span class="s">'.xls'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">''</span><span class="p">)</span>
+
+print<span class="p">(</span>c<span class="p">(</span>csv_file<span class="p">,</span> xml_file<span class="p">,</span> jason_file<span class="p">,</span> xls_file<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "./data/raw/cameras_Tue_Nov_19_17:29:05_2013.csv"  
+[2] "./data/raw/cameras_Tue_Nov_19_17:29:05_2013.xml"  
+[3] "./data/raw/cameras_Tue_Nov_19_17:29:05_2013.jason"
+[4] "./data/raw/cameras_Tue_Nov_19_17:29:05_2013.xls"  
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us now download the actual files:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[12]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+download.file<span class="p">(</span>csv_url<span class="p">,</span>destfile<span class="o">=</span>csv_file<span class="p">,</span> method<span class="o">=</span><span class="s">"curl"</span><span class="p">)</span>
+download.file<span class="p">(</span>xml_url<span class="p">,</span>destfile<span class="o">=</span>xml_file<span class="p">,</span> method<span class="o">=</span><span class="s">"curl"</span><span class="p">)</span>
+download.file<span class="p">(</span>jason_url<span class="p">,</span>destfile<span class="o">=</span>jason_file<span class="p">,</span> method<span class="o">=</span><span class="s">"curl"</span><span class="p">)</span>
+download.file<span class="p">(</span>xls_url<span class="p">,</span>destfile<span class="o">=</span>xls_file<span class="p">,</span> method<span class="o">=</span><span class="s">"curl"</span><span class="p">)</span>
+
+print<span class="p">(</span>list.files<span class="p">(</span>raw_dir<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "cameras_Tue_Nov_19_17:29:05_2013.csv"  
+[2] "cameras_Tue_Nov_19_17:29:05_2013.jason"
+[3] "cameras_Tue_Nov_19_17:29:05_2013.xls"  
+[4] "cameras_Tue_Nov_19_17:29:05_2013.xml"  
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Loading--data-into-R">Loading  data into R<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#Loading--data-into-R">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Different data formats are loaded with different functions. The resulting R object storing the data also depends on the format.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tabular-format">Tabular format<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#Tabular-format">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data files in <strong>tabular format</strong> such as <strong>csv</strong> are loaded directly into data frame with the the function:</p>
+<pre><code>read.table(file, sep, header)
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[13]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R 
+
+df <span class="o">=</span> read.table<span class="p">(</span>csv_file<span class="p">,</span> sep<span class="o">=</span><span class="s">','</span><span class="p">,</span> header<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+print<span class="p">(</span>head<span class="p">(</span>df<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>                         address direction      street  crossStreet
+1       S CATON AVE &amp; BENSON AVE       N/B   Caton Ave   Benson Ave
+2       S CATON AVE &amp; BENSON AVE       S/B   Caton Ave   Benson Ave
+3 WILKENS AVE &amp; PINE HEIGHTS AVE       E/B Wilkens Ave Pine Heights
+4        THE ALAMEDA &amp; E 33RD ST       S/B The Alameda      33rd St
+5        E 33RD ST &amp; THE ALAMEDA       E/B      E 33rd  The Alameda
+6        ERDMAN AVE &amp; N MACON ST       E/B      Erdman     Macon St
+                intersection                      Location.1
+1     Caton Ave &amp; Benson Ave (39.2693779962, -76.6688185297)
+2     Caton Ave &amp; Benson Ave (39.2693157898, -76.6689698176)
+3 Wilkens Ave &amp; Pine Heights  (39.2720252302, -76.676960806)
+4     The Alameda  &amp; 33rd St (39.3285013141, -76.5953545714)
+5      E 33rd  &amp; The Alameda (39.3283410623, -76.5953594625)
+6         Erdman  &amp; Macon St (39.3068045671, -76.5593167803)
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="XML-documents">XML documents<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#XML-documents">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-tree-structure-of-an-xml-document">The tree structure of an xml document<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#The-tree-structure-of-an-xml-document">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us create a simple XML document.</p>
+<p>Consider the following data for two students in a given class given in tabular form:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[14]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span><span class="k">file</span> <span class="n">course</span><span class="o">.</span><span class="n">csv</span>
+<span class="n">name</span><span class="p">,</span> <span class="n">midterm</span><span class="p">,</span> <span class="n">final</span><span class="p">,</span> <span class="n">homework</span><span class="p">,</span> <span class="n">section</span><span class="p">,</span> <span class="n">major</span>
+<span class="n">Bob</span> <span class="n">Durant</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">STAT</span>
+<span class="n">Agnes</span> <span class="n">Thomas</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ECON</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Writing course.csv
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's read this data nicely into a data frame:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[15]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R 
+df <span class="o">=</span> read.csv<span class="p">(</span><span class="s">'course.csv'</span><span class="p">);</span> print<span class="p">(</span>df<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>          name midterm final homework section major
+1   Bob Durant      55    88       99       1  STAT
+2 Agnes Thomas      99    90       99       2  ECON
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The same data can be stored in XML format in the following way:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span><span class="k">file</span> <span class="n">stat133</span><span class="o">.</span><span class="n">xml</span>
+<span class="o">&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">"1.0"</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"ISO-8859-1"</span><span class="err">?</span><span class="o">&gt;</span>  
+
+
+<span class="o">&lt;</span><span class="n">stat133</span> <span class="n">name</span><span class="o">=</span><span class="s">'Computing with Data'</span> <span class="n">department</span><span class="o">=</span><span class="s">'STAT'</span><span class="o">&gt;</span>
+        
+    <span class="o">&lt;</span><span class="n">student</span> <span class="n">sid</span><span class="o">=</span><span class="s">'1232243'</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Bob</span> <span class="n">Durant</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">midterm</span><span class="o">&gt;</span><span class="mi">55</span><span class="o">&lt;/</span><span class="n">midterm</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">final</span><span class="o">&gt;</span><span class="mi">88</span><span class="o">&lt;/</span><span class="n">final</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">homework</span><span class="o">&gt;</span><span class="mi">99</span><span class="o">&lt;/</span><span class="n">homework</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">section</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">&lt;/</span><span class="n">section</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">major</span><span class="o">&gt;</span><span class="n">STAT</span><span class="o">&lt;/</span><span class="n">major</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">student</span><span class="o">&gt;</span>
+    
+    <span class="o">&lt;</span><span class="n">student</span> <span class="n">sid</span><span class="o">=</span><span class="s">'3213453'</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">Agnes</span> <span class="n">Thomas</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">midterm</span><span class="o">&gt;</span><span class="mi">99</span><span class="o">&lt;/</span><span class="n">midterm</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">final</span><span class="o">&gt;</span><span class="mi">90</span><span class="o">&lt;/</span><span class="n">final</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">homework</span><span class="o">&gt;</span><span class="mi">99</span><span class="o">&lt;/</span><span class="n">homework</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">section</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">section</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">major</span><span class="o">&gt;</span><span class="n">ECON</span><span class="o">&lt;/</span><span class="n">major</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">student</span><span class="o">&gt;</span>
+    
+<span class="o">&lt;/</span><span class="n">stat133</span><span class="o">&gt;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first line</p>
+<pre><code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt; 
+</code></pre><p>provides informations about</p>
+<ul>
+<li>which <strong>version of XML</strong> we are structuring our data with (version 1.0)</li>
+</ul>
+<ul>
+<li>which type of <strong>character encoding</strong> we are using (ISO-8859-1)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The whole course data is surrounded by two <strong>XML tags</strong> </p>
+<pre><code>&lt;stat133&gt; ... &lt;/stat133&gt;
+</code></pre><ul>
+<li>The <strong>first tag</strong> is an <strong>opening tag</strong> indicating the beginning of the stat 133 data:</li>
+</ul>
+<pre><code>&lt;tag&gt;
+</code></pre><ul>
+<li>The <strong>second tag</strong> is a <strong>closing tag</strong> incating the end of the stat 133 data:</li>
+</ul>
+<pre><code>&lt;/tag&gt;
+</code></pre><ul>
+<li>Two such tags together with all the data in between tag forms an <strong>xml node</strong>:</li>
+</ul>
+<pre><code>&lt;tag&gt;...data...&lt;/tag&gt;
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The data in between the <code>stat133</code> node is itself a <strong>collection of xml nodes</strong>:</p>
+<pre><code>&lt;student sid='1232243'&gt; ... &lt;/student&gt;
+&lt;student sid='3213453'&gt; ... &lt;/student&gt;
+</code></pre><ul>
+<li>These nodes are the <strong>children nodes</strong> of the <strong>enclosing node</strong> (the <code>stat133</code> node here)</li>
+</ul>
+<ul>
+<li>The <strong>enclosing node</strong> is called the <strong>parent node</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Pictorially, one may represent the <strong>children/parent relationship</strong> as an <strong>arrow:</strong> </p>
+<p><strong>parent node</strong> (stat133 node) <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-1" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2"><span class="mo" id="MathJax-Span-3" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1">\longrightarrow</script> <strong>children node</strong> (student node)</p>
+<p>With this interpretation, <strong>an xml document structures data in the form of a tree</strong>, called the <strong>xml tree</strong>. </p>
+<ul>
+<li>The <strong>root</strong> of the tree is the <strong>node whose tag encloses all other nodes</strong></li>
+</ul>
+<ul>
+<li>The <strong>leafs</strong> of the tree are the <strong>nodes enclosing no other node</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In our class example:</p>
+<ul>
+<li>the <strong>stat133</strong> node is the <strong>root</strong></li>
+</ul>
+<ul>
+<li>the tags enclosing <strong>actual data</strong> about the students are the <strong>leafs</strong>:</li>
+</ul>
+<pre><code>    &lt;name&gt;Bob Durant&lt;/name&gt;
+    &lt;midterm&gt;55&lt;/midterm&gt;
+    &lt;final&gt;88&lt;/final&gt;
+    &lt;homework&gt;99&lt;/homework&gt;
+    &lt;section&gt;1&lt;/section&gt;
+    &lt;major&gt;STAT&lt;/major&gt;
+</code></pre><p>So each student node contains five leafs.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>values</strong> of an <strong>xml node</strong> is the collection of <strong>all the data</strong> contained by <strong>all the leafs stemming from this node</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example:</strong> Consider the following xml code. </p>
+<pre><code>&lt;A&gt;
+    &lt;B&gt;value1&lt;/B&gt;
+    &lt;C&gt;value2&lt;/C&gt;
+    &lt;D&gt;
+        &lt;E&gt; 
+            &lt;G&gt;value3&lt;/G&gt; 
+        &lt;/E&gt;
+        &lt;F&gt;value4&lt;/F&gt;
+    &lt;/D&gt;
+&lt;/A&gt;
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>value</strong> of</p>
+<ul>
+<li><p>node A is the collection {value1, value2, value2, value4}</p>
+</li>
+<li><p>node B is {value1}</p>
+</li>
+<li><p>node D is {value3, value4}</p>
+</li>
+<li><p>etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is a tree representation of the xml code above:</p>
+<p><img src="./R Data Gathering_files/btree.png" alt="xml tree" title="Title"></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An <strong>xml node</strong> can also have several <strong>attributes</strong>:</p>
+<pre><code>&lt;tag attribute1=value attribue2=value etc.&gt;...data...&lt;/tag&gt;
+</code></pre><p>The <strong>node attributes</strong> are specified in the <strong>opening tag</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In our class example:</p>
+<pre><code>&lt;stat133 name='Computing with Data' department='STAT'&gt;
+
+    &lt;student sid='1232243'&gt; ...data... &lt;/student&gt;
+
+    &lt;student sid='3213453'&gt; ...data... &lt;/student&gt;
+
+&lt;/stat133&gt;
+</code></pre><ul>
+<li>the <strong>stat133 node</strong> has <strong>two attribues</strong>: <code>name</code> and <code>department</code></li>
+</ul>
+<ul>
+<li>the <strong>student nodes</strong> have only <strong>one attribute</strong>: <code>sid</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="XML-node-summary">XML node summary<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#XML-node-summary">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Each <strong>XML node</strong> in a <strong>XML document</strong> may have</p>
+<ul>
+<li>several <strong>attributes</strong> specified in the <strong>opening tag</strong></li>
+</ul>
+<ul>
+<li>several <strong>children nodes</strong> in between the <strong>opening tag</strong> and the <strong>closing tag</strong></li>
+</ul>
+<ul>
+<li>one <strong>parent node</strong> enclosing it</li>
+</ul>
+<ul>
+<li>a <strong>value</strong> given by all the data enclosed by the <strong>leafs</strong> steming out of it</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The collection of all <strong>XML nodes</strong> with the <strong>parent/children</strong> relation ship form the <strong>XML tree</strong>:</p>
+<ul>
+<li>the <strong>XML node</strong> enclosing all other nodes is the <strong>root</strong> of the <strong>XML document</strong></li>
+</ul>
+<ul>
+<li>the <strong>XML nodes</strong> enclosing no other nodes are the <strong>leafs</strong> of the <strong>XML document</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parsing-an-XML-document-with-R">Parsing an XML document with R<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#Parsing-an-XML-document-with-R">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In R, the <strong>XML library</strong> contains <strong>functions</strong> and <strong>classes</strong> to represent <strong>XML documents</strong>.</p>
+<p><strong>Libraries</strong> in R corresponds to <strong>modules</strong> in Python. </p>
+<p>To <strong>install</strong> the XML library (if not already installed), type in this command:</p>
+<pre><code>install.packages('XML')
+</code></pre><p>Then to use this library type in:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[16]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+library<span class="p">(</span>XML<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>
+Attaching package: ‘XML’
+
+The following object(s) are masked from ‘package:tools’:
+
+    toHTML
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remark:</strong> The keyword <code>library</code> in R corresponds to the <code>import</code> keyword in Python. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>XML library</strong> provides two main classes:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A class</p>
+<pre><code>XMLDocument
+</code></pre><p>representing <strong>whole XML documents</strong> including</p>
+<ul>
+<li>The <strong>header of the XML document</strong>, that is, the <strong>data</strong> (also called <strong>meta data</strong>) contained in</li>
+</ul>
+<pre><code>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;  
+</code></pre><ul>
+<li>The <strong>body of the XML document</strong>, i.e., the  <strong>sequence of XML tags  representing the actual data</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A class</p>
+<pre><code>XMLNode
+</code></pre><p>representing the <strong>XML nodes</strong> in the <strong>XML tree</strong> where the information is stored.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first steps to load XML data into R is to use the functions:</p>
+<pre><code>xml_doc = xmlParse(file_adress)
+root_node = xmlRoot(xml_doc)
+</code></pre><ul>
+<li><code>xmlParse</code> takes as input the XML file address and returns the corresponding <code>XMLDocument</code> object</li>
+</ul>
+<ul>
+<li><code>xmlRoot</code> takes an <code>XMLDocument</code> and returns the <strong>root node</strong> as a <code>XMLNode</code> object.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[19]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+xml_doc <span class="o">=</span> xmlParse<span class="p">(</span><span class="s">'stat133.xml'</span><span class="p">)</span>
+stat133_node <span class="o">=</span> xmlRoot<span class="p">(</span>xml_doc<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To <strong>navigate the XML tree</strong> the XML library offers the following functions:</p>
+<pre><code>xmlAttrs(node)
+xmlValue(node)
+xmlChildren(node)
+xmlParent(node)
+</code></pre><p>that take an <code>XMLNode</code> object and return the corresponding information.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[20]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1">#returns the attributes as a character vector</span>
+stat133_attrs <span class="o">=</span> xmlAttrs<span class="p">(</span>stat133_node<span class="p">)</span> 
+print<span class="p">(</span>stat133_attrs<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>                 name            department 
+"Computing with Data"                "STAT" 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[21]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1">#return the children nodes as a list of XMLNode objects</span>
+stat133_children <span class="o">=</span> xmlChildren<span class="p">(</span>stat133_node<span class="p">)</span> <span class="c1"># return chi</span>
+
+student1_node <span class="o">=</span> stat133_children<span class="p">[[</span><span class="m">1</span><span class="p">]]</span>
+student2_node <span class="o">=</span> stat133_children<span class="p">[[</span><span class="m">2</span><span class="p">]]</span>
+
+<span class="c1">#printing an XMLNode yields back the corresponding XML code</span>
+print<span class="p">(</span>student1_node<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>&lt;student sid="1232243"&gt;
+  &lt;name&gt;Bob Durant&lt;/name&gt;
+  &lt;midterm&gt;55&lt;/midterm&gt;
+  &lt;final&gt;88&lt;/final&gt;
+  &lt;homework&gt;99&lt;/homework&gt;
+  &lt;section&gt;1&lt;/section&gt;
+  &lt;major&gt;STAT&lt;/major&gt;
+&lt;/student&gt; 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[22]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+parent_node <span class="o">=</span> xmlParent<span class="p">(</span>student1_node<span class="p">)</span>
+
+print<span class="p">(</span>parent_node<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>&lt;stat133 name="Computing with Data" department="STAT"&gt;
+  &lt;student sid="1232243"&gt;
+    &lt;name&gt;Bob Durant&lt;/name&gt;
+    &lt;midterm&gt;55&lt;/midterm&gt;
+    &lt;final&gt;88&lt;/final&gt;
+    &lt;homework&gt;99&lt;/homework&gt;
+    &lt;section&gt;1&lt;/section&gt;
+    &lt;major&gt;STAT&lt;/major&gt;
+  &lt;/student&gt;
+  &lt;student sid="3213453"&gt;
+    &lt;name&gt;Agnes Thomas&lt;/name&gt;
+    &lt;midterm&gt;99&lt;/midterm&gt;
+    &lt;final&gt;90&lt;/final&gt;
+    &lt;homework&gt;99&lt;/homework&gt;
+    &lt;section&gt;2&lt;/section&gt;
+    &lt;major&gt;ECON&lt;/major&gt;
+  &lt;/student&gt;
+&lt;/stat133&gt; 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[23]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+<span class="kr">for</span> <span class="p">(</span>student <span class="kr">in</span> xmlChildren<span class="p">(</span>stat133_node<span class="p">))</span>
+<span class="p">{</span>
+    <span class="kr">for</span><span class="p">(</span>node <span class="kr">in</span> xmlChildren<span class="p">(</span>student<span class="p">))</span> print<span class="p">(</span>xmlValue<span class="p">(</span>node<span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Bob Durant"
+[1] "55"
+[1] "88"
+[1] "99"
+[1] "1"
+[1] "STAT"
+[1] "Agnes Thomas"
+[1] "99"
+[1] "90"
+[1] "99"
+[1] "2"
+[1] "ECON"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One can also <strong>retrieve a child node by its tag name</strong>, using the construct:</p>
+<pre><code>child_node = node[['name']]
+</code></pre><p>that returns the <strong>child node</strong> corresponding to <code>'tag'</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[26]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+name_node  <span class="o">=</span> student1_node<span class="p">[[</span><span class="s">'name'</span><span class="p">]]</span>
+name_value <span class="o">=</span> xmlValue<span class="p">(</span>name_node<span class="p">)</span>
+
+print<span class="p">(</span>name_value<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Bob Durant"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>tag names</strong> of a given <strong>node</strong> can be retrieved using the function</p>
+<pre><code>names(node)
+</code></pre><p>that returns a <strong>character vector</strong> containing the tag names of the children nodes.</p>
+<p><strong>Remark:</strong> One can do that because an object of any class in R is just an <strong>enhanced list</strong>. Thus we can access some of the methods of the underlying list; here the <code>name</code> method that returns the element labels of a list.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[27]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+tag_names <span class="o">=</span> names<span class="p">(</span>student1_node<span class="p">)</span>
+print<span class="p">(</span>tag_names<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>      name    midterm      final   homework    section      major 
+    "name"  "midterm"    "final" "homework"  "section"    "major" 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[28]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+<span class="kr">for</span><span class="p">(</span>student <span class="kr">in</span> xmlChildren<span class="p">(</span>stat133_node<span class="p">))</span>
+<span class="p">{</span>
+    <span class="kr">for</span><span class="p">(</span>tag_name <span class="kr">in</span> names<span class="p">(</span>student<span class="p">))</span>
+    <span class="p">{</span>
+       cat<span class="p">(</span>tag_name<span class="p">,</span> <span class="s">':'</span><span class="p">,</span> xmlValue<span class="p">(</span>student<span class="p">[[</span>tag_name<span class="p">]]),</span> <span class="s">'\n'</span><span class="p">)</span>
+    <span class="p">}</span>
+    cat<span class="p">(</span><span class="s">'\n-----------\n'</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>name : Bob Durant 
+midterm : 55 
+final : 88 
+homework : 99 
+section : 1 
+major : STAT 
+
+-----------
+name : Agnes Thomas 
+midterm : 99 
+final : 90 
+homework : 99 
+section : 2 
+major : ECON 
+
+-----------
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-digression-on-lists:-the-double-bracket-operator">A digression on lists: the double bracket operator<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#A-digression-on-lists:-the-double-bracket-operator">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we saw, the <strong>single bracket operator</strong></p>
+<pre><code>list[range]
+</code></pre><p>allows us to retrive a <strong>sublist</strong> corresponding to the <strong>range</strong>. </p>
+<p>In case, the <strong>range is a single index</strong> then </p>
+<pre><code>list[i]
+</code></pre><p>is a <strong>sublist with one element</strong>, namely the <strong>element at position i</strong>.</p>
+<p><strong>CAUTION:</strong> A <strong>list with a single element is different that the element itself.</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[29]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+element1 <span class="o">=</span> c<span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">)</span>   <span class="c1">#character vector</span>
+element2 <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>             <span class="c1">#numeric vector</span>
+
+my_list  <span class="o">=</span> list<span class="p">(</span>element1<span class="p">,</span> element2<span class="p">)</span>
+
+x <span class="o">=</span> my_list<span class="p">[</span><span class="m">1</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[30]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>class<span class="p">(</span>element1<span class="p">))</span>
+print<span class="p">(</span>class<span class="p">(</span>x<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "character"
+[1] "list"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[31]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>x<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[[1]]
+[1] "a" "b" "c"
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[32]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>element1<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "a"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To <strong>retrieve</strong> the <strong>actual list element</strong> at a given <strong>position i</strong>, one needs to use the <strong>double bracket operator</strong>:</p>
+<pre><code>list[[i]]
+</code></pre><p>This also valid, when one uses <strong>element labels</strong> instead of <strong>position indices</strong>:</p>
+<pre><code>list[['label']] #retrieves the actual list element 
+list['label']   #yields back a list containing the list element
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[33]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> list<span class="p">(</span>names<span class="o">=</span>c<span class="p">(</span><span class="s">'Bob'</span><span class="p">,</span> <span class="s">'Luc'</span><span class="p">,</span> <span class="s">'Paul'</span><span class="p">),</span> grades<span class="o">=</span>c<span class="p">(</span><span class="m">45</span><span class="p">,</span> <span class="m">76</span><span class="p">,</span><span class="m">12</span><span class="p">))</span>
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$names
+[1] "Bob"  "Luc"  "Paul"
+
+$grades
+[1] 45 76 12
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[34]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+print<span class="p">(</span>x<span class="p">[</span><span class="s">'names'</span><span class="p">])</span>
+print<span class="p">(</span>x<span class="p">[[</span><span class="s">'names'</span><span class="p">]])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$names
+[1] "Bob"  "Luc"  "Paul"
+
+[1] "Bob"  "Luc"  "Paul"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-digression-on-lists:-lapply-and-sapply">A digression on lists: lapply and sapply<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#A-digression-on-lists:-lapply-and-sapply">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given a <strong>function</strong> <code>f</code> and a <strong>list</strong> </p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-2-Frame" style=""><nobr><span class="math" id="MathJax-Span-4" style="width: 10.068em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.633em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-5"><span class="mi" id="MathJax-Span-6" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-7" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-8" style="font-family: STIXGeneral; padding-left: 0.327em;">(</span><span class="msubsup" id="MathJax-Span-9"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-10" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mn" id="MathJax-Span-11" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-12" style="font-family: STIXGeneral;">,</span><span class="msubsup" id="MathJax-Span-13" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-14" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mn" id="MathJax-Span-15" style="font-size: 70.7%; font-family: STIXGeneral;">2</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-16" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-17" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-18" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="msubsup" id="MathJax-Span-19" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-20" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mi" id="MathJax-Span-21" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-22" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-2">x = (x_1, x_2,\dots,x_n)</script></p>
+<p>the <strong>list apply</strong> function:</p>
+<pre><code>lapply(x, f)
+</code></pre><p>will return the <strong>list</strong> </p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-3-Frame" style=""><nobr><span class="math" id="MathJax-Span-23" style="width: 9.256em; display: inline-block;"><span style="display: inline-block; position: relative; width: 6.983em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-24"><span class="mo" id="MathJax-Span-25" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-26" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span class="mo" id="MathJax-Span-27" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-28"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-29" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mn" id="MathJax-Span-30" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-31" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-32" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-33" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-34" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="mi" id="MathJax-Span-35" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span><span class="mo" id="MathJax-Span-36" style="font-family: STIXGeneral;">(</span><span class="msubsup" id="MathJax-Span-37"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-38" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mi" id="MathJax-Span-39" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-40" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-41" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-42" style="font-family: STIXGeneral;">.</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-3"> (f(x_1),\dots,f(x_n)). </script></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[35]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+f <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="kr">return</span><span class="p">(</span>c<span class="p">(</span>mean<span class="o">=</span>mean<span class="p">(</span>x<span class="p">),</span> sd<span class="o">=</span>sd<span class="p">(</span>x<span class="p">)))</span>
+
+var1 <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">9</span><span class="p">)</span>
+var2 <span class="o">=</span> c<span class="p">(</span><span class="m">18</span><span class="p">,</span><span class="m">34</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+    
+x <span class="o">=</span> list<span class="p">(</span>V1<span class="o">=</span>var1<span class="p">,</span> V2<span class="o">=</span>var2<span class="p">)</span>
+
+y <span class="o">=</span> lapply<span class="p">(</span>x<span class="p">,</span> f<span class="p">)</span>
+
+print<span class="p">(</span>y<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$V1
+    mean       sd 
+4.750000 2.815772 
+
+$V2
+mean   sd 
+  18   16 
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now suppose the function <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-4-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-43" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-44"><span class="mi" id="MathJax-Span-45" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-4">f</script> returns a single number from a numeric vector:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[36]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+f <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="kr">return</span><span class="p">(</span>mean<span class="o">=</span>mean<span class="p">(</span>x<span class="p">))</span>
+
+y <span class="o">=</span> lapply<span class="p">(</span>x<span class="p">,</span> f<span class="p">)</span>
+
+print<span class="p">(</span>y<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>$V1
+[1] 4.75
+
+$V2
+[1] 18
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this case, it makes sense that the <strong>output</strong> of <strong>lapply</strong> would rather be a <strong>numeric vector</strong> rather than a <strong>list of numeric vectors with one element each</strong>.</p>
+<p>For that purpose, one has the <strong>simplify apply function</strong></p>
+<pre><code>sapply(x, f, args)
+</code></pre><p>that will try to simplify the <strong>output</strong> into a vector of the proper type.</p>
+<p><strong>Remark:</strong> The last argument <code>args</code> can be omitted, but it can also be used to pass additional parameters to the function <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-5-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-46" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.647em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-47"><span class="mi" id="MathJax-Span-48" style="font-family: STIXGeneral; font-style: italic;">f<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.165em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-5">f</script>, if needed.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[37]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+y <span class="o">=</span> sapply<span class="p">(</span>x<span class="p">,</span> f<span class="p">)</span>
+
+print<span class="p">(</span>y<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>   V1    V2 
+ 4.75 18.00 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="From-XML-document-to-data-frames">From XML document to data frames<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#From-XML-document-to-data-frames">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once data has been </p>
+<ul>
+<li>downloaded into the local file system in some given format</li>
+<li>uploaded onto R using the appropriate library</li>
+</ul>
+<p>one needs to convert the data representation into <strong>data frames</strong>.</p>
+<p>Namely, <strong>data analysis methods</strong> mostly applies to data put <strong>data cubes</strong> or <strong>data frames</strong>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data in loaded onto R as <strong>XML documents</strong> are not immediately ready for analysis.</p>
+<p>To convert them into <strong>data frame</strong>, one may use complicated <code>for</code> loops and branching statements.</p>
+<p>A <strong>much better way</strong> is to use <strong>R built-in vectorized capabilities</strong> along with the <strong>apply</strong> function family.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As an example, let's try to transform our <strong>XML object</strong> representation of the class data back into a data frame:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[38]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>stat133_node<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>&lt;stat133 name="Computing with Data" department="STAT"&gt;
+  &lt;student sid="1232243"&gt;
+    &lt;name&gt;Bob Durant&lt;/name&gt;
+    &lt;midterm&gt;55&lt;/midterm&gt;
+    &lt;final&gt;88&lt;/final&gt;
+    &lt;homework&gt;99&lt;/homework&gt;
+    &lt;section&gt;1&lt;/section&gt;
+    &lt;major&gt;STAT&lt;/major&gt;
+  &lt;/student&gt;
+  &lt;student sid="3213453"&gt;
+    &lt;name&gt;Agnes Thomas&lt;/name&gt;
+    &lt;midterm&gt;99&lt;/midterm&gt;
+    &lt;final&gt;90&lt;/final&gt;
+    &lt;homework&gt;99&lt;/homework&gt;
+    &lt;section&gt;2&lt;/section&gt;
+    &lt;major&gt;ECON&lt;/major&gt;
+  &lt;/student&gt;
+&lt;/stat133&gt; 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given</p>
+<ul>
+<li>a list of the <strong>student nodes</strong></li>
+<li>a <strong>tag name</strong> such as 'final'</li>
+</ul>
+<p>one may be able to construct a <strong>vector</strong> representing the the values of corresponding variable. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[39]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+students <span class="o">=</span> xmlChildren<span class="p">(</span>stat133_node<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let us now write a function that</p>
+<ul>
+<li><p>takes a <strong>student node</strong> and a <strong>tag name</strong> as input</p>
+</li>
+<li><p>returns the <strong>tag value</strong> for the corresponding student</p>
+</li>
+</ul>
+<p>The idea is then to <strong>apply</strong> this function to the <strong>list</strong> of students, we have just constructed:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[40]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+get_value <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>node<span class="p">,</span> tag<span class="p">)</span> <span class="kr">return</span><span class="p">(</span>xmlValue<span class="p">(</span>node<span class="p">[[</span>tag<span class="p">]]))</span>
+
+name <span class="o">=</span> get_value<span class="p">(</span>students<span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="s">'name'</span><span class="p">)</span>
+print<span class="p">(</span>name<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Bob Durant"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using this function along with apply, we can now extract the first column or our data frame:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[42]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+names <span class="o">=</span> sapply<span class="p">(</span>students<span class="p">,</span> get_value<span class="p">,</span> <span class="s">'name'</span><span class="p">)</span>
+print<span class="p">(</span>names<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>       student        student 
+  "Bob Durant" "Agnes Thomas" 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can now package this line of code into a function that takes a list of students and </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[49]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+g <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>tag<span class="p">,</span> student_nodes<span class="p">)</span> <span class="kr">return</span><span class="p">(</span>sapply<span class="p">(</span>student_nodes<span class="p">,</span> get_value<span class="p">,</span> tag<span class="p">))</span>
+
+print<span class="p">(</span>g<span class="p">(</span><span class="s">'midterm'</span><span class="p">,</span> students<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>student student 
+   "55"    "99" 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[50]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+tag_names <span class="o">=</span> names<span class="p">(</span>students<span class="p">[[</span><span class="m">1</span><span class="p">]])</span>
+
+data <span class="o">=</span> lapply<span class="p">(</span>tag_names<span class="p">,</span> g<span class="p">,</span> students<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[51]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+df <span class="o">=</span> data.frame<span class="p">(</span>data<span class="p">)</span>
+print<span class="p">(</span>df<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>          name midterm final homework section major
+1   Bob Durant      55    88       99       1  STAT
+2 Agnes Thomas      99    90       99       2  ECON
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+
+
+     <!-- <hr/> -->
+     <div class="row hidden-print">
+      <div class="span12 text-center">
+        <a href="http://nbviewer.ipython.org/urls/db.tt/MBDpPDwj#">Back to top</a>
+      </div>
+    </div>
+
+     <!-- Footer
+     ================================================== -->
+      
+      <footer class="footer hidden-print">
+      <div class="span12 row-fluid footer-row">
+          <div class="span4">
+            <p>This web site does not host notebooks, it only renders notebooks available on other websites.</p>
+          </div>
+
+          <div class="span4">
+            <p>Thanks to <a href="http://www.rackspace.com/">Rackspace</a> for hosting.</p>
+            <p>nbviewer GitHub <a href="https://github.com/ipython/nbviewer">repository</a>.</p>
+            <p>nbviewer <a href="https://github.com/ipython/nbviewer/blob/master/LICENSE.txt" target="_blank">license</a>.</p>
+          </div>
+
+          <div class="span4">
+            
+
+              
+                <p>
+                    nbviewer version:
+                    <a href="https://github.com/ipython/nbviewer/commit/fa9f5980ddb257274275b60d202eca62fad9f58f">fa9f598</a>
+                </p>
+              
+            
+
+<p class="text-muted">
+    IPython version: 3.0.0-dev
+    
+    (<a href="https://github.com/ipython/ipython/commit/ad534f8">
+      ad534f8
+    </a>)
+    
+</p>
+
+
+            
+
+            
+
+<p class="text-muted">
+Rendered <span class="date" data-date="Sun, 11 May 2014 18:26:06 UTC" title="Sun, 11 May 2014 18:26:06 UTC">4 minutes ago</span>
+</p>
+
+
+          </div>
+      </div>
+      </footer>
+      
+
+    </div><!-- /container -->
+
+    <script src="./R Data Gathering_files/bootstrap-collapse.js"></script>
+    <script src="./R Data Gathering_files/headroom.min.js"></script>
+    <script src="./R Data Gathering_files/jQuery.headroom.min.js"></script>
+
+
+    
+    
+    
+    <script>
+    $(document).ready(
+                function(){
+                    $("#menubar").headroom({
+                        "tolerance": 5,
+                        "offset": 205,
+                        "classes": {
+                            "initial": "animated",
+                            "pinned": "slideInDown",
+                            "unpinned": "slideOutUp"
+                        }
+                    })
+                }
+            );
+    </script>
+
+
+    <!-- Analytics
+    ================================================== -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-38683231-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    <script>
+        var update_date  = function(){
+            var str = window.moment($('.date').data('date')).fromNow();
+            $('.date').text(str);
+        }
+        setInterval(update_date , 61*1000);
+        $(update_date);
+    </script>
+    <!--NEW RELIC Stop Perf Measurement-->
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-5.newrelic.com","queueTime":0,"licenseKey":"7c83165904","agent":"js-agent.newrelic.com/nr-411.min.js","transactionName":"Y1YAMUFQXEZYUEcIVlocJBBdUkZcVl0cD1tCWgcSVkMcXVhdVw1cRkBYBlJSWlBdbF4ETVxcBg==","applicationID":"3045974","errorBeacon":"jserror.newrelic.com","applicationTime":5264}</script>
+    <!--NEW RELIC End-->
+  
+<script src="./R Data Gathering_files/nr-411.min.js"></script><script type="text/javascript" src="./R Data Gathering_files/7c83165904"></script><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;">ˆ</div></body></html>

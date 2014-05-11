@@ -1,0 +1,3367 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="description" content="">
+    
+
+    
+    <meta name="author" content="">
+    
+
+    <!--NEW RELIC Start Perf Measurement-->
+    <script type="text/javascript" async="" src="./R Language Anatomy_files/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o?o:n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({D5DuLP:[function(t,n){function e(t,n){var e=r[t];return e?e.apply(this,n):(o[t]||(o[t]=[]),void o[t].push(n))}var r={},o={};n.exports=e,e.queues=o,e.handlers=r},{}],handle:[function(t,n){n.exports=t("D5DuLP")},{}],G9z0Bl:[function(t,n){function e(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&p&&p.body){l.proto="https"===f.split(":")[0]||t.sslForHttp?"https://":"http://",i("mark",["onload",a()]);var n=p.createElement("script");n.src=l.proto+t.agent,p.body.appendChild(n)}}function r(){"complete"===p.readyState&&o()}function o(){i("mark",["domContent",a()])}function a(){return(new Date).getTime()}var i=t("handle"),u=window,p=u.document,s="addEventListener",c="attachEvent",f=(""+location).split("?")[0],l=n.exports={offset:a(),origin:f,features:[]};p[s]?(p[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(p[c]("onreadystatechange",r),u[c]("onload",e)),i("mark",["firstbyte",a()])},{handle:"D5DuLP"}],loader:[function(t,n){n.exports=t("G9z0Bl")},{}]},{},["G9z0Bl"]);</script>
+    <!--NREND-->
+
+    <!-- Le styles -->
+    <!--<link href="/static/css/bootstrap.css" rel="stylesheet">-->
+    <link href="http://nbviewer.ipython.org/static/css/docs.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/animate.css/animate.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/nbviewer.css" rel="stylesheet">
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://nbviewer.ipython.org/static/ico/ipynb_icon_16x16.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+    
+
+    
+
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    <meta name="twitter:title" content="Notebook on nbviewer">
+    
+
+    
+    <meta name="twitter:description" content="Check out this IPython notebook!">
+    
+
+    
+    <meta name="twitter:domain" content="nbviewer.ipython.org">
+    
+
+    <meta name="twitter:image:src" content="http://ipython.org/ipython-doc/dev/_images/ipynb_icon_128x128.png">
+    
+    
+    
+
+    <link href="http://nbviewer.ipython.org/ipython-static/style/ipython.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/pygments.css" rel="stylesheet">
+    <style type="text/css" media="screen and (min-width:980px)">
+   
+    body {
+        padding-top: 40px;
+    }
+
+    </style>
+    <style type="text/css">
+    .imgwrap {
+        text-align: center;
+    }
+
+    @media (max-width: 767px){
+
+        div.input, div.output_area {
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-orient: vertical;
+        }
+
+        div.prompt {
+            text-align:left;
+        }
+
+    }
+
+    
+    </style>
+    
+    <script src="./R Language Anatomy_files/MathJax.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    init_mathjax = function() {
+        if (window.MathJax) {
+            // MathJax loaded
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 0}},
+                    linebreaks: { automatic: true }
+                }
+            });
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+    
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 0; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" style=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+  <!-- These are loaded at the top of the body so they are available to notebook
+  cells when they are loaded below. -->
+  <script src="./R Language Anatomy_files/jquery.min.js"></script>
+  <script src="./R Language Anatomy_files/require.js"></script>
+  <script src="./R Language Anatomy_files/moment.min.js"></script>
+
+  <!-- Navbar
+  ================================================== -->
+    <div id="menubar" class="navbar navbar-fixed-top hidden-print animated">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+
+                <li>
+        <a href="http://nbviewer.ipython.org/" title="nbviewer">
+            <strong>
+            <span>nbviewer</span>
+            </strong>
+        </a>
+    </li>
+                <li>
+        <a href="http://nbviewer.ipython.org/faq" title="FAQ">
+            
+            <span>FAQ</span>
+            
+        </a>
+    </li>
+
+              <li class="">
+                <a href="http://www.ipython.org/">IPython</a>
+              </li>
+            </ul>
+            <ul class="nav pull-right"> 
+              
+              
+      
+        <li>
+        <a href="https://db.tt/4HcSWSjB" title="Download Notebook" download="">
+            <span class="fa fa-download fa-2x menu-icon"></span>
+            <span class="menu-text">Download Notebook</span>
+        </a>
+    </li>
+    
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+     
+    
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Lecture outline:</strong></p>
+<ul>
+<li>The <strong>food</strong> of Mr. R: <strong>VARIABLES</strong></li>
+</ul>
+<ul>
+<li>The <strong>muscles</strong> of Mr. R: <strong>LOOPING MECHANISMS</strong></li>
+</ul>
+<ul>
+<li>The <strong>brain</strong> of Mr. R: <strong>BRANCHING MECHANISMS</strong></li>
+</ul>
+<ul>
+<li>The <strong>hands</strong> of Mr. R: <strong>FUNCTIONS</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Using-R-in-iPython-notebooks">Using R in iPython notebooks<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Using-R-in-iPython-notebooks">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To use R in the notebook simply, you need to:</p>
+<p>(1) have R installed on your computer</p>
+<p>(2) have the Python module <code>rpy2</code> installed</p>
+<p>(2) invoke the following magic command:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[41]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The rmagic extension is already loaded. To reload it, use:
+  %reload_ext rmagic
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then type in the <strong>magic command</strong></p>
+<pre><code>%%R
+</code></pre><p>at the beginning of the cell:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[42]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+y <span class="o">=</span> c<span class="p">(</span><span class="s">'a'</span><span class="p">,</span><span class="s">'b'</span><span class="p">,</span><span class="s">'c'</span><span class="p">,</span><span class="s">'d'</span><span class="p">)</span>
+
+xy <span class="o">=</span> data.frame<span class="p">(</span>x<span class="p">,</span>y<span class="p">)</span>
+colnames<span class="p">(</span>xy<span class="p">)</span> <span class="o">=</span> c<span class="p">(</span><span class="s">'X'</span><span class="p">,</span> <span class="s">'Y'</span><span class="p">)</span>
+print<span class="p">(</span>xy<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>  X Y
+1 1 a
+2 2 b
+3 3 c
+4 4 d
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-food-of-Mr.-R:-VARIABLES">The <strong>food</strong> of Mr. R: <strong>VARIABLES</strong><a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#The-food-of-Mr.-R:-VARIABLES">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Variable-assignment-and-basic-types">Variable assignment and basic types<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Variable-assignment-and-basic-types">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As in Python, there are <strong>basic types</strong> in R reprensenting the usual things:</p>
+<ul>
+<li>numbers</li>
+<li>strings</li>
+<li>Boolean </li>
+</ul>
+<p>To <strong>retrieve the type</strong> of a variable <code>x</code> use the function:</p>
+<pre><code>typeof(x) 
+</code></pre><p>(This is the R-equivalent of the <code>type</code> function in Python.)</p>
+<p>To <strong>print a variable</strong> <code>x</code>, use the R command</p>
+<pre><code>print(x)
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[43]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> <span class="m">3</span>
+y <span class="o">=</span> <span class="s">'Hello'</span>
+z <span class="o">=</span> <span class="kc">TRUE</span>
+
+print<span class="p">(</span>typeof<span class="p">(</span>x<span class="p">))</span>
+print<span class="p">(</span>typeof<span class="p">(</span>y<span class="p">))</span>
+print<span class="p">(</span>typeof<span class="p">(</span>z<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "double"
+[1] "character"
+[1] "logical"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Variable assignments</strong> have the same syntax as in Python:</p>
+<pre><code>variable = value
+</code></pre><p>Although, R provides also the <strong>arrow syntax</strong> for that same purpose:</p>
+<pre><code>variable &lt;- value
+value -&gt; variable
+</code></pre><p>(We will use the Python-like syntax for variable assignments.)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[44]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1">#Python-like variable assignment syntax works in R</span>
+x <span class="o">=</span> <span class="s">'Hello'</span>
+
+<span class="c1">#Arrow syntax</span>
+
+y <span class="o">&lt;-</span> <span class="s">'Bonjour'</span>
+
+<span class="s">'Guten tag'</span> <span class="o">-&gt;</span> z
+
+print<span class="p">(</span>x<span class="p">);</span> print<span class="p">(</span>y<span class="p">);</span> print<span class="p">(</span>z<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Hello"
+[1] "Bonjour"
+[1] "Guten tag"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Operations-on-basic-types:-Boolean,-Numbers,-and-Strings">Operations on basic types: Boolean, Numbers, and Strings<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Operations-on-basic-types:-Boolean,-Numbers,-and-Strings">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Boolean:-values-and-operations">Boolean: values and operations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Boolean:-values-and-operations">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In R, the class representing the Boolean type is called <code>logical</code>.</p>
+<p>As usual, it has only <strong>two possible values</strong>:</p>
+<pre><code>TRUE and FALSE
+</code></pre><p>which can be abbreviated to</p>
+<pre><code>T and F
+</code></pre><blockquote>
+<p><strong>Difference with Python:</strong> 
+In R, the Boolean values are all <strong>upper-cases</strong> (instead of <code>True</code> and <code>False</code>).</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[45]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+a <span class="o">=</span> <span class="kc">TRUE</span><span class="p">;</span> b <span class="o">=</span> <span class="kc">FALSE</span>
+c <span class="o">=</span> <span class="k-Variable">T</span><span class="p">;</span> d <span class="o">=</span> <span class="k-Variable">F</span>
+
+print<span class="p">(</span>typeof<span class="p">(</span>a<span class="p">));</span> print<span class="p">(</span>typeof<span class="p">(</span>b<span class="p">))</span>
+print<span class="p">(</span>a<span class="p">);</span> print<span class="p">(</span>b<span class="p">)</span>
+print<span class="p">(</span>c<span class="p">);</span> print<span class="p">(</span>typeof<span class="p">(</span>d<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "logical"
+[1] "logical"
+[1] TRUE
+[1] FALSE
+[1] TRUE
+[1] "double"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is the R-syntax for the <strong>usual operations on Booleans</strong>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[46]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+a <span class="o">=</span> <span class="kc">TRUE</span><span class="p">;</span> b <span class="o">=</span> <span class="kc">FALSE</span>
+
+print<span class="p">(</span>a <span class="o">&amp;</span> b<span class="p">)</span> <span class="c1"># &amp; = Python's 'and'</span>
+print<span class="p">(</span>a <span class="o">|</span> b<span class="p">)</span> <span class="c1"># | = Python's 'or'</span>
+print<span class="p">(</span><span class="o">!</span>a<span class="p">)</span>    <span class="c1"># ! = Python's 'not'</span>
+
+
+print<span class="p">(</span> a <span class="o">|</span> <span class="p">(</span><span class="o">!</span>b <span class="o">&amp;</span> a<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] FALSE
+[1] TRUE
+[1] FALSE
+[1] TRUE
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[47]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>False
+True
+False
+True
+False
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Numbers:-The-integer-and-double-types">Numbers: The <code>integer</code> and <code>double</code> types<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Numbers:-The-integer-and-double-types">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As Python, R has two types to represent numbers:</p>
+<ul>
+<li><code>integer</code> to represent <strong>natural numbers</strong></li>
+</ul>
+<ul>
+<li><code>double</code> to represent <strong>real numbers</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[48]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+a <span class="o">=</span> <span class="m">3</span>
+b <span class="o">=</span> <span class="m">4.5</span>
+
+print<span class="p">(</span>typeof<span class="p">(</span>a<span class="p">))</span>
+print<span class="p">(</span>typeof<span class="p">(</span>b<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "double"
+[1] "double"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p><strong>Differences with Python:</strong> </p>
+<ul>
+<li>R interprets any number passed to the R interpreter as a real number</li>
+</ul>
+<ul>
+<li>Python interprets a number as areal number only if it has a <strong>period</strong>.</li>
+</ul>
+</blockquote>
+<p>To differenciate between this types, one should use the <strong>conversion operators</strong>:</p>
+<pre><code>as.integer(x)
+as.double(x)
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[49]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+a <span class="o">=</span> as.integer<span class="p">(</span><span class="m">2</span><span class="p">)</span>
+print<span class="p">(</span>typeof<span class="p">(</span>a<span class="p">))</span>
+
+b <span class="o">=</span> as.double<span class="p">(</span>a<span class="p">)</span>
+print<span class="p">(</span>typeof<span class="p">(</span>b<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "integer"
+[1] "double"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Numbers:-operations">Numbers: operations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Numbers:-operations">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[50]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+a <span class="o">=</span> <span class="m">2</span><span class="p">;</span> b <span class="o">=</span> <span class="m">3</span><span class="p">;</span> c <span class="o">=</span> <span class="m">3.4</span>
+
+print<span class="p">(</span>a<span class="o">+</span>b<span class="p">)</span>
+print<span class="p">(</span>a<span class="o">*</span>b<span class="p">)</span>
+print<span class="p">(</span>a<span class="o">^</span>b<span class="p">)</span>   <span class="c1"># The power syntax is different than in Python: a**b</span>
+print<span class="p">(</span>a<span class="o">/</span>b<span class="p">)</span>
+print<span class="p">(</span>b<span class="o">%%</span>a<span class="p">)</span>  <span class="c1"># The modulo syntax is diffenrent than that of Python: b%a</span>
+print<span class="p">(</span>c<span class="o">%/%</span>b<span class="p">)</span> <span class="c1"># Integer division</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 5
+[1] 6
+[1] 8
+[1] 0.6666667
+[1] 1
+[1] 1
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Strings:-The-character-type">Strings: The <code>character</code> type<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Strings:-The-character-type">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As in Python, one <strong>creates strings using quotes</strong> (double or singles):</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[51]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+a <span class="o">=</span> <span class="s">'hello'</span>
+
+b <span class="o">=</span> <span class="s">"hello"</span>
+
+c <span class="o">=</span> <span class="s">"hello! I'am good!"</span>
+
+print<span class="p">(</span>a<span class="p">);</span> print<span class="p">(</span>b<span class="p">);</span> print<span class="p">(</span>c<span class="p">)</span>
+
+print<span class="p">(</span>typeof<span class="p">(</span>a<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "hello"
+[1] "hello"
+[1] "hello! I'am good!"
+[1] "character"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Newlines</strong> and <strong>escape characters</strong> in general are used the <strong>same way as in Python</strong>.</p>
+<blockquote>
+<p><strong>Differences with Python:</strong> </p>
+<p>The R <code>print(x)</code> function does <strong>not</strong> print the <strong>escape characters</strong>.</p>
+</blockquote>
+<p>The R function </p>
+<pre><code>cat(x,y,z,etc.)
+</code></pre><p><strong>prints the escape characters</strong>.</p>
+<p>It behaves very much like the Python (version 2.7) print function:</p>
+<pre><code>print x,y,z,etc.
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[52]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> <span class="s">'One\nTwo\nThree\nFour\n'</span>
+
+print<span class="p">(</span>x<span class="p">)</span>
+cat<span class="p">(</span>x<span class="p">)</span>
+cat<span class="p">(</span><span class="s">'I need'</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span><span class="s">'pairs of gloves for my'</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="s">'hands'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "One\nTwo\nThree\nFour\n"
+One
+Two
+Three
+Four
+I need 3 pairs of gloves for my 4 hands
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Strings:-operations">Strings: operations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Strings:-operations">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>R does not provide</strong> the same level of <strong>syntactical conveniences</strong> as Python for <strong>string manipulations</strong>:</p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-1" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2"><span class="mo" id="MathJax-Span-3" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1">\longrightarrow</script> <strong>no special syntax</strong> for string <strong>formatting</strong> in R</p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-2-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-4" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-5"><span class="mo" id="MathJax-Span-6" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-2">\longrightarrow</script> <strong>no addition operator</strong> for string <strong>concatenation</strong> in R</p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-3-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-7" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-8"><span class="mo" id="MathJax-Span-9" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-3">\longrightarrow</script> <strong>no multiplication operator</strong> for string <strong>repetition</strong> in R</p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-4-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-10" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-11"><span class="mo" id="MathJax-Span-12" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-4">\longrightarrow</script> <strong>no bracket operator</strong> for <strong>substring access</strong> in R</p>
+<h3 id="all-string-operations-are-done-through-plain-old-functions">All string operations are done through plain old functions</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="String-formatting:--sprintf(&quot;...-%d-...&quot;,-x,-etc.)">String formatting:  <code>sprintf("... %d ...", x, etc.)</code><a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#String-formatting:--sprintf("...-%d-...",-x,-etc.)">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In Python, one way to format a string is to use the <strong>place holder syntax</strong>:</p>
+<pre><code>"...%d...%s...etc." % (digit, string, etc.)
+</code></pre><p>In R, one uses the function</p>
+<pre><code>sprintf("...%d...%s...etc.", digit, string, etc.)
+</code></pre><p>which <strong>returns the formatted string</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[53]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+var  <span class="o">=</span> sprintf<span class="p">(</span><span class="s">"%-10s\t%-10s\t%-10s\n"</span><span class="p">,</span> <span class="s">'Name'</span><span class="p">,</span> <span class="s">'Age'</span><span class="p">,</span> <span class="s">'Weigth'</span><span class="p">)</span>
+
+obs1 <span class="o">=</span> sprintf<span class="p">(</span><span class="s">"%-10s\t%-10d\t%-10.2f\n"</span><span class="p">,</span> <span class="s">'Benoit'</span><span class="p">,</span> <span class="m">56</span><span class="p">,</span> <span class="m">300</span><span class="p">)</span>
+
+obs2 <span class="o">=</span> sprintf<span class="p">(</span><span class="s">"%-10s\t%-10d\t%-10.2f\n"</span><span class="p">,</span> <span class="s">'Claude'</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">400</span><span class="p">)</span>
+
+cat<span class="p">(</span>var<span class="p">);</span> cat<span class="p">(</span>obs1<span class="p">);</span> cat<span class="p">(</span>obs2<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>Name      	Age       	Weigth    
+Benoit    	56        	300.00    
+Claude    	12        	400.00    
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="String-concatenation:-paste(x,-y,-etc.,-sep=s)">String concatenation: <code>paste(x, y, etc., sep=s)</code><a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#String-concatenation:-paste(x,-y,-etc.,-sep=s)">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The R function</p>
+<pre><code>paste(x, y, etc., sep=s)
+</code></pre><ul>
+<li><strong>returns</strong> the concatenations of the strings stored in <code>x, y,</code> etc.</li>
+</ul>
+<ul>
+<li>places the <strong>separator</strong> <code>s</code> passed to the argument <code>sep</code> in between those strings</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[54]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> paste<span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'d'</span><span class="p">,</span> sep<span class="o">=</span><span class="s">'::'</span><span class="p">)</span>
+cat<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>a::b::c::d
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="String-slicing:-substr(x,-start=i,-stop=j)">String slicing: <code>substr(x, start=i, stop=j)</code><a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#String-slicing:-substr(x,-start=i,-stop=j)">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The R function</p>
+<pre><code>substr(x, start=i, stop=j)
+</code></pre><ul>
+<li><strong>returns</strong> the <strong>subtring</strong> of the string <code>x</code> that<ul>
+<li><strong>starts</strong> at character position <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-5-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-13" style="width: 1.356em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.085em 1000.003em 2.275em -0.43em); top: -2.108em; left: 0.003em;"><span class="mrow" id="MathJax-Span-14"><span class="msubsup" id="MathJax-Span-15"><span style="display: inline-block; position: relative; width: 0.977em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-16" style="font-family: STIXGeneral; font-style: italic;">i</span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.595em; left: 0.273em;"><span class="texatom" id="MathJax-Span-17"><span class="mrow" id="MathJax-Span-18"><span class="mi" id="MathJax-Span-19" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-20" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">h</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.113em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-5">i^{th}</script> </li>
+<li><strong>stops</strong> at character position <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-6-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-21" style="width: 1.518em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.085em 1000.003em 2.492em -0.593em); top: -2.108em; left: 0.003em;"><span class="mrow" id="MathJax-Span-22"><span class="msubsup" id="MathJax-Span-23"><span style="display: inline-block; position: relative; width: 1.085em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.817em -0.593em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-24" style="font-family: STIXGeneral; font-style: italic;">j<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.595em; left: 0.381em;"><span class="texatom" id="MathJax-Span-25"><span class="mrow" id="MathJax-Span-26"><span class="mi" id="MathJax-Span-27" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-28" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">h</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.113em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.575em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-6">j^{th}</script> (<strong>INCLUDED!!!!</strong>)</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[55]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> <span class="s">'123456789'</span>
+y <span class="o">=</span> substr<span class="p">(</span>x<span class="p">,</span> <span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">)</span>
+
+cat<span class="p">(</span>y<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>23456
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p><strong>Differences with Python:</strong> </p>
+<p>(1) All <strong>ranges</strong> in R always <strong>start a <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-29" style="width: 0.695em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.522em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.647em 1000.002em 2.6em -0.258em); top: -2.465em; left: 0.002em;"><span class="mrow" id="MathJax-Span-30"><span class="mn" id="MathJax-Span-31" style="font-family: STIXGeneral;">1</span></span><span style="display: inline-block; width: 0px; height: 2.47em;"></span></span></span><span style="border-left-width: 0.003em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.031em; vertical-align: -0.054em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-7">1</script> instead of <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-8-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-32" style="width: 0.695em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.522em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.647em 1000.002em 2.6em -0.344em); top: -2.465em; left: 0.002em;"><span class="mrow" id="MathJax-Span-33"><span class="mn" id="MathJax-Span-34" style="font-family: STIXGeneral;">0</span></span><span style="display: inline-block; width: 0px; height: 2.47em;"></span></span></span><span style="border-left-width: 0.003em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.031em; vertical-align: -0.054em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-8">0</script></strong></p>
+<p>(2) All <strong>ranges</strong> in R always <strong>include the upper-bound</strong></p>
+<p>This is valid whenever any type of ranges are around</p>
+</blockquote>
+<p><strong>Example:</strong> In the string</p>
+<pre><code>x = "abcde"
+</code></pre><ul>
+<li><strong>the first character 'a' has index</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-9-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-35" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.376em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-36"><span class="mn" id="MathJax-Span-37" style="font-family: STIXGeneral;">1</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-9">1</script> (and not <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-10-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-38" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-39"><span class="mn" id="MathJax-Span-40" style="font-family: STIXGeneral;">0</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-10">0</script> as in Python)</li>
+</ul>
+<ul>
+<li><code>substr(x, 1, 3)</code> returns 'abc' (while <code>x[1:3]</code> returns 'bc' in Python)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-deeper-view-on-R-basic-data-types-and-data-structures">A deeper view on R basic data types and data structures<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#A-deeper-view-on-R-basic-data-types-and-data-structures">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Python-basic-data-types-and-data-structures">Python basic data types and data structures<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Python-basic-data-types-and-data-structures">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Python is a <strong>general purpose</strong> language.</p>
+<p>Its <strong>basic types</strong> and <strong>basic data structures</strong> are very standard among such programming languages: </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You have</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>First</strong>, the <strong>basic types</strong>: <code>int</code>, <code>float</code>, <code>str</code>, and <code>bool</code></li>
+</ul>
+<p>that represent <strong>scalar quantities</strong> (i.e. single elements) of <strong>Booleans</strong>, <strong>numbers</strong>, and <strong>strings</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>Second</strong>, the <strong>basic data structures</strong>: <code>list</code>, <code>dict</code>, <code>sets</code></li>
+</ul>
+<p>that represent <strong>vectorial</strong> quantities (i.e. collections) of the <strong>basic types</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In most general purpose languages:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Basic Data Structures</strong>  =  <strong>structured collections</strong> of <strong>basic types</strong></p>
+<p>Depeding on their structures, these collections can be:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>homogeneous</strong>: collections of <strong>identical basic types</strong></li>
+</ul>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-11-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-41" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-42"><span class="mo" id="MathJax-Span-43" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-11">\longrightarrow</script>  <strong>Numpy arrays</strong> and <strong>Pandas Series</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>heterogeneous</strong>: collections of <strong>different basic types</strong></li>
+</ul>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-12-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-44" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-45"><span class="mo" id="MathJax-Span-46" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-12">\longrightarrow</script>   <strong>Python lists</strong>, <strong>Python Dictionaries</strong>, and <strong>Pandas DataFrames</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>labelled</strong>: The collection elements carry <strong>names</strong> or <strong>labels</strong></li>
+</ul>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-13-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-47" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-48"><span class="mo" id="MathJax-Span-49" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-13">\longrightarrow</script>   <strong>Python Dictionaries</strong>, <strong>Pandas Series</strong>, and <strong>Pandas DataFrames</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><strong>vectorized</strong>: Functions defined at the element level can be <strong>applied</strong> to the <strong>collection as a whole</strong></li>
+</ul>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-14-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-50" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-51"><span class="mo" id="MathJax-Span-52" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-14">\longrightarrow</script>  <strong>Numpy arrays</strong>, <strong>Pandas Series</strong>, and <strong>Pandas Dataframes</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="A-view-on-types-and-structures-inspired-by-data-tables">A view on types and structures inspired by data tables<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#A-view-on-types-and-structures-inspired-by-data-tables">¶</a></h4>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<ul>
+<li><strong>R was created with STATISTICS IN MIND</strong>.</li>
+</ul>
+<ul>
+<li><strong>The main object of statistics is that of a DATA TABLE</strong>. </li>
+</ul>
+<ul>
+<li><strong>The BASICS DATA TYPES and DATA STRUCTURES in R are reflecting this purpose!</strong></li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Actually, R doesn't really have <strong>SEPARATE</strong></p>
+<ul>
+<li>basic <strong>scalar</strong> data types</li>
+</ul>
+<ul>
+<li>basic <strong>vectorial</strong> data structures</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R has only</p>
+<p>2 BASICS <strong>VECTORIZED LABELLED DATA STRUCTURES</strong></p>
+<ul>
+<li><p>(1) <strong>VECTORS</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-15-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-53" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-54"><span class="mo" id="MathJax-Span-55" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-15">\longrightarrow</script>  corresponding to data table COLUMNS (hence: HOMOGENEOUS)</p>
+</li>
+<li><p>(1) <strong>LISTS</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-16-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-56" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-57"><span class="mo" id="MathJax-Span-58" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-16">\longrightarrow</script>  corresponding to data table ROWS (hence: HETEROGENEOUS)</p>
+</li>
+</ul>
+<p>... <strong>AND NO BASIC SCALAR DATA TYPES!!!!</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The "basic scalar types" that we just saw are in reallity ...</p>
+<p>... VECTORS WITH ONLY ONE ELEMENT!!!!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are 3 basic data types in R separated in 3 MODES:</p>
+<ul>
+<li>(1) Numerical Vectors: elements are numbers <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-17-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-59" style="width: 1.247em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-60"><span class="mo" id="MathJax-Span-61" style="font-family: STIXGeneral;">→</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-17">\rightarrow</script> <code>numeric mode</code></li>
+</ul>
+<ul>
+<li>(2) Logical Vectors: elements are Booleans <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-18-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-62" style="width: 1.247em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-63"><span class="mo" id="MathJax-Span-64" style="font-family: STIXGeneral;">→</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-18">\rightarrow</script> <code>logical mode</code></li>
+</ul>
+<ul>
+<li>(3) Character Vectors (elements are strings) <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-19-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-65" style="width: 1.247em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-66"><span class="mo" id="MathJax-Span-67" style="font-family: STIXGeneral;">→</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-19">\rightarrow</script> <code>character mode</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remarks:</p>
+<ul>
+<li>In R, the <strong>basic data types</strong> are already <strong>vectorized</strong> and <strong>labelled</strong>!</li>
+</ul>
+<ul>
+<li>In statistics, <strong>mode</strong> = (data table) <strong>column type</strong></li>
+</ul>
+<ul>
+<li>The <strong>mode</strong> of a variable is <strong>rougher</strong> than its <strong>type</strong>:</li>
+</ul>
+<p>R distinguishes between two types in <code>numeric</code>  mode:</p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-20-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-68" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-69"><span class="mo" id="MathJax-Span-70" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-20">\longrightarrow</script>  <code>int</code> for <strong>integers</strong></p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-21-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-71" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-72"><span class="mo" id="MathJax-Span-73" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-21">\longrightarrow</script> <code>doubles</code> for <strong>doubles</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[56]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+print<span class="p">(</span>typeof<span class="p">(</span><span class="m">3</span><span class="p">))</span>
+print<span class="p">(</span>mode<span class="p">(</span><span class="m">3</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "double"
+[1] "numeric"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[57]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+a <span class="o">=</span> as.integer<span class="p">(</span><span class="m">3</span><span class="p">)</span>
+
+print<span class="p">(</span>typeof<span class="p">(</span>a<span class="p">))</span>
+print<span class="p">(</span>mode<span class="p">(</span>a<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "integer"
+[1] "numeric"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Similar-data-structures-in-Python-and-in-R">Similar data structures in Python and in R<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Similar-data-structures-in-Python-and-in-R">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R vectors <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-22-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-74" style="width: 0.869em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.652em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-75"><span class="mo" id="MathJax-Span-76" style="font-family: STIXGeneral;">≃</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-22">\simeq</script> Pandas Series</p>
+<p>From a data type perspective:</p>
+<p>R <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-23-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-77" style="width: 0.869em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.652em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-78"><span class="mo" id="MathJax-Span-79" style="font-family: STIXGeneral;">≃</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-23">\simeq</script> what we would obtain if were allowed to program in Python only with </p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-24-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-80" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-81"><span class="mo" id="MathJax-Span-82" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-24">\longrightarrow</script> quantitative Pandas Series instead of numbers</p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-25-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-83" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-84"><span class="mo" id="MathJax-Span-85" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-25">\longrightarrow</script> logical Pandas Series instead of Booleans</p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-26-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-86" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-87"><span class="mo" id="MathJax-Span-88" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-26">\longrightarrow</script> categorical Pandas Series instead of strings</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="R-vectors:-basic-manipulations">R vectors: basic manipulations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#R-vectors:-basic-manipulations">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Vector-creation">Vector creation<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Vector-creation">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R vectors are created using the special <strong>concatenate</strong> function</p>
+<pre><code>c(a=x1, b=x2, c=x3, d=x4, etc)
+</code></pre><p>that returns a R vector with </p>
+<ul>
+<li><p>element values <code>x1, x2, x3, x4</code> etc.</p>
+</li>
+<li><p><strong>labelled by the passed argument names</strong>: <code>a, b, c, d, </code> etc.</p>
+</li>
+</ul>
+<p>The <strong>element values</strong> in a R vector should all be of <strong>the same type</strong> (i.e. numbers, Booleans, or strings).</p>
+<h3 id="type-of-r-vector-type-of-its-elements">Type of R vector  = type of its elements</h3>
+<p><strong>Remark</strong>: As for Pandas Series, the <strong>labels</strong> (i.e. <strong>parameter names</strong>) may be omitted.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[58]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> c<span class="p">(</span>a<span class="o">=</span><span class="m">12</span><span class="p">,</span> b<span class="o">=</span><span class="m">34</span><span class="p">,</span> c<span class="o">=</span><span class="m">45</span><span class="p">,</span> d<span class="o">=</span><span class="m">34</span><span class="p">)</span>
+
+
+y <span class="o">=</span> c<span class="p">(</span><span class="s">'Hello'</span><span class="p">,</span> <span class="s">'Bonjour'</span><span class="p">,</span> <span class="s">'Guten Tag'</span><span class="p">)</span>
+
+
+z <span class="o">=</span> c<span class="p">(</span><span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">)</span>
+
+
+cat<span class="p">(</span><span class="s">"x = \n"</span><span class="p">);</span>print<span class="p">(</span>x<span class="p">);</span> print<span class="p">(</span>typeof<span class="p">(</span>x<span class="p">));</span> cat<span class="p">(</span><span class="s">'\n\n'</span><span class="p">)</span>
+cat<span class="p">(</span><span class="s">"y = \n"</span><span class="p">);</span>print<span class="p">(</span>y<span class="p">);</span> print<span class="p">(</span>typeof<span class="p">(</span>y<span class="p">));</span> cat<span class="p">(</span><span class="s">'\n\n'</span><span class="p">)</span>
+cat<span class="p">(</span><span class="s">"z = \n"</span><span class="p">);</span>print<span class="p">(</span>z<span class="p">);</span> print<span class="p">(</span>typeof<span class="p">(</span>z<span class="p">));</span> cat<span class="p">(</span><span class="s">'\n\n'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>x = 
+ a  b  c  d 
+12 34 45 34 
+[1] "double"
+
+
+y = 
+[1] "Hello"     "Bonjour"   "Guten Tag"
+[1] "character"
+
+
+z = 
+          Bob Julien  Julie           Bob Julien  Julie    Bob Julien  Julie 
+     1     62     39     84      1     62     39     84     62     39     84 
+[1] "double"
+
+
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We may want to create an empty vector, which we will populate later on. </p>
+<p>For that, we need to invoke the <strong>vector class constructor</strong> explictely: </p>
+<pre><code>x = vector(lenght, mode)
+</code></pre><p>where</p>
+<ul>
+<li><p><code>lenght</code> is the <strong>vector length</strong></p>
+</li>
+<li><p><code>mode</code> is the <strong>vector mode</strong>:</p>
+<p>  'numeric' 
+  'logical' 
+  'character' </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[59]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+x <span class="o">=</span> vector<span class="p">(</span>length<span class="o">=</span><span class="m">3</span><span class="p">,</span> mode<span class="o">=</span><span class="s">'character'</span><span class="p">)</span>
+
+cat<span class="p">(</span><span class="s">'The mode of the vector x is'</span><span class="p">,</span> mode<span class="p">(</span>x<span class="p">),</span><span class="s">'its length is'</span><span class="p">,</span> length<span class="p">(</span>x<span class="p">),</span><span class="s">'\n'</span><span class="p">)</span>
+
+x<span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">'elephant'</span>
+x<span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">=</span> <span class="s">'raccoon'</span>
+x<span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">=</span> <span class="s">'monkey'</span>
+
+print<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>The mode of the vector x is character its length is 3 
+[1] "elephant" "raccoon"  "monkey"  
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Element-access">Element access<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Element-access">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Element indexing</strong> and <strong>element retrieval</strong> in R vectorized basic types (i.e vectors and lists) are very similar to that of Python:</p>
+<p>On a <strong>vector</strong> <code>x</code>, the <strong>BRACKET OPERATOR</strong> </p>
+<pre><code>x[range] 
+</code></pre><p>gives us access to the elements specified by the <code>range</code>, which can be:</p>
+<ul>
+<li>a <strong>single index</strong> from 1 to <code>length(x)</code> (retrieving the corresponding element)</li>
+</ul>
+<ul>
+<li>a <strong>vector of indices</strong> (retrieving the corresponding sublist)</li>
+</ul>
+<ul>
+<li>one can replace indices by <strong>element names</strong> if provided</li>
+</ul>
+<blockquote>
+<p><strong>Differences with Python:</strong></p>
+<ul>
+<li>Indices always start at 1 (instead of 0)</li>
+</ul>
+<ul>
+<li>The slice notation n:m actually creates the integer vector <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-27-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-89" style="width: 12.232em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.256em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-90"><span class="mo" id="MathJax-Span-91" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-92" style="font-family: STIXGeneral; font-style: italic;">n</span><span class="mo" id="MathJax-Span-93" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-94" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">n</span><span class="mo" id="MathJax-Span-95" style="font-family: STIXGeneral; padding-left: 0.273em;">+</span><span class="mn" id="MathJax-Span-96" style="font-family: STIXGeneral; padding-left: 0.273em;">1</span><span class="mo" id="MathJax-Span-97" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-98" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-99" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="mi" id="MathJax-Span-100" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">m</span><span class="mo" id="MathJax-Span-101" style="font-family: STIXGeneral; padding-left: 0.273em;">−</span><span class="mn" id="MathJax-Span-102" style="font-family: STIXGeneral; padding-left: 0.273em;">1</span><span class="mo" id="MathJax-Span-103" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-104" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">m</span><span class="mo" id="MathJax-Span-105" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-27">(n, n+1, \dots, m-1, m)</script></li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[60]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+scores <span class="o">=</span> c<span class="p">(</span>Mark<span class="o">=</span><span class="m">88</span><span class="p">,</span> John<span class="o">=</span><span class="m">24</span><span class="p">,</span> Lucie<span class="o">=</span><span class="m">54</span><span class="p">,</span> Bob<span class="o">=</span><span class="m">100</span><span class="p">)</span>
+
+a <span class="o">=</span> scores<span class="p">[</span><span class="s">'Mark'</span><span class="p">]</span>
+print<span class="p">(</span>a<span class="p">)</span>
+
+b <span class="o">=</span> scores<span class="p">[</span><span class="m">1</span><span class="p">]</span>
+print<span class="p">(</span>b<span class="p">)</span>
+
+c <span class="o">=</span> scores<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+print<span class="p">(</span>c<span class="p">)</span>
+
+d <span class="o">=</span> scores<span class="p">[</span><span class="m">-2</span><span class="p">]</span>
+print<span class="p">(</span>d<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>Mark 
+  88 
+Mark 
+  88 
+ Mark  John Lucie 
+   88    24    54 
+ Mark Lucie   Bob 
+   88    54   100 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-muscles-of-Mr.-R:-LOOPING-MECHANISMS">The <strong>muscles</strong> of Mr. R: <strong>LOOPING MECHANISMS</strong><a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#The-muscles-of-Mr.-R:-LOOPING-MECHANISMS">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="for-looping-mechanism"><code>for</code> looping mechanism<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#for-looping-mechanism">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As in Python, we have <code>for</code> loops. </p>
+<p>The main difference is that </p>
+<p><strong>code blocks are indicated by curly brackets instead of special indentation</strong></p>
+<p>The are also other minor syntactical differences, as you will see below.</p>
+<p>The fact that </p>
+<pre><code>x = n:m
+</code></pre><p>creates a integer vector <code>x</code> on which a for loop can iterate is very practical. </p>
+<p>There is also the function</p>
+<pre><code>seq(from=a, to=b, by=c)
+</code></pre><p>that creates integer vectors, very useful to loop over, and a function</p>
+<pre><code>rep(x, n)
+</code></pre><p>that returns a the vector <code>x</code> repeated n times.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[61]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+DNA   <span class="o">=</span> rep<span class="p">(</span>c<span class="p">(</span><span class="s">'A'</span><span class="p">,</span><span class="s">'C'</span><span class="p">,</span><span class="s">'T'</span><span class="p">),</span><span class="m">4</span><span class="p">)</span>
+RANGE <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+SEQ   <span class="o">=</span> seq<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">100</span><span class="p">,</span><span class="m">20</span><span class="p">)</span>
+
+print<span class="p">(</span>DNA<span class="p">)</span>
+print<span class="p">(</span>RANGE<span class="p">)</span>
+print<span class="p">(</span>SEQ<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre> [1] "A" "C" "T" "A" "C" "T" "A" "C" "T" "A" "C" "T"
+ [1]  1  2  3  4  5  6  7  8  9 10
+[1]   0  20  40  60  80 100
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[62]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+<span class="kr">for</span><span class="p">(</span>x <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">){</span>
+    print<span class="p">(</span>x<span class="o">^</span><span class="m">2</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 1
+[1] 4
+[1] 9
+[1] 16
+[1] 25
+[1] 36
+[1] 49
+[1] 64
+[1] 81
+[1] 100
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since basic types are vectors, one can loop on any 'numeric', 'logical', or 'character' types, even with a single element:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[63]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1"># Try the loop in with different a by uncommenting some lines below</span>
+a <span class="o">=</span> <span class="m">3</span>
+<span class="c1">#a = c(3, 4, 5)</span>
+<span class="c1">#a = 'Hello'</span>
+<span class="c1">#a = c('Hello', 'Bonjour', 'Gutent Tag')</span>
+
+<span class="kr">for</span><span class="p">(</span> x <span class="kr">in</span> a<span class="p">)</span> print<span class="p">(</span>x<span class="p">)</span> <span class="c1"># We don't need curly braces with just one command</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 3
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One can also retrieve the vector element names using the function:</p>
+<pre><code>names(x)
+</code></pre><p>Then we can iterate over this names.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[64]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+scores <span class="o">=</span> c<span class="p">(</span>Mark<span class="o">=</span><span class="m">88</span><span class="p">,</span> John<span class="o">=</span><span class="m">24</span><span class="p">,</span> Lucie<span class="o">=</span><span class="m">54</span><span class="p">,</span> Bob<span class="o">=</span><span class="m">100</span><span class="p">)</span>
+
+<span class="kr">for</span> <span class="p">(</span>student <span class="kr">in</span> names<span class="p">(</span>scores<span class="p">))</span> cat<span class="p">(</span>student<span class="p">,</span> <span class="s">'got'</span><span class="p">,</span> scores<span class="p">[</span>student<span class="p">],</span> <span class="s">'\n'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>Mark got 88 
+John got 24 
+Lucie got 54 
+Bob got 100 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Vectorized-loops">Vectorized loops<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Vectorized-loops">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When possible</p>
+<p><strong>Loops should be implemented the vectorized way!!!</strong></p>
+<p>since </p>
+<p><strong>All the operations for basic types are vectorized!!!</strong></p>
+<p>This works exactly the same way as for Numpy arrays:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Vectorized-numerical-operations">Vectorized numerical operations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Vectorized-numerical-operations">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[65]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+<span class="c1">## VECTORIZED OPERATION ON NUMERIC TYPES</span>
+
+x <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">4</span><span class="p">)</span>
+y <span class="o">=</span> c<span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+
+print<span class="p">(</span>x<span class="o">+</span>y<span class="p">)</span>
+print<span class="p">(</span>x<span class="o">*</span>y<span class="p">)</span>
+print<span class="p">(</span>x<span class="o">/</span>y<span class="p">)</span>
+print<span class="p">(</span>x<span class="o">^</span>y<span class="p">)</span>
+print<span class="p">(</span>x<span class="o">%%</span>y<span class="p">)</span>
+print<span class="p">(</span>x<span class="o">%/%</span>y<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 5 4 6 6
+[1] 4 3 8 8
+[1] 0.25 3.00 0.50 2.00
+[1]  1  3 16 16
+[1] 1 0 2 0
+[1] 0 3 0 2
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[66]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1"># OTHER BASIC MATH and STAT OPERATIONS ON THE NUMERICAL TYPE</span>
+x <span class="o">=</span> c<span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">56</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
+
+mean<span class="p">(</span>x<span class="p">)</span>
+median<span class="p">(</span>x<span class="p">)</span>
+sd<span class="p">(</span>x<span class="p">)</span>
+quantile<span class="p">(</span>x<span class="p">,</span><span class="m">0.2</span><span class="p">)</span>
+
+sum<span class="p">(</span>x<span class="p">)</span>
+prod<span class="p">(</span>x<span class="p">)</span>
+cumsum<span class="p">(</span>x<span class="p">)</span>
+cumprod<span class="p">(</span>x<span class="p">)</span>
+
+sqrt<span class="p">(</span>x<span class="p">)</span>
+cos<span class="p">(</span>x<span class="p">)</span>
+sin<span class="p">(</span>x<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For instance, to normalize a sequence of numbers:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[67]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+numbers <span class="o">=</span> c<span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">56</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>one could use a for loops as follows:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[68]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+m <span class="o">=</span> mean<span class="p">(</span>numbers<span class="p">)</span>
+s <span class="o">=</span> sd<span class="p">(</span>numbers<span class="p">)</span>
+normalized <span class="o">=</span> vector<span class="p">(</span>length<span class="o">=</span>length<span class="p">(</span>x<span class="p">),</span> mode<span class="o">=</span>mode<span class="p">(</span>x<span class="p">))</span>
+
+<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>length<span class="p">(</span>numbers<span class="p">)){</span>
+    normalized<span class="p">[</span>i<span class="p">]</span> <span class="o">=</span> <span class="p">(</span>numbers<span class="p">[</span>i<span class="p">]</span> <span class="o">-</span> m<span class="p">)</span><span class="o">/</span>s
+<span class="p">}</span>
+
+print<span class="p">(</span>normalized<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] -0.6884905 -0.7308591  1.5146790  0.1165138  1.5994163 -0.4766472 -0.7308591
+[8] -0.6037532
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The following vectorized version is much preferred:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[69]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+normalized <span class="o">=</span> <span class="p">(</span>numbers<span class="o">-</span>mean<span class="p">(</span>numbers<span class="p">))</span><span class="o">/</span>sd<span class="p">(</span>numbers<span class="p">)</span>
+
+print<span class="p">(</span>normalized<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] -0.6884905 -0.7308591  1.5146790  0.1165138  1.5994163 -0.4766472 -0.7308591
+[8] -0.6037532
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-brain-of-Mr.-R:-BRANCHING-MECHANISMS">The brain of Mr. R: BRANCHING MECHANISMS<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#The-brain-of-Mr.-R:-BRANCHING-MECHANISMS">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="If-looping-mechanisms"><code>If</code> looping mechanisms<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#If-looping-mechanisms">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>They function exactly as in Python, except for </p>
+<ul>
+<li><p>the curly brace to define the code blocks</p>
+</li>
+<li><p>the round parenthesis surrounding the Boolean condition</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[70]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+condition <span class="o">=</span> <span class="k-Variable">F</span>
+
+<span class="kr">if</span><span class="p">(</span>condition<span class="p">){</span>
+    print<span class="p">(</span><span class="s">'If the boolean variable "condition" is True, this statement is executed.'</span><span class="p">)</span>
+<span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>   
+    print<span class="p">(</span><span class="s">'Otherwise, this statement here is executed'</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "If the boolean variable \"condition\" is True, this statement is executed."
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[71]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1"># The else part may be omitted in case there is nothing to do when "condition" is False</span>
+condition <span class="o">=</span> <span class="k-Variable">T</span>
+
+<span class="kr">if</span><span class="p">(</span>condition<span class="p">){</span>
+    print<span class="p">(</span><span class="s">'Great! Condition was True'</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Great! Condition was True"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[72]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+<span class="c1"># try with number = 0, 1, 2, 3, 4</span>
+<span class="c1"># the block of code corresponding to the first matching condition is executed;</span>
+<span class="c1"># the remaining conditions are then skipped</span>
+
+number <span class="o">=</span> <span class="m">0.5</span>
+
+<span class="kr">if</span> <span class="p">(</span>number <span class="o">&lt;</span> <span class="m">1</span><span class="p">){</span>
+    cat<span class="p">(</span><span class="s">'number is smaller than'</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+<span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>number <span class="o">&lt;</span> <span class="m">2</span><span class="p">){</span>
+    cat<span class="p">(</span><span class="s">'number"is smaller than'</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<span class="p">}</span> <span class="kr">else</span> <span class="kr">if</span> <span class="p">(</span>number <span class="o">&lt;</span> <span class="m">3</span><span class="p">){</span>
+    cat<span class="p">(</span><span class="s">'number is smaller than'</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="p">}</span> <span class="kr">else</span><span class="p">{</span>
+    print<span class="p">(</span><span class="s">'number is big!'</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>number is smaller than 1
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Vectorized-branching-mechanisms">Vectorized branching mechanisms<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Vectorized-branching-mechanisms">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When possible:</p>
+<p><strong>Branching should be implemented the vectorized way!!!</strong></p>
+<p>since:</p>
+<p><strong>All the operations for basic types are vectorized!!!</strong></p>
+<p>This works exactly the same way as Numpy arrays:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Vectorized-boolean-operations">Vectorized boolean operations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Vectorized-boolean-operations">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[73]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+a <span class="o">=</span> c<span class="p">(</span><span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">)</span>
+b <span class="o">=</span> c<span class="p">(</span><span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">)</span>
+
+print<span class="p">(</span>a <span class="o">&amp;</span> b<span class="p">)</span> <span class="c1"># &amp; = Python's 'and'</span>
+print<span class="p">(</span>a <span class="o">|</span> b<span class="p">)</span> <span class="c1"># | = Python's 'or'</span>
+print<span class="p">(</span><span class="o">!</span>a<span class="p">)</span>    <span class="c1"># ! = Python's 'not'</span>
+print<span class="p">(</span> a <span class="o">|</span> <span class="p">(</span><span class="o">!</span>b <span class="o">&amp;</span> a<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>          Bob Julien  Julie    Bob Julien  Julie                  Bob Julien 
+  TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE 
+ Julie 
+  TRUE 
+          Bob Julien  Julie    Bob Julien  Julie                  Bob Julien 
+  TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE 
+ Julie 
+  TRUE 
+          Bob Julien  Julie    Bob Julien  Julie                  Bob Julien 
+ FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE  FALSE 
+ Julie 
+ FALSE 
+          Bob Julien  Julie    Bob Julien  Julie                  Bob Julien 
+  TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE   TRUE 
+ Julie 
+  TRUE 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[74]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+a <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+b <span class="o">=</span> c<span class="p">(</span><span class="m">9</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+
+print<span class="p">(</span>a <span class="o">==</span> b<span class="p">)</span>
+print<span class="p">(</span>a <span class="o">&lt;=</span> b<span class="p">)</span>
+print<span class="p">(</span>a <span class="o">&gt;=</span> b<span class="p">)</span>
+print<span class="p">(</span>a <span class="o">&lt;</span> b<span class="p">)</span>
+print<span class="p">(</span>a <span class="o">&gt;</span> b<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] FALSE FALSE FALSE FALSE  TRUE
+[1] TRUE TRUE TRUE TRUE TRUE
+[1] FALSE FALSE FALSE FALSE  TRUE
+[1]  TRUE  TRUE  TRUE  TRUE FALSE
+[1] FALSE FALSE FALSE FALSE FALSE
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As for Numpy arrays, one can retrieve elements from an R vector by logical indexing:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[75]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+dat <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+ind <span class="o">=</span> c<span class="p">(</span><span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">)</span>
+
+print<span class="p">(</span>dat<span class="p">[</span>ind<span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre> [1]  1 NA NA NA  1  1 NA NA NA NA NA NA
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[76]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+dat <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
+ind <span class="o">=</span> dat <span class="o">&lt;</span> <span class="m">4</span>
+
+print<span class="p">(</span>ind<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1]  TRUE  TRUE  TRUE FALSE FALSE FALSE
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Putting everything together:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[77]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+filtered_data <span class="o">=</span> dat<span class="p">[</span>dat <span class="o">&lt;</span> <span class="m">4</span><span class="p">]</span>
+print<span class="p">(</span>filtered_data<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] 1 2 3
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Problem</strong>: extracting the ouliers from a sequence of data points using</p>
+<p>(1) conventional for loop and if statement</p>
+<p>(2) vectorized logical indexing</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[78]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1"># DATA POINTS</span>
+x <span class="o">=</span> c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span> <span class="m">89</span><span class="p">,</span> <span class="m">50</span><span class="p">,</span> <span class="m">44</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">60</span><span class="p">,</span> <span class="m">45</span><span class="p">,</span> <span class="m">62</span><span class="p">,</span> <span class="m">53</span><span class="p">,</span> <span class="m">37</span><span class="p">,</span> <span class="m">48</span><span class="p">,</span> <span class="m">70</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">55</span><span class="p">)</span>
+
+<span class="c1"># FIRST AND THIRD QUARTILES</span>
+Q1 <span class="o">=</span> quantile<span class="p">(</span>x<span class="p">,</span> <span class="m">0.25</span><span class="p">)</span>
+Q3 <span class="o">=</span> quantile<span class="p">(</span>x<span class="p">,</span> <span class="m">0.75</span><span class="p">)</span>
+
+<span class="c1"># OUTLIER LOWER AND UPPER CUTOFFS</span>
+L <span class="o">=</span> Q1 <span class="o">-</span> <span class="m">1.5</span><span class="o">*</span><span class="p">(</span>Q3 <span class="o">-</span> Q1<span class="p">)</span>
+U <span class="o">=</span> Q3 <span class="o">+</span> <span class="m">1.5</span><span class="o">*</span><span class="p">(</span>Q3 <span class="o">-</span> Q1<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(1) using conventional if and for</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[79]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+upper_outliers <span class="o">=</span> c<span class="p">()</span>
+lower_outliers <span class="o">=</span> c<span class="p">()</span>
+
+<span class="kr">for</span><span class="p">(</span>a <span class="kr">in</span> x<span class="p">){</span>
+    <span class="kr">if</span> <span class="p">(</span>a <span class="o">&gt;</span> U<span class="p">)</span> upper_outliers <span class="o">=</span> c<span class="p">(</span>upper_outliers<span class="p">,</span> a<span class="p">)</span>
+    <span class="kr">if</span> <span class="p">(</span>a <span class="o">&lt;</span> L<span class="p">)</span> lower_outliers <span class="o">=</span> c<span class="p">(</span>lower_outliers<span class="p">,</span> a<span class="p">)</span>
+<span class="p">}</span>
+        
+cat<span class="p">(</span><span class="s">'Upper Outliers:'</span><span class="p">,</span> upper_outliers<span class="p">,</span> <span class="s">'\n'</span><span class="p">)</span>
+cat<span class="p">(</span><span class="s">'Lower Outliers:'</span><span class="p">,</span> lower_outliers<span class="p">,</span> <span class="s">'\n'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>Upper Outliers: 89 100 
+Lower Outliers: 1 2 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>(2) vectorized version</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[80]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+upper_outliers <span class="o">=</span> x<span class="p">[</span>x <span class="o">&gt;</span> U<span class="p">]</span>
+lower_outliers <span class="o">=</span> x<span class="p">[</span>x <span class="o">&lt;</span> L<span class="p">]</span>
+
+cat<span class="p">(</span><span class="s">'Upper Outliers:'</span><span class="p">,</span> upper_outliers<span class="p">,</span> <span class="s">'\n'</span><span class="p">)</span>
+cat<span class="p">(</span><span class="s">'Lower Outliers:'</span><span class="p">,</span> lower_outliers<span class="p">,</span> <span class="s">'\n'</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>Upper Outliers: 89 100 
+Lower Outliers: 1 2 
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Useful-functions-for-vectorized-computations">Useful functions for vectorized computations<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#Useful-functions-for-vectorized-computations">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let <code>x</code> be a logical vector. The functions</p>
+<pre><code>any(x)
+</code></pre><p>returns <code>TRUE</code> if <strong>ONE</strong> of the elements in <code>x</code> is <code>TRUE</code>
+and <code>FALSE</code> otherwise.</p>
+<pre><code>all(x)
+</code></pre><p>returns <code>TRUE</code> if <strong>ALL</strong> the elements in <code>x</code> are <code>TRUE</code> and <code>FALSE</code> otherwise.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[81]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+x <span class="o">=</span> c<span class="p">(</span><span class="k-Variable">T</span><span class="p">,</span> <span class="k-Variable">F</span><span class="p">,</span> <span class="k-Variable">T</span><span class="p">)</span>
+
+print<span class="p">(</span>any<span class="p">(</span>x<span class="p">))</span>
+print<span class="p">(</span>all<span class="p">(</span>x<span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] TRUE
+[1] TRUE
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The function</p>
+<pre><code>z = ifelse(cond, x, y)
+</code></pre><ul>
+<li>takes a logical vector <code>cond</code> </li>
+<li>returns a vector from <code>x</code> and <code>y</code> as follows:</li>
+</ul>
+<pre><code>z[i] = x[i] if cond[i] == TRUE
+
+z[i] = y[i] if cond[i] == FALSE
+</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose, we have two series of observations, and we want to keep to the highest value for each observation.</p>
+<p>We can do that with a classical for/if statement, or use vectorization with <code>ifelse</code>:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[82]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+obs1 <span class="o">=</span> c<span class="p">(</span><span class="m">12</span><span class="p">,</span> <span class="m">34</span><span class="p">,</span> <span class="m">55</span><span class="p">,</span> <span class="m">21</span><span class="p">,</span> <span class="m">54</span><span class="p">,</span> <span class="m">22</span><span class="p">,</span> <span class="m">78</span> <span class="p">,</span><span class="m">65</span><span class="p">,</span> <span class="m">34</span><span class="p">)</span>
+obs2 <span class="o">=</span> c<span class="p">(</span><span class="m">24</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">85</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">99</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">1</span> <span class="p">,</span><span class="m">9</span><span class="p">,</span> <span class="m">100</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[83]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1"># CLASSICAL FOR/IF</span>
+
+max_obs <span class="o">=</span> c<span class="p">()</span>
+<span class="kr">for</span> <span class="p">(</span>i <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>length<span class="p">(</span>obs1<span class="p">)){</span>
+    <span class="kr">if</span> <span class="p">(</span>obs1<span class="p">[</span>i<span class="p">]</span> <span class="o">&gt;=</span> obs2<span class="p">[</span>i<span class="p">])</span> max_obs <span class="o">=</span> c<span class="p">(</span>max_obs<span class="p">,</span> obs1<span class="p">[</span>i<span class="p">])</span>
+    <span class="kr">else</span> max_obs <span class="o">=</span> c<span class="p">(</span>max_obs<span class="p">,</span> obs2<span class="p">[</span>i<span class="p">])</span>
+<span class="p">}</span>
+print<span class="p">(</span>max_obs<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1]  24  34  85  21  99  22  78  65 100
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[84]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+<span class="c1"># VECTORIZED VERSION</span>
+
+max_obs <span class="o">=</span> ifelse<span class="p">(</span>obs1 <span class="o">&gt;</span> obs2<span class="p">,</span> obs1<span class="p">,</span> obs2<span class="p">)</span>
+
+cat<span class="p">(</span><span class="s">'\n'</span><span class="p">,</span><span class="s">'obs1:'</span><span class="p">,</span> obs1<span class="p">,</span><span class="s">'\n'</span><span class="p">,</span><span class="s">'obs2: '</span><span class="p">,</span> obs2<span class="p">,</span><span class="s">'\n'</span><span class="p">,</span><span class="s">'maxo: '</span><span class="p">,</span> max_obs<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>
+ obs1: 12 34 55 21 54 22 78 65 34 
+ obs2:  24 14 85 12 99 10 1 9 100 
+ maxo:  24 34 85 21 99 22 78 65 100
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-hands-of-Mr.-R:-FUNCTIONS">The hands of Mr. R: FUNCTIONS<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#The-hands-of-Mr.-R:-FUNCTIONS">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>R way of defining functions ressembles much <strong>Python inline</strong> function definitions:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[85]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">y</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">
+    Out[85]:</div>
+
+
+<div class="output_text output_subarea output_pyout">
+<pre>7
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The Python keyword <code>lambda</code> creates a function whose</p>
+<ul>
+<li><p>input variables are the variables defined before the colon</p>
+</li>
+<li><p>output is the evaluation of the statement after the colon</p>
+</li>
+</ul>
+<p>The function is then stored into the variable (here: <code>f</code>), which becomes the function name.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In R,</p>
+<ul>
+<li>The keyword <code>lambda</code> is replaced by the keyword <code>function</code></li>
+</ul>
+<ul>
+<li>The <strong>function output</strong> is preceeded by the keyword <code>return</code> </li>
+</ul>
+<blockquote>
+<p><strong>Difference with Python:</strong></p>
+<p>If the keyword <code>return</code> is omitted in a R function, the <strong>function output</strong> will coincide with the <strong>last statement output</strong> in the function body. </p>
+<p>In R, returning nothing corresponds to returning the object <code>NULL</code> (corresponding to the object <code>None</code> in Python).</p>
+</blockquote>
+<p>Other than that, it's very much the same business:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[86]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R 
+
+print_and_return_nothing <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>string<span class="o">=</span><span class="s">'Hello!'</span><span class="p">){</span>
+    print<span class="p">(</span>string<span class="p">)</span>
+    <span class="kr">return</span><span class="p">(</span><span class="kc">NULL</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+a <span class="o">=</span> print_and_return_nothing<span class="p">()</span>
+
+print<span class="p">(</span>a<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Hello!"
+NULL
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[87]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+
+<span class="c1"># the code in the previous cell above is the same as the following one that returns None</span>
+
+print_and_return_nothing <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>string<span class="o">=</span><span class="s">'Hello!'</span><span class="p">){</span>
+print<span class="p">(</span>string<span class="p">)</span>
+<span class="kr">return</span><span class="p">(</span><span class="kc">NULL</span><span class="p">)</span>
+<span class="p">}</span>
+
+a <span class="o">=</span> print_and_return_nothing<span class="p">()</span>
+
+print<span class="p">(</span>a<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Hello!"
+NULL
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[88]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%%</span>R
+dont_print_but_return_something <span class="o">=</span> <span class="kr">function</span><span class="p">(</span>string<span class="o">=</span><span class="s">'Hello!'</span><span class="p">)</span> string
+
+xxx <span class="o">=</span> dont_print_but_return_something<span class="p">()</span>
+
+print<span class="p">(</span>xxx<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>[1] "Hello!"
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+
+     <!-- <hr/> -->
+     <div class="row hidden-print">
+      <div class="span12 text-center">
+        <a href="http://nbviewer.ipython.org/urls/db.tt/4HcSWSjB?create=1#">Back to top</a>
+      </div>
+    </div>
+
+     <!-- Footer
+     ================================================== -->
+      
+      <footer class="footer hidden-print">
+      <div class="span12 row-fluid footer-row">
+          <div class="span4">
+            <p>This web site does not host notebooks, it only renders notebooks available on other websites.</p>
+          </div>
+
+          <div class="span4">
+            <p>Thanks to <a href="http://www.rackspace.com/">Rackspace</a> for hosting.</p>
+            <p>nbviewer GitHub <a href="https://github.com/ipython/nbviewer">repository</a>.</p>
+            <p>nbviewer <a href="https://github.com/ipython/nbviewer/blob/master/LICENSE.txt" target="_blank">license</a>.</p>
+          </div>
+
+          <div class="span4">
+            
+
+              
+                <p>
+                    nbviewer version:
+                    <a href="https://github.com/ipython/nbviewer/commit/fa9f5980ddb257274275b60d202eca62fad9f58f">fa9f598</a>
+                </p>
+              
+            
+
+<p class="text-muted">
+    IPython version: 3.0.0-dev
+    
+    (<a href="https://github.com/ipython/ipython/commit/ad534f8">
+      ad534f8
+    </a>)
+    
+</p>
+
+
+            
+
+            
+
+<p class="text-muted">
+Rendered <span class="date" data-date="Sun, 11 May 2014 18:25:52 UTC" title="Sun, 11 May 2014 18:25:52 UTC">2 minutes ago</span>
+</p>
+
+
+          </div>
+      </div>
+      </footer>
+      
+
+    </div><!-- /container -->
+
+    <script src="./R Language Anatomy_files/bootstrap-collapse.js"></script>
+    <script src="./R Language Anatomy_files/headroom.min.js"></script>
+    <script src="./R Language Anatomy_files/jQuery.headroom.min.js"></script>
+
+
+    
+    
+    
+    <script>
+    $(document).ready(
+                function(){
+                    $("#menubar").headroom({
+                        "tolerance": 5,
+                        "offset": 205,
+                        "classes": {
+                            "initial": "animated",
+                            "pinned": "slideInDown",
+                            "unpinned": "slideOutUp"
+                        }
+                    })
+                }
+            );
+    </script>
+
+
+    <!-- Analytics
+    ================================================== -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-38683231-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    <script>
+        var update_date  = function(){
+            var str = window.moment($('.date').data('date')).fromNow();
+            $('.date').text(str);
+        }
+        setInterval(update_date , 61*1000);
+        $(update_date);
+    </script>
+    <!--NEW RELIC Stop Perf Measurement-->
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-5.newrelic.com","queueTime":0,"licenseKey":"7c83165904","agent":"js-agent.newrelic.com/nr-411.min.js","transactionName":"Y1YAMUFQXEZYUEcIVlocJBBdUkZcVl0cD1tCWgcSVkMcXVhdVw1cRkBYBlJSWlBdbF4ETVxcBg==","applicationID":"3045974","errorBeacon":"jserror.newrelic.com","applicationTime":7864}</script>
+    <!--NEW RELIC End-->
+  
+<script src="./R Language Anatomy_files/nr-411.min.js"></script><script type="text/javascript" src="./R Language Anatomy_files/7c83165904"></script><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;">ˆ</div></body></html>

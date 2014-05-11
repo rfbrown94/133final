@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <meta name="description" content="">
+    
+
+    
+    <meta name="author" content="">
+    
+
+    <!--NEW RELIC Start Perf Measurement-->
+    <script type="text/javascript" async="" src="./R Data Analysis Process_files/ga.js"></script><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o?o:n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({D5DuLP:[function(t,n){function e(t,n){var e=r[t];return e?e.apply(this,n):(o[t]||(o[t]=[]),void o[t].push(n))}var r={},o={};n.exports=e,e.queues=o,e.handlers=r},{}],handle:[function(t,n){n.exports=t("D5DuLP")},{}],G9z0Bl:[function(t,n){function e(){var t=l.info=NREUM.info;if(t&&t.agent&&t.licenseKey&&t.applicationID&&p&&p.body){l.proto="https"===f.split(":")[0]||t.sslForHttp?"https://":"http://",i("mark",["onload",a()]);var n=p.createElement("script");n.src=l.proto+t.agent,p.body.appendChild(n)}}function r(){"complete"===p.readyState&&o()}function o(){i("mark",["domContent",a()])}function a(){return(new Date).getTime()}var i=t("handle"),u=window,p=u.document,s="addEventListener",c="attachEvent",f=(""+location).split("?")[0],l=n.exports={offset:a(),origin:f,features:[]};p[s]?(p[s]("DOMContentLoaded",o,!1),u[s]("load",e,!1)):(p[c]("onreadystatechange",r),u[c]("onload",e)),i("mark",["firstbyte",a()])},{handle:"D5DuLP"}],loader:[function(t,n){n.exports=t("G9z0Bl")},{}]},{},["G9z0Bl"]);</script>
+    <!--NREND-->
+
+    <!-- Le styles -->
+    <!--<link href="/static/css/bootstrap.css" rel="stylesheet">-->
+    <link href="http://nbviewer.ipython.org/static/css/docs.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/animate.css/animate.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/components/Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/nbviewer.css" rel="stylesheet">
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="http://nbviewer.ipython.org/static/ico/ipynb_icon_16x16.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://nbviewer.ipython.org/static/ico/apple-touch-icon-57-precomposed.png">
+    
+    
+    
+
+    
+
+    
+    <meta name="twitter:card" content="summary">
+
+    
+    <meta name="twitter:title" content="Notebook on nbviewer">
+    
+
+    
+    <meta name="twitter:description" content="Check out this IPython notebook!">
+    
+
+    
+    <meta name="twitter:domain" content="nbviewer.ipython.org">
+    
+
+    <meta name="twitter:image:src" content="http://ipython.org/ipython-doc/dev/_images/ipynb_icon_128x128.png">
+    
+    
+    
+
+    <link href="http://nbviewer.ipython.org/ipython-static/style/ipython.min.css" rel="stylesheet">
+    <link href="http://nbviewer.ipython.org/static/css/pygments.css" rel="stylesheet">
+    <style type="text/css" media="screen and (min-width:980px)">
+   
+    body {
+        padding-top: 40px;
+    }
+
+    </style>
+    <style type="text/css">
+    .imgwrap {
+        text-align: center;
+    }
+
+    @media (max-width: 767px){
+
+        div.input, div.output_area {
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-orient: vertical;
+        }
+
+        div.prompt {
+            text-align:left;
+        }
+
+    }
+
+    
+    </style>
+    
+    <script src="./R Data Analysis Process_files/MathJax.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    init_mathjax = function() {
+        if (window.MathJax) {
+            // MathJax loaded
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                "HTML-CSS": {
+                    styles: {'.MathJax_Display': {"margin": 0}},
+                    linebreaks: { automatic: true }
+                }
+            });
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+    
+  <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Hover_Arrow {position: absolute; width: 15px; height: 11px; cursor: pointer}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; color: #666666}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_Menu_Close {position: absolute; width: 31px; height: 31px; top: -15px; left: -15px}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 0; position: relative; display: block; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; border: 0; padding: 0; margin: 0}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0 !important; padding: 0 !important; margin: 0 !important; vertical-align: 0 !important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap ! important}
+.MathJax img {display: inline ! important; float: none ! important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block; overflow: hidden; width: 1px; height: 60ex}
+.MathJax .MathJax_EmBox {display: block; overflow: hidden; width: 1px; height: 60em}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Blank; src: url('about:blank')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+  <body data-spy="scroll" data-target=".subnav" data-offset="50" style=""><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+  <!-- These are loaded at the top of the body so they are available to notebook
+  cells when they are loaded below. -->
+  <script src="./R Data Analysis Process_files/jquery.min.js"></script>
+  <script src="./R Data Analysis Process_files/require.js"></script>
+  <script src="./R Data Analysis Process_files/moment.min.js"></script>
+
+  <!-- Navbar
+  ================================================== -->
+    <div id="menubar" class="navbar navbar-fixed-top hidden-print animated">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+
+                <li>
+        <a href="http://nbviewer.ipython.org/" title="nbviewer">
+            <strong>
+            <span>nbviewer</span>
+            </strong>
+        </a>
+    </li>
+                <li>
+        <a href="http://nbviewer.ipython.org/faq" title="FAQ">
+            
+            <span>FAQ</span>
+            
+        </a>
+    </li>
+
+              <li class="">
+                <a href="http://www.ipython.org/">IPython</a>
+              </li>
+            </ul>
+            <ul class="nav pull-right"> 
+              
+              
+      
+        <li>
+        <a href="https://db.tt/T3Xfq0Ip" title="Download Notebook" download="">
+            <span class="fa fa-download fa-2x menu-icon"></span>
+            <span class="menu-text">Download Notebook</span>
+        </a>
+    </li>
+    
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+
+     
+    
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="lecture-13-the-data-analysis-process">Lecture 13 - The Data Analysis Process</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Lecture outline:</strong></p>
+<ul>
+<li>What is Data Analysis? </li>
+</ul>
+<ul>
+<li>The three dimensions of Data: Population, Variables, and Time</li>
+</ul>
+<ul>
+<li>Determining the ideal data cube for your question/problem</li>
+</ul>
+<ul>
+<li>Further useful online ressources</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">
+In&nbsp;[1]:
+</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython"><pre><span class="o">%</span><span class="k">load_ext</span> <span class="n">rmagic</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-Data-Analysis?">What is Data Analysis?<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#What-is-Data-Analysis?">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="selected-parts-of-the-coursera-data-analysis-lecture-https-class-coursera-org-dataanalysis-002-class-index-by-jeff-leek">Selected parts of the coursera <a href="https://class.coursera.org/dataanalysis-002/class/index">Data Analysis Lecture</a> by Jeff Leek</h4>
+<ul>
+<li><a href="http://prezi.com/fhumwa8tb3fs/the-landscape-of-data-analysis/">The landscape of data analysis</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/55">Types of Data Analysis Questions</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/57">Sources of Data Sets</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p><strong>Data Analysis</strong> is a <strong>collection of methods</strong> allowing us to <strong>answer questions</strong> or <strong>solve problems</strong> in any given field from  <strong>data</strong> relevant to the questions or problems. </p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>fields</strong> concerned by the questions/problems at hand may be <strong>very varied</strong>: </p>
+<ul>
+<li>biology</li>
+<li>physics</li>
+<li>chemistry</li>
+<li>medecine</li>
+<li>computing</li>
+<li>economy</li>
+<li>sociology</li>
+<li>politics</li>
+<li>buisness</li>
+<li>law</li>
+<li>urbanism</li>
+<li>etc. (and even nowdays, mathematics!)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A <strong>first step</strong> in data analyis is to <strong>identify the right data set</strong> that may <strong>contain the solution</strong> to our question/problem. </p>
+<p>For that, one needs </p>
+<ul>
+<li>an <strong>understanding of the field</strong> that the question address (<strong>field expertise</strong>), so that we can gather <strong>relevant</strong> data,</li>
+</ul>
+<ul>
+<li>an <strong>understanding of the type of data</strong> our question/problem requires.</li>
+</ul>
+<p>Statistics gives an abstract framework to identify the <strong>type of data</strong> or <strong>form of the data</strong> required by the question/problem. Field expertise and intuition is very important though, since, even though the type of data may be the right one to feed the type of analysis required by our problem, the actual data <em>content</em> may not be relevant, or may lack important variables relevant to the problem. </p>
+<p>Field expertise (or sometimes good judgement) may help you identify the relevant <strong>population</strong> to study and the <strong>relevant variables</strong> to consider, as well as the <strong>relevant time-scale</strong> for the observations, as we will see below.</p>
+<p>In the next section, we will give concrete examples and more details on what is meant by <strong>type of data</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Data Analysis:</strong> Question/Problem <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-1-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-1" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2"><span class="mo" id="MathJax-Span-3" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-1">\longrightarrow</script> type of data needed</p>
+<p><strong>Field expertise:</strong> type of data needed <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-2-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-4" style="width: 2.005em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.518em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.546em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-5"><span class="mo" id="MathJax-Span-6" style="font-family: STIXGeneral;">⟶</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.646em; vertical-align: 0.004em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-2">\longrightarrow</script> right data set for the problem</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The  <strong>second</strong> step is to <strong>infer</strong> from <strong>the question/problem</strong> and from the <strong>relevant data set</strong> which <strong>type of data analysis</strong> needs to be performed to solve the problem.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Only when</p>
+<ul>
+<li><p>the <strong>question/problem</strong> has been defined</p>
+</li>
+<li><p>the <strong>ideal data set</strong> has been determined</p>
+</li>
+<li><p>the <strong>right data analysis method</strong> has been specified</p>
+</li>
+</ul>
+<p>the concrete data analyis process can began.</p>
+<p><strong>Identifying this three components (question/problem, ideal data set, right analysis type) will be the bulk of your class project prospectus.</strong></p>
+<p><strong>Remark:</strong> Even if the question/data set/data analysis first considered may evolve some upon <strong>exploration</strong> of the <strong>actual gathered data</strong>, you should have a clear understanding of these three points, before starting the analysis.</p>
+<p>Randomly taking a data set and analysing it without concrete purpose or angle provided by a thought out question is a recipe for disaster. </p>
+<p>The <strong>prospectus</strong> is there to gard you from this danger. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The actual <strong>data anlysis process</strong> goes as follows:</p>
+<ul>
+<li><strong>data gathering:</strong> Collect <strong>raw data</strong> from various source data sources containing the information necessary to build your ideal data set (or the best approximation you can)</li>
+</ul>
+<ul>
+<li><strong>data exploration:</strong> Look at all the data collected, check for <strong>value integrity</strong>, look for <strong>defective/aberant values</strong>, isolate the good data, and disgard the rest</li>
+</ul>
+<ul>
+<li><strong>data cleaning:</strong> From the <strong>raw data</strong> collected build the <strong>clean data set</strong> (as close as possible to the ideal one) on which you'll perform data anlysis</li>
+</ul>
+<ul>
+<li><strong>data analysis:</strong> Apply the right data analyisis on your clean data set to answer your question, or solve your problem</li>
+</ul>
+<ul>
+<li><strong>result delivery:</strong> From you analysis create a <strong>data visualization</strong> that answers your question if possible, or write up <strong>an algorithm</strong> that solves your problem.</li>
+</ul>
+<ul>
+<li><strong>data report delivery</strong>: Write a report restating clearly your question/problem, giving you data sources and analysis methods, and comments on the accuracy of your results. </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the rest of this lecture, we learn how to recognize</p>
+<ul>
+<li>the <strong>ideal data set</strong></li>
+<li>the <strong>right analysis type</strong></li>
+</ul>
+<p>to answer your question, or solve your problem. </p>
+<p><strong>Doing so will also be your main goal, while writing your class project prospectus.</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the coming lectures, we will discuss in details every steps of the actual data analysis process, using R. For now, here are some videos concerning the other steps of the data anlysis process, if you can not wait:</p>
+<h4 id="gathering-data-">Gathering Data:</h4>
+<ul>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/73">Getting Data (Part 1)</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/75">Getting Data (Part 2)</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/77">Data Ressources</a></li>
+</ul>
+<h4 id="exploring-data-">Exploring Data:</h4>
+<ul>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/79">Summarizing Data</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/85">Exploratory Graphs (Part 1)</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/87">Exploratory Graphs (Part 2)</a></li>
+</ul>
+<h4 id="cleaning-data-">Cleaning Data:</h4>
+<ul>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/81">Data Munging Basics</a></li>
+</ul>
+<h4 id="analysing-data-">Analysing Data:</h4>
+<ul>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/91">Hierachical Clustering</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/93">K-Mean Clustering</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/95">Dimension Reduction</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/97">Clustering Example</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/99">Basic Least Squares</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/101">Inference Basics</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/105">P-values</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/107">Regression with Factor Variables</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/103">Multiple Variable Regression</a></li>
+<li><a href="https://class.coursera.org/dataanalysis-002/lecture/109">Regression in the Real World</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-3-dimensions-of-Data:-Population,-Variables,-and-Time">The 3 dimensions of Data: Population, Variables, and Time<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#The-3-dimensions-of-Data:-Population,-Variables,-and-Time">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-population-and-the-variable-dimensions">The population and the variable dimensions<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#The-population-and-the-variable-dimensions">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So far, we saw that <strong>statistical analysis</strong> is based on <strong>two main objects</strong>:</p>
+<ul>
+<li>A set <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-3-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-7" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-8"><span class="mi" id="MathJax-Span-9" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-3">\Omega</script> representing the <strong>population</strong> under study</li>
+</ul>
+<ul>
+<li>A subset  <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-4-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-10" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-11"><span class="mi" id="MathJax-Span-12" style="font-family: STIXGeneral; font-style: italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-4">F</script> of functions on <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-5-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-13" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-14"><span class="mi" id="MathJax-Span-15" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-5">\Omega</script> representing the <strong>population characteristics</strong> we are interested in.</li>
+</ul>
+<p>Depending on the field both <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-6-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-16" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-17"><span class="mi" id="MathJax-Span-18" style="font-family: STIXGeneral; font-style: italic;">O</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-6">O</script> and <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-7-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-19" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-20"><span class="mi" id="MathJax-Span-21" style="font-family: STIXGeneral; font-style: italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-7">F</script> have different names:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example:</strong> A class professor can decide to perform a data anlysis on its class students. In this case, the population under study <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-8-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-22" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-23"><span class="mi" id="MathJax-Span-24" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-8">\Omega</script> will most probably be the set of all the students in the class. Depending on the questions the professor is asking himself about his class, different <strong>characteristics</strong> or <strong>variables</strong> may be considered.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Try to find out for yourself, what variables may be relevant in order to answer the following questions:</p>
+<ul>
+<li>Are the quality of the different discussion sections affecting my student performances?</li>
+</ul>
+<ul>
+<li>Can the poor exam performance of certain of my student be attributed to a common weak background?</li>
+</ul>
+<ul>
+<li>Can I predict the final score of a given student if I know its total homework score and its midterm score?</li>
+</ul>
+<ul>
+<li>Can I identify the students that have cheated at the midterm, if any?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, what if the professor decides to investigate the following question:</p>
+<ul>
+<li>Can I identify which of my students have been improving in the class, and which have been regressing?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-temporal-dimension-in-data-analysis">The temporal dimension in data analysis<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#The-temporal-dimension-in-data-analysis">¶</a></h3>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There is a <strong>third aspect</strong> that we didn't talk about so far: <strong>TIME</strong></p>
+<p>Namely, all <strong>processeses take place in time</strong>:</p>
+<ul>
+<li>populations <strong>evolves</strong>  in time (for instance: individual can die, be born, etc.)</li>
+</ul>
+<ul>
+<li>their <strong>characteristics vary</strong> in time</li>
+</ul>
+<p><strong>Example:</strong> </p>
+<ul>
+<li>The <strong>price of a given stock</strong> at the stock exchange varies in time.</li>
+</ul>
+<ul>
+<li>The <strong>temperature at a given spot</strong> on earth varies in time.</li>
+</ul>
+<ul>
+<li>The score of a given student at the <strong>weekly</strong> quizzes and homework assignments varies from week to week.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will forget here that the set <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-9-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-25" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-26"><span class="mi" id="MathJax-Span-27" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-9">\Omega</script> itself can change over time.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Time</strong> gives a <strong>third dimension</strong> to data analysis (corresdonding to the notion of <code>axis</code> in Pandas). </p>
+<pre><code>dimension 1 = population individuals (data frame rows)
+dimension 2 = population variables (data frame columns)
+dimension 3 = observation times (third dimension!)
+</code></pre><p>To encode time in our analysis, we can think of the <strong>population variables as depending on time</strong>:</p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-10-Frame" style=""><nobr><span class="math" id="MathJax-Span-28" style="width: 22.946em; display: inline-block;"><span style="display: inline-block; position: relative; width: 17.373em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-29"><span class="mi" id="MathJax-Span-30" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-31" style="font-family: STIXGeneral; padding-left: 0.327em;">:</span><span class="mi" id="MathJax-Span-32" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.327em;">O</span><span class="mo" id="MathJax-Span-33" style="font-family: STIXGeneral; padding-left: 0.273em;">×</span><span class="texatom" id="MathJax-Span-34" style="padding-left: 0.273em;"><span class="mrow" id="MathJax-Span-35"><span class="mi" id="MathJax-Span-36" style="font-family: STIXGeneral;">ℝ</span></span></span><span class="mo" id="MathJax-Span-37" style="font-family: STIXGeneral; padding-left: 0.327em;">⟶</span><span class="mi" id="MathJax-Span-38" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.327em;">A</span><span class="mo" id="MathJax-Span-39" style="font-family: STIXGeneral;">,</span><span class="mspace" id="MathJax-Span-40" style="height: 0.003em; vertical-align: 0.003em; width: 1.139em; display: inline-block; overflow: hidden;"></span><span class="mo" id="MathJax-Span-41" style="font-family: STIXGeneral; padding-left: 0.165em;">(</span><span class="mi" id="MathJax-Span-42" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-43" style="font-family: STIXGeneral;">,</span><span class="mspace" id="MathJax-Span-44" style="height: 0.003em; vertical-align: 0.003em; width: 0.165em; display: inline-block; overflow: hidden;"></span><span class="mi" id="MathJax-Span-45" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-46" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-47" style="font-family: STIXGeneral; padding-left: 0.327em;">⟶</span><span class="msubsup" id="MathJax-Span-48" style="padding-left: 0.327em;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-49" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mi" id="MathJax-Span-50" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-51" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-52" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-53" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-54" style="font-family: STIXGeneral; padding-left: 0.327em;">∈</span><span class="mi" id="MathJax-Span-55" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.327em;">A</span><span class="mo" id="MathJax-Span-56" style="font-family: STIXGeneral;">,</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-10">X:O\times \mathbb{R} \longrightarrow A,\quad (\omega,\,t)\longrightarrow X_t(\omega)\in A,</script></p>
+<p>where <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-11-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-57" style="width: 0.814em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.598em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-58"><span class="mi" id="MathJax-Span-59" style="font-family: STIXGeneral; font-style: italic;">A</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-11">A</script> is the set of possible values of the variable <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-12-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-60" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-61"><span class="mi" id="MathJax-Span-62" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-12">X</script>, and where </p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-13-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-63" style="width: 3.141em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.384em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-64"><span class="msubsup" id="MathJax-Span-65"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-66" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mi" id="MathJax-Span-67" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-68" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-69" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-70" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-13">X_t(\omega)</script> is the <strong>value</strong> of the <strong>variable</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-14-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-71" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-72"><span class="mi" id="MathJax-Span-73" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-14">X</script> for <strong>individual</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-15-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-74" style="width: 0.869em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.652em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-75"><span class="mi" id="MathJax-Span-76" style="font-family: STIXGeneral; font-style: italic;">ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-15">\omega</script> <strong>observed at time</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-16-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-77" style="width: 0.436em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.327em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.734em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-78"><span class="mi" id="MathJax-Span-79" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.861em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-16">t</script>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example:</strong> Consider again the professor question that we saw above:</p>
+<ul>
+<li>Can I identify which of my students have improved in class, and which have regressed?</li>
+</ul>
+<p>So here the <strong>right population</strong> to consider is again the population <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-17-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-80" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-81"><span class="mi" id="MathJax-Span-82" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-17">\Omega</script> of all the class students. </p>
+<p>The <strong>relevant variables</strong> that may help us answer this question must somehow depend on time. Here are two:</p>
+<ul>
+<li><p>The <strong>weekly</strong> quiz scores <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-18-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-83" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-84"><span class="mi" id="MathJax-Span-85" style="font-family: STIXGeneral; font-style: italic;">Q</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-18">Q</script></p>
+</li>
+<li><p>The <strong>weekly</strong> homework scores <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-19-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-86" style="width: 1.085em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-87"><span class="mi" id="MathJax-Span-88" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-19">H</script></p>
+</li>
+</ul>
+<p>Both of these variables have a value depending on which week we are observing the quiz or homework score. </p>
+<p>We have 12 weeks in a semester, which gives us a kind of discrete time: </p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-20-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-89" style="width: 11.258em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.498em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-90"><span class="mi" id="MathJax-Span-91" style="font-family: STIXGeneral; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-92" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-93" style="font-family: STIXGeneral; padding-left: 0.327em;">{</span><span class="mn" id="MathJax-Span-94" style="font-family: STIXGeneral;">1</span><span class="mo" id="MathJax-Span-95" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-96" style="font-family: STIXGeneral; padding-left: 0.165em;">2</span><span class="mo" id="MathJax-Span-97" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-98" style="font-family: STIXGeneral; padding-left: 0.165em;">3</span><span class="mo" id="MathJax-Span-99" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-100" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-101" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="mn" id="MathJax-Span-102" style="font-family: STIXGeneral; padding-left: 0.165em;">12</span><span class="mo" id="MathJax-Span-103" style="font-family: STIXGeneral;">}</span><span class="mo" id="MathJax-Span-104" style="font-family: STIXGeneral;">,</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-20">T =\{1,2,3, \dots, 12\},</script></p>
+<p>where the number <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-21-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-105" style="width: 0.381em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.273em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-106"><span class="mi" id="MathJax-Span-107" style="font-family: STIXGeneral; font-style: italic;">i</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-21">i</script> denotes the <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-22-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-108" style="width: 1.356em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.085em 1000.003em 2.275em -0.43em); top: -2.108em; left: 0.003em;"><span class="mrow" id="MathJax-Span-109"><span class="msubsup" id="MathJax-Span-110"><span style="display: inline-block; position: relative; width: 0.977em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-111" style="font-family: STIXGeneral; font-style: italic;">i</span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.595em; left: 0.273em;"><span class="texatom" id="MathJax-Span-112"><span class="mrow" id="MathJax-Span-113"><span class="mi" id="MathJax-Span-114" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-115" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">h</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.113em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-22">i^{th}</script> week of instruction.</p>
+<p>So both variables take a time <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-23-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-116" style="width: 2.925em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.221em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-117"><span class="mi" id="MathJax-Span-118" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-119" style="font-family: STIXGeneral; padding-left: 0.327em;">∈</span><span class="mi" id="MathJax-Span-120" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.327em;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-23">t\in T</script> and student <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-24-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-121" style="width: 4.819em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.628em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-122"><span class="texatom" id="MathJax-Span-123"><span class="mrow" id="MathJax-Span-124"><span class="mtext" id="MathJax-Span-125" style="font-family: STIXGeneral;">Bob</span></span></span><span class="mo" id="MathJax-Span-126" style="font-family: STIXGeneral; padding-left: 0.327em;">∈</span><span class="mi" id="MathJax-Span-127" style="font-family: STIXGeneral; padding-left: 0.327em;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-24">\textrm{Bob}\in\Omega</script> and yield back two values:</p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-25-Frame" style=""><nobr><span class="math" id="MathJax-Span-128" style="width: 16.832em; display: inline-block;"><span style="display: inline-block; position: relative; width: 12.719em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-129"><span class="msubsup" id="MathJax-Span-130"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-131" style="font-family: STIXGeneral; font-style: italic;">Q</span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.706em;"><span class="mi" id="MathJax-Span-132" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-133" style="font-family: STIXGeneral;">(</span><span class="texatom" id="MathJax-Span-134"><span class="mrow" id="MathJax-Span-135"><span class="mtext" id="MathJax-Span-136" style="font-family: STIXGeneral;">Bob</span></span></span><span class="mo" id="MathJax-Span-137" style="font-family: STIXGeneral;">)</span><span class="mspace" id="MathJax-Span-138" style="height: 0.003em; vertical-align: 0.003em; width: 2.275em; display: inline-block; overflow: hidden;"></span><span class="texatom" id="MathJax-Span-139"><span class="mrow" id="MathJax-Span-140"><span class="mtext" id="MathJax-Span-141" style="font-family: STIXGeneral;">and</span></span></span><span class="mspace" id="MathJax-Span-142" style="height: 0.003em; vertical-align: 0.003em; width: 2.275em; display: inline-block; overflow: hidden;"></span><span class="msubsup" id="MathJax-Span-143"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-144" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.76em;"><span class="mi" id="MathJax-Span-145" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-146" style="font-family: STIXGeneral;">(</span><span class="texatom" id="MathJax-Span-147"><span class="mrow" id="MathJax-Span-148"><span class="mtext" id="MathJax-Span-149" style="font-family: STIXGeneral;">Bob</span></span></span><span class="mo" id="MathJax-Span-150" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.361em; vertical-align: -0.354em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-25">Q_t(\textrm{Bob})\qquad \textrm{and}\qquad H_t(\textrm{Bob})</script></p>
+<p>which are respectively, the score of Bob at the quiz and homework assignment of week <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-26-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-151" style="width: 0.436em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.327em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.734em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-152"><span class="mi" id="MathJax-Span-153" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.861em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-26">t</script>. </p>
+<p>Answering the professor question will thus involve a kind of temporal analysis of this two variables for example.</p>
+<p>We will come back to that late. For now, just keep in mind that <strong>your question or problem may involve a temporal aspect</strong>, whose analysis will necessite particular methods. You need to be aware of that and to be able to recognize any temporal aspect in your clas project question or problem. This will determine the type of data you'll need to gather and the type of analysis you'll need to perform on it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Determining-the-ideal-data-set-for-your-problem">Determining the ideal data set for your problem<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#Determining-the-ideal-data-set-for-your-problem">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Suppose you have a certain question you'll wish to answer using data anlysis techniques;.</p>
+<p>Your <strong>first order of business</strong> is to <strong>identify the tree dimensions that your problems involves</strong>. </p>
+<p>You'll need to dertermine:</p>
+<ul>
+<li>What is the <strong>population</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-27-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-154" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-155"><span class="mi" id="MathJax-Span-156" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-27">\Omega</script> relevant to the problem?</li>
+</ul>
+<ul>
+<li>What are the <strong>population variables</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-28-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-157" style="width: 7.037em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.306em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.762em -0.376em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-158"><span class="mo" id="MathJax-Span-159" style="font-family: STIXGeneral;">{</span><span class="msubsup" id="MathJax-Span-160"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-161" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mn" id="MathJax-Span-162" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-163" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-164" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-165" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="msubsup" id="MathJax-Span-166" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-167" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mi" id="MathJax-Span-168" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-169" style="font-family: STIXGeneral;">}</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-28">\{X_1,\dots, X_n\}</script> relevant to the problem?</li>
+</ul>
+<ul>
+<li>What is the <strong>time frame</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-29-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-170" style="width: 3.52em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.654em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-171"><span class="mi" id="MathJax-Span-172" style="font-family: STIXGeneral; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-173" style="font-family: STIXGeneral; padding-left: 0.327em;">⊂</span><span class="texatom" id="MathJax-Span-174" style="padding-left: 0.327em;"><span class="mrow" id="MathJax-Span-175"><span class="mi" id="MathJax-Span-176" style="font-family: STIXGeneral;">ℝ</span></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-29">T\subset \mathbb{R}</script> relevant to your problem?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example:</strong> Suppose you are environemental scientist, and you'd like to settle the question about the earth global temperature increasing. As rough simplification, you may take your population <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-30-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-177" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-178"><span class="mi" id="MathJax-Span-179" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-30">\Omega</script> to be all the points at the surface of the earth: i.e. all the points <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-31-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-180" style="width: 2.708em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.059em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-181"><span class="mo" id="MathJax-Span-182" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-183" style="font-family: STIXGeneral; font-style: italic;">θ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-184" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-185" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">γ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-186" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-31">(\theta, \gamma)</script>  describing a location on the earth by giving a longitude <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-32-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-187" style="width: 0.76em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.544em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-188"><span class="mi" id="MathJax-Span-189" style="font-family: STIXGeneral; font-style: italic;">θ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-32">\theta</script> and latitude <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-33-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-190" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.817em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-191"><span class="mi" id="MathJax-Span-192" style="font-family: STIXGeneral; font-style: italic;">γ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-33">\gamma</script>. The variable of interest here is the temperature <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-34-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-193" style="width: 3.953em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.979em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-194"><span class="msubsup" id="MathJax-Span-195"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-196" style="font-family: STIXGeneral; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.598em;"><span class="mi" id="MathJax-Span-197" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-198" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-199" style="font-family: STIXGeneral; font-style: italic;">θ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-200" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-201" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">γ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-202" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-34">T_t(\theta, \gamma)</script> at a given location <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-35-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-203" style="width: 2.708em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.059em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-204"><span class="mo" id="MathJax-Span-205" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-206" style="font-family: STIXGeneral; font-style: italic;">θ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-207" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-208" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">γ<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-209" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.354em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-35">(\theta, \gamma)</script> at a given time <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-36-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-210" style="width: 0.436em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.327em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.734em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-211"><span class="mi" id="MathJax-Span-212" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.861em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-36">t</script>. </p>
+<p>A field expert may advice us to enlarge our population by considering all the points not only on the surface of the earth, but also those in a small layer of the earth atmosphere. This expert for good reason, but unknown to us, may also suggest other variables to take into consideration. This is exactly at this point of the data analysis that field expertise is crucial. </p>
+<p>Another aspect that we must consider here is the <strong>time-frame</strong> relevant to our problem: Are we considering a period of 10 years, 50 year, 500 years, 500000 years? Again, the field expert will tell us, but we need to be aware that this issue must be addressed.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Remark:</strong> Your problem may or may not involve all of the three dimensions, but you need to be very clear about what dimensions are involved at the beginning of your project. Problems involving <strong>all the 3 dimensions</strong> will be most probably be <strong>much more challenging</strong> than those, where only one or two dimensions are relevant. </p>
+<p>This increased complexity has two reasons:</p>
+<ul>
+<li><strong>Practical reason</strong>: it's harder (if not impossible in certain cases) to collect data along all the three axes</li>
+</ul>
+<ul>
+<li><strong>Theoretical reason</strong>: you may need to <strong>perform data analysis for each of the axis</strong>: a <strong>population analysis</strong>, a <strong>variable analysis</strong>, and a <strong>temporal analysis</strong>.</li>
+</ul>
+<p>So in your <strong>class project</strong>, it is strongly encouraged that you <strong>avoid questions involving all the three dimensions of Data!</strong> It won't be managable.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>In practice</strong>, we don't have access to the whole population, nor the whole time-frame, and even maybe not all the values for our ideal set of variables. We will need to content ourself probably only with</p>
+<ul>
+<li>a <strong>finite sample</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-37-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-213" style="width: 11.312em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.552em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.762em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-214"><span class="mi" id="MathJax-Span-215" style="font-family: STIXGeneral; font-style: italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-216" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-217" style="font-family: STIXGeneral; padding-left: 0.327em;">{</span><span class="msubsup" id="MathJax-Span-218"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-219" style="font-family: STIXGeneral; font-style: italic;">s</span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.381em;"><span class="mn" id="MathJax-Span-220" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-221" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-222" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-223" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="msubsup" id="MathJax-Span-224" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 0.923em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-225" style="font-family: STIXGeneral; font-style: italic;">s</span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.381em;"><span class="mi" id="MathJax-Span-226" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">m</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-227" style="font-family: STIXGeneral;">}</span><span class="mo" id="MathJax-Span-228" style="font-family: STIXGeneral; padding-left: 0.327em;">⊂</span><span class="mi" id="MathJax-Span-229" style="font-family: STIXGeneral; padding-left: 0.327em;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-37">S =\{s_1,\dots, s_m\} \subset \Omega</script> of our ideal population (even if <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-38-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-230" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-231"><span class="mi" id="MathJax-Span-232" style="font-family: STIXGeneral; font-style: italic;">m</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-38">m</script> can be very large)</li>
+</ul>
+<ul>
+<li>a <strong>finite choice of variables</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-39-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-233" style="width: 9.581em; display: inline-block;"><span style="display: inline-block; position: relative; width: 7.254em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.762em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-234"><span class="mi" id="MathJax-Span-235" style="font-family: STIXGeneral; font-style: italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-236" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-237" style="font-family: STIXGeneral; padding-left: 0.327em;">{</span><span class="msubsup" id="MathJax-Span-238"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-239" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mn" id="MathJax-Span-240" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-241" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-242" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-243" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="msubsup" id="MathJax-Span-244" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-245" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mi" id="MathJax-Span-246" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-247" style="font-family: STIXGeneral;">}</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-39">F = \{X_1,\dots,X_n\}</script> of our ideal variable collection (which may be infinite...)</li>
+</ul>
+<ul>
+<li>a  <strong>finite number of observation times</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-40-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-248" style="width: 8.228em; display: inline-block;"><span style="display: inline-block; position: relative; width: 6.226em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.762em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-249"><span class="mi" id="MathJax-Span-250" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-251" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-252" style="font-family: STIXGeneral; padding-left: 0.327em;">{</span><span class="msubsup" id="MathJax-Span-253"><span style="display: inline-block; position: relative; width: 0.76em; height: 0px;"><span style="position: absolute; clip: rect(1.734em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-254" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.327em;"><span class="mn" id="MathJax-Span-255" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-256" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-257" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-258" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="msubsup" id="MathJax-Span-259" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 0.76em; height: 0px;"><span style="position: absolute; clip: rect(1.734em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-260" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.327em;"><span class="mi" id="MathJax-Span-261" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">k<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-262" style="font-family: STIXGeneral;">}</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-40">I = \{t_1,\dots, t_k\}</script></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>collection of values</strong> corresponding to </p>
+<ul>
+<li>the <strong>best possible finite sample <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-41-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-263" style="width: 0.76em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.544em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-264"><span class="mi" id="MathJax-Span-265" style="font-family: STIXGeneral; font-style: italic;">S<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-41">S</script></strong></li>
+</ul>
+<ul>
+<li>the <strong>best possible finite variable collection <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-42-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-266" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-267"><span class="mi" id="MathJax-Span-268" style="font-family: STIXGeneral; font-style: italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-42">F</script></strong></li>
+</ul>
+<ul>
+<li>the <strong>best possible finite observation times <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-43-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-269" style="width: 0.598em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.436em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-270"><span class="mi" id="MathJax-Span-271" style="font-family: STIXGeneral; font-style: italic;">I<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-43">I</script></strong></li>
+</ul>
+<p>is our <strong>IDEAL DATA SET</strong>.</p>
+<p>Observe that the <strong>ideal data set comes geometrically in the form of cube</strong> with one axis for the population, one axis for the variables, and one axis for the times.</p>
+<p>We will call it the <strong>IDEAL DATA CUBE</strong> <strong>associated to our initial question</strong>.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As already noted, a lot of problems do not involve <strong>the three data dimensions</strong>. </p>
+<p>Depending on the initial question, the <strong>ideal data set</strong> may only correspond to <strong>slices of the full data cube</strong>.</p>
+<p>For instance, the relevant data to solve the intial problem may be</p>
+<ul>
+<li>a <strong>time series</strong>: one idividual and one variable observed at different times (ex: single stock prices)</li>
+</ul>
+<ul>
+<li>a <strong>time frame</strong>: several individual and one variable at different times (ex: portfolio prices)</li>
+</ul>
+<ul>
+<li>a <strong>data frame</strong>: several individual and several variables constant in time</li>
+</ul>
+<p>On the other hand, <strong>only a certain subsets or slices of the ideal data cube may also be available to you</strong>... </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Determining-the-right-type-of-analysis-for-your-problem">Determining the right type of analysis for your problem<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#Determining-the-right-type-of-analysis-for-your-problem">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A <strong>data cube</strong> can be analysed in essentially 3 ways, corresponding to the 3 axis:</p>
+<ul>
+<li><strong>Variable Analysis:</strong> i.e., analysis by <strong>columns</strong></li>
+</ul>
+<ul>
+<li><strong>Population Analysis:</strong> i.e., analysis by <strong>rows</strong></li>
+</ul>
+<ul>
+<li><strong>Temporal Analysis:</strong> i.e., analysis along the <strong>time axis</strong></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Once the</p>
+<ul>
+<li>the <strong>problem</strong> has been chosen,</li>
+</ul>
+<ul>
+<li>the <strong>ideal data cube</strong> identified,</li>
+</ul>
+<p>it is necessary to identifiy the <strong>right type of analysis</strong> to solve your problem. (The form in which you want your solution, will also prescribe certain sub-types of analysis.)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Variable-analysis">Variable analysis<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#Variable-analysis">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p>The main problems that <strong>Variable analysis</strong> addresses may be split into the following three:</p>
+<ul>
+<li><strong>describing</strong> the <strong>repartition of values</strong> among the population</li>
+</ul>
+<ul>
+<li><strong>groupping</strong> the variables that have a <strong>(co)dependence relationship </strong></li>
+</ul>
+<ul>
+<li><strong>predicting</strong> the value of a <strong>target variable</strong> from the values of the other variables</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Variable analysis is a <strong>column analysis</strong>.</p>
+<p>These are the three main type of variable analysis <em>we will need for this class</em>. </p>
+<p><strong>Remark:</strong> Be aware that there are <strong>other types of variable analysis</strong>. Two other very important types, <strong>factor analysis</strong> and <strong>principal component analysis</strong>, aim at <strong>reducing</strong> the number of variables <strong>while retaining most of the information</strong>; In a sense, these two anlaysis attempt at finding a smaller set of other variables on which our larger set of initial variables depends upon. You most probably won't need this type of analysis for your class project.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example1 (Prediction):</strong> Suppose you are real-estate-agent, who buys and sells houses in the Bay Area. One important aspect of your buisness is then to determine the best prices at which you will be able to sell the house in your house pool. So here is your problem: </p>
+<p>At what price should I put this particular house back on the market right now?</p>
+<p>For this particular data analyis problem:</p>
+<ul>
+<li><p>the <strong>ideal population</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-44-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-272" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-273"><span class="mi" id="MathJax-Span-274" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-44">\Omega</script> would be the set of <strong>all houses in the Bay Area</strong></p>
+</li>
+<li><p>the <strong>ideal variable collection</strong> would be <strong>all the possible house characteristics</strong> (location, number of rooms, date of construction, current state, size, number of floor, buying price, and what not...)</p>
+</li>
+<li><p>the <strong>ideal time frame</strong> can be taken as now, which means that you may disregard the temporal dimension for this problem althougehter (it is a simplification of course, since housing prices evolve in time...)</p>
+</li>
+</ul>
+<p>Realistically, you'll need to settle down for the houses you can get information on (for instance, by collecting data from the website <a href="http://www.trulia.com/">trulia</a>.
+As for the variables, a good simple first start would be to consider two variables:</p>
+<ul>
+<li><p>the variable <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-45-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-275" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-276"><span class="mi" id="MathJax-Span-277" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-45">X</script> giving you the <strong>house size</strong> in feet</p>
+</li>
+<li><p>the variable <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-46-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-278" style="width: 0.869em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.652em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-279"><span class="mi" id="MathJax-Span-280" style="font-family: STIXGeneral; font-style: italic;">Y<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-46">Y</script> giving you the <strong>house price</strong> in thousands of dollars</p>
+</li>
+</ul>
+<p>So the data cube you need to construct for this problem is a <strong>data frame</strong> (no time dimension), and the analysis required by your problem is a <strong>variable analysis</strong> (along the column axis). You want to <strong>predict</strong> the value of the variable <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-47-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-281" style="width: 0.869em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.652em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-282"><span class="mi" id="MathJax-Span-283" style="font-family: STIXGeneral; font-style: italic;">Y<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-47">Y</script> (called the <strong>target</strong>) frome the values of the variable <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-48-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-284" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-285"><span class="mi" id="MathJax-Span-286" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-48">X</script>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example 2 (Correlation):</strong> Suppose your are a professor, and you'd like to know if the homework sets you gave to your students helped them do well in the final exam. Even better, you'd like to know, if at all possible, which homework sets were the most effective. </p>
+<p>Here the <strong>population</strong> <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-49-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-287" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-288"><span class="mi" id="MathJax-Span-289" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-49">\Omega</script> is again the class students, while the <strong>variables</strong> may be taken to be each of the homework scores, say <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-50-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-290" style="width: 1.734em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.301em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.301em 1000.003em 2.438em -0.484em); top: -2.108em; left: 0.003em;"><span class="mrow" id="MathJax-Span-291"><span class="msubsup" id="MathJax-Span-292"><span style="display: inline-block; position: relative; width: 1.247em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-293" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.76em;"><span class="mn" id="MathJax-Span-294" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.113em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.218em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-50">H_1</script> to <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-51-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-295" style="width: 2.221em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.68em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.301em 1000.003em 2.438em -0.484em); top: -2.108em; left: 0.003em;"><span class="mrow" id="MathJax-Span-296"><span class="msubsup" id="MathJax-Span-297"><span style="display: inline-block; position: relative; width: 1.626em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-298" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.76em;"><span class="texatom" id="MathJax-Span-299"><span class="mrow" id="MathJax-Span-300"><span class="mn" id="MathJax-Span-301" style="font-size: 70.7%; font-family: STIXGeneral;">14</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.113em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.218em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-51">H_{14}</script>, along with the final score <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-52-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-302" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-303"><span class="mi" id="MathJax-Span-304" style="font-family: STIXGeneral; font-style: italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-52">F</script>.
+Again, the data cube for this problem is actually a <strong>data frame</strong> with rows corresponding to the students, and columns corresponding to the variables above. </p>
+<p>The question here involves again a <strong>variable</strong> or <strong>column</strong> analysis, but it is not a <strong>prediction</strong> problem in this case, but a <strong>correlation</strong> problem. You want to understand correlation between the homework scores and final scores. </p>
+<p>Beware that this type of <strong>causal of analyis</strong> between variables should be taken with much caution, since <strong>causality relations</strong> of the type "a good grade for homework 8 <strong>causes</strong> a good grade for the final exam are very <strong>hard to determine for sure</strong>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example 3 (Description):</strong> Our class professor has just given an exam to his students, and would like to know if the exam was too easy, too hard, or just right. Here we again have <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-53-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-305" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-306"><span class="mi" id="MathJax-Span-307" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-53">\Omega</script> to be the class students, and we have a single variable <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-54-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-308" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-309"><span class="mi" id="MathJax-Span-310" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-54">X</script>, the exam score. So our data cube is in fact a <strong>data line</strong>. </p>
+<p>Solving this problems amounts to compute the distribution of grades among the student, and interpret it. </p>
+<p>Observe that this analysis involves a <strong>implicit assumption</strong> about the <strong>probability distribution of grades</strong>: If our class is a typical class, one may assume that the student skills are distributed in a <strong>normal way</strong> with a lot of average students, a fewer number of weak students, and a fewer number of very talented students: the underlying assumption is that talent is shared according to a <strong>normal distribution</strong> among a typical class of students. </p>
+<p>From this assumption, the professor will be able to interpret the exam by observing deviations from this normal distribution pattern. Again, here many things may be going on, and conclusions must be drawn with care.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Population-Analysis">Population Analysis<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#Population-Analysis">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p><strong>Population analysis</strong> seeks to identify </p>
+<ul>
+<li><strong>identify</strong> natural <strong>groups</strong> or <strong>clusters</strong> in a population</li>
+</ul>
+<ul>
+<li><strong>explain</strong> these clusters in terms of <strong>extra (or hidden) variables</strong></li>
+</ul>
+<ul>
+<li><strong>detect anomalies</strong>, <strong>defects</strong>, or <strong>outliers</strong> in the population</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Population analysis is a <strong>row analysis</strong>. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example 1: (Clustering)</strong> Suppose a class professor wants to identify different groups among its students, according to their learning style (for instance: hard-working students having difficulties with the class material, a group lazy but talented students, a group of perfectly balenced students for instance). </p>
+<p>For this purpose, the professor decides to have weekly challenging quizzes requiring no preparation at all, straightforward but voluminous weekly homework assignements, and a fair but comprehensive final exam.</p>
+<p>So here the population <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-55-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-311" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-312"><span class="mi" id="MathJax-Span-313" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-55">\Omega</script> is the class students, the set of variables is the total quiz grade <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-56-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-314" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-315"><span class="mi" id="MathJax-Span-316" style="font-family: STIXGeneral; font-style: italic;">Q</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-56">Q</script>, the total homework grade <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-57-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-317" style="width: 1.085em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-318"><span class="mi" id="MathJax-Span-319" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-57">H</script>, and the final grade <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-58-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-320" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-321"><span class="mi" id="MathJax-Span-322" style="font-family: STIXGeneral; font-style: italic;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-58">F</script>. Suppose that the variable value ranges are all between 0 and 10.</p>
+<p>The question involves a <strong>population analysis</strong>, namely clustering students into different groups, and interpreting these groups, if at all possible, as reflecting different learning styles. </p>
+<p>So for each student <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-59-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-323" style="width: 3.52em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.654em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-324"><span class="mi" id="MathJax-Span-325" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-326" style="font-family: STIXGeneral; padding-left: 0.327em;">∈</span><span class="mi" id="MathJax-Span-327" style="font-family: STIXGeneral; padding-left: 0.327em;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-59">\omega\in \Omega</script>, one can associate a point </p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-60-Frame" style=""><nobr><span class="math" id="MathJax-Span-328" style="width: 16.723em; display: inline-block;"><span style="display: inline-block; position: relative; width: 12.665em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.951em 1000.003em 3.628em -0.484em); top: -3.028em; left: 0.003em;"><span class="mrow" id="MathJax-Span-329"><span class="msubsup" id="MathJax-Span-330"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-331" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mi" id="MathJax-Span-332" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">ω</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-333" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="texatom" id="MathJax-Span-334" style="padding-left: 0.327em;"><span class="mrow" id="MathJax-Span-335"><span class="mo" id="MathJax-Span-336" style="vertical-align: -0.268em;"><span><span style="font-size: 110%; font-family: STIXSizeOneSym;">(</span></span></span></span></span><span class="mi" id="MathJax-Span-337" style="font-family: STIXGeneral; font-style: italic;">Q</span><span class="mo" id="MathJax-Span-338" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-339" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-340" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-341" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-342" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-343" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-344" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-345" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-346" style="font-family: STIXGeneral;">,</span><span class="mi" id="MathJax-Span-347" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.165em;">F<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-348" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-349" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-350" style="font-family: STIXGeneral;">)</span><span class="texatom" id="MathJax-Span-351"><span class="mrow" id="MathJax-Span-352"><span class="mo" id="MathJax-Span-353" style="vertical-align: -0.268em;"><span><span style="font-size: 110%; font-family: STIXSizeOneSym;">)</span></span></span></span></span><span class="mo" id="MathJax-Span-354" style="font-family: STIXGeneral; padding-left: 0.327em;">∈</span><span class="msubsup" id="MathJax-Span-355" style="padding-left: 0.327em;"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="texatom" id="MathJax-Span-356"><span class="mrow" id="MathJax-Span-357"><span class="mi" id="MathJax-Span-358" style="font-family: STIXGeneral;">ℝ</span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.649em; left: 0.706em;"><span class="mn" id="MathJax-Span-359" style="font-size: 70.7%; font-family: STIXGeneral;">3</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 3.033em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.932em; vertical-align: -0.639em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-60">x_\omega = \big(Q(\omega), H(\omega), F(\omega)\big)\in \mathbb{R}^3</script></p>
+<p>Now the whole class can be represented as a <strong>cloud of points</strong> of such points lying in a three dimensional cube.</p>
+<p>We can now look for groups of points that are close to each other, forming independent <strong>clusters</strong>. </p>
+<p>For instance, we may inteprete a cluster of points accumulating around the the cube vertex <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-61-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-360" style="width: 4.602em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.466em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-361"><span class="mo" id="MathJax-Span-362" style="font-family: STIXGeneral;">(</span><span class="mn" id="MathJax-Span-363" style="font-family: STIXGeneral;">0</span><span class="mo" id="MathJax-Span-364" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-365" style="font-family: STIXGeneral; padding-left: 0.165em;">10</span><span class="mo" id="MathJax-Span-366" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-367" style="font-family: STIXGeneral; padding-left: 0.165em;">0</span><span class="mo" id="MathJax-Span-368" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-61">(0, 10, 0)</script> as being the hard-working students having difficulty with the material, or a cluster of points accumulating around the cube vertex <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-62-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-369" style="width: 4.602em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.466em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-370"><span class="mo" id="MathJax-Span-371" style="font-family: STIXGeneral;">(</span><span class="mn" id="MathJax-Span-372" style="font-family: STIXGeneral;">10</span><span class="mo" id="MathJax-Span-373" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-374" style="font-family: STIXGeneral; padding-left: 0.165em;">0</span><span class="mo" id="MathJax-Span-375" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-376" style="font-family: STIXGeneral; padding-left: 0.165em;">0</span><span class="mo" id="MathJax-Span-377" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-62">(10, 0, 0)</script> as corresponding to a cluster of student with talent, but not involved in the class. </p>
+<p>It may also be that not cluster at all appear and that all the points accumulate around the cube center <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-63-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-378" style="width: 3.953em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.979em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-379"><span class="mo" id="MathJax-Span-380" style="font-family: STIXGeneral;">(</span><span class="mn" id="MathJax-Span-381" style="font-family: STIXGeneral;">5</span><span class="mo" id="MathJax-Span-382" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-383" style="font-family: STIXGeneral; padding-left: 0.165em;">5</span><span class="mo" id="MathJax-Span-384" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-385" style="font-family: STIXGeneral; padding-left: 0.165em;">5</span><span class="mo" id="MathJax-Span-386" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-63">(5, 5, 5)</script> indicating a normal distribution centered at score <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-64-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-387" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-388"><span class="mn" id="MathJax-Span-389" style="font-family: STIXGeneral;">5</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-64">5</script> of talent, work, and class performance.</p>
+<p>Although cluster may be present in the data, their interpretation should also taken with appropriate care.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example 2 (Anomaly Detection):</strong> Suppose a class professor wants to detect who may have cheated at a given exam. The grading for this exam was negative, and points were removed as new mistakes were appearing during the grading. </p>
+<p>Again, the popluation <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-65-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-390" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-391"><span class="mi" id="MathJax-Span-392" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-65">\Omega</script> for this problem consists the class students. Now a relevant set of variables for the problem would be the a list of categorical variables with to values corresponding to each of the mistakes encountered in the exam. </p>
+<p>For instance, the variable <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-66-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-393" style="width: 1.356em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.301em 1000.003em 2.438em -0.538em); top: -2.108em; left: 0.003em;"><span class="mrow" id="MathJax-Span-394"><span class="msubsup" id="MathJax-Span-395"><span style="display: inline-block; position: relative; width: 0.977em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-396" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mi" id="MathJax-Span-397" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">i</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.113em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.218em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-66">X_i</script> would corresponding to mistake number <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-67-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-398" style="width: 0.381em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.273em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-399"><span class="mi" id="MathJax-Span-400" style="font-family: STIXGeneral; font-style: italic;">i</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-67">i</script> and <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-68-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-401" style="width: 3.087em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.33em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.538em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-402"><span class="msubsup" id="MathJax-Span-403"><span style="display: inline-block; position: relative; width: 0.977em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-404" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mi" id="MathJax-Span-405" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">i</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-406" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-407" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-408" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-68">X_i(\omega)</script> would have value 0 if the student <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-69-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-409" style="width: 0.869em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.652em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-410"><span class="mi" id="MathJax-Span-411" style="font-family: STIXGeneral; font-style: italic;">ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-69">\omega</script> didn't commit this mistake and value 1 otherwise. </p>
+<p>For each student, one obtain a vector of mistakes:</p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-70-Frame" style=""><nobr><span class="math" id="MathJax-Span-412" style="width: 13.098em; display: inline-block;"><span style="display: inline-block; position: relative; width: 9.905em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-413"><span class="msubsup" id="MathJax-Span-414"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-415" style="font-family: STIXGeneral; font-style: italic;">x<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.49em;"><span class="mi" id="MathJax-Span-416" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">ω</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-417" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-418" style="font-family: STIXGeneral; padding-left: 0.327em;">(</span><span class="msubsup" id="MathJax-Span-419"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-420" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mn" id="MathJax-Span-421" style="font-size: 70.7%; font-family: STIXGeneral;">1</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-422" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-423" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-424" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-425" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-426" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-427" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="msubsup" id="MathJax-Span-428" style="padding-left: 0.165em;"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.538em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-429" style="font-family: STIXGeneral; font-style: italic;">X<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.652em;"><span class="mi" id="MathJax-Span-430" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">n</span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-431" style="font-family: STIXGeneral;">(</span><span class="mi" id="MathJax-Span-432" style="font-family: STIXGeneral; font-style: italic;">ω</span><span class="mo" id="MathJax-Span-433" style="font-family: STIXGeneral;">)</span><span class="mo" id="MathJax-Span-434" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-70">x_\omega = (X_1(\omega),\dots,X_n(\omega))</script> </p>
+<p>where <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-71-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-435" style="width: 0.652em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.49em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.843em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-436"><span class="mi" id="MathJax-Span-437" style="font-family: STIXGeneral; font-style: italic;">n</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.718em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-71">n</script> is the total number of mistakes for the exam. </p>
+<p>The problem is a <strong>population analysis</strong> problem where one needs to detect in our student population the individuals having abnormally close mistake vectors, indication potential cheating cases. To be sure, one then need to look at the actual exam copies, and sit placement to confirm the indication. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Time-Analysis">Time Analysis<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#Time-Analysis">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote>
+<p><strong>Time analysis</strong> seeks to </p>
+<ul>
+<li><strong>describe trends</strong> updownward or downard in a series of time observations  </li>
+</ul>
+<ul>
+<li><strong>identify recuring patterns</strong> such as <strong>cycles</strong> or <strong>constant dependence to past</strong></li>
+</ul>
+<ul>
+<li><strong>predict</strong> <strong>future</strong> observation values from <strong>past</strong> ones</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Time analysis is an analysis of values along the time dimension. </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example 1 (Dependence and Prediction):</strong> The price of a given stock at the stock exchange is a very difficult thing to model or to predict. If one considers only the time series of prices for a given stock at the stock exchange as our unique source of information, a first subproblem is to identify whether past prices will influence future prices, and if so, how many price observations should we take into account to try to predict tomorrow price?</p>
+<p>Intuitively, it seems clear that the price of a stock tomorow will be relatively weakly influenced by the stock prices 50 years ago. But what about last year, or last month? Should we only take into account the prices of the past week?</p>
+<p>Here the problem is clearly a <strong>time analysis</strong> problem. The population is formed by a single individual, the stock we are looking at, and there is only one variable, the stock price. So our data cube is actually a <strong>time series</strong>. </p>
+<p>The problem here to determine the level of correlation (or <strong>auto-correlation</strong>) of the price at a given date, and the prices at past dates. </p>
+<p>Of course, this is a very rough analysis, and should be taken with extreme care since the <strong>time scale</strong> we are taking may also change also in time... according to other variables still to be determined.</p>
+<p>A related problem is then, once time scale has been determined for our price prediction (i.e. how far in the past are we going to collect prices for our analysis), we may ask ourselve the problem of predicting tomorrow stock price. </p>
+<p>A very simple approach (and probably very inefficient) would be to use the same type of <strong>regression techniques</strong> we talked about in variable analysis to predict the value of a given variable, the target, given the values of other variables (here the past prices).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Example 2 (Trend Description):</strong> Consider again the professor question that we saw above:</p>
+<ul>
+<li>Can I identify which of my students have improved in class, and which have regressed?</li>
+</ul>
+<p>So here the <strong>right population</strong> to consider is again the population <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-72-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-438" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-439"><span class="mi" id="MathJax-Span-440" style="font-family: STIXGeneral;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-72">\Omega</script> of all the class students. </p>
+<p>The <strong>relevant variables</strong> that may help us answer this question must somehow depend on time. Here are two:</p>
+<ul>
+<li><p>The <strong>weekly</strong> quiz scores <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-73-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-441" style="width: 0.923em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.706em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-442"><span class="mi" id="MathJax-Span-443" style="font-family: STIXGeneral; font-style: italic;">Q</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-73">Q</script></p>
+</li>
+<li><p>The <strong>weekly</strong> homework scores <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-74-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-444" style="width: 1.085em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.814em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-445"><span class="mi" id="MathJax-Span-446" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-74">H</script></p>
+</li>
+</ul>
+<p>Both of these variables have a value depending on which week we are observing the quiz or homework score. </p>
+<p>We have 12 weeks in a semester, which gives us a kind of discrete time: </p>
+<p><span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-75-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-447" style="width: 11.258em; display: inline-block;"><span style="display: inline-block; position: relative; width: 8.498em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-448"><span class="mi" id="MathJax-Span-449" style="font-family: STIXGeneral; font-style: italic;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span class="mo" id="MathJax-Span-450" style="font-family: STIXGeneral; padding-left: 0.327em;">=</span><span class="mo" id="MathJax-Span-451" style="font-family: STIXGeneral; padding-left: 0.327em;">{</span><span class="mn" id="MathJax-Span-452" style="font-family: STIXGeneral;">1</span><span class="mo" id="MathJax-Span-453" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-454" style="font-family: STIXGeneral; padding-left: 0.165em;">2</span><span class="mo" id="MathJax-Span-455" style="font-family: STIXGeneral;">,</span><span class="mn" id="MathJax-Span-456" style="font-family: STIXGeneral; padding-left: 0.165em;">3</span><span class="mo" id="MathJax-Span-457" style="font-family: STIXGeneral;">,</span><span class="mo" id="MathJax-Span-458" style="font-family: STIXGeneral; padding-left: 0.165em;">…</span><span class="mo" id="MathJax-Span-459" style="font-family: STIXGeneral; padding-left: 0.165em;">,</span><span class="mn" id="MathJax-Span-460" style="font-family: STIXGeneral; padding-left: 0.165em;">12</span><span class="mo" id="MathJax-Span-461" style="font-family: STIXGeneral;">}</span><span class="mo" id="MathJax-Span-462" style="font-family: STIXGeneral;">,</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.282em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-75">T =\{1,2,3, \dots, 12\},</script></p>
+<p>where the number <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-76-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-463" style="width: 0.381em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.273em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-464"><span class="mi" id="MathJax-Span-465" style="font-family: STIXGeneral; font-style: italic;">i</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.004em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-76">i</script> denotes the <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-77-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-466" style="width: 1.356em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.085em 1000.003em 2.275em -0.43em); top: -2.108em; left: 0.003em;"><span class="mrow" id="MathJax-Span-467"><span class="msubsup" id="MathJax-Span-468"><span style="display: inline-block; position: relative; width: 0.977em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-469" style="font-family: STIXGeneral; font-style: italic;">i</span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.595em; left: 0.273em;"><span class="texatom" id="MathJax-Span-470"><span class="mrow" id="MathJax-Span-471"><span class="mi" id="MathJax-Span-472" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-473" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">h</span></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.113em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.289em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-77">i^{th}</script> week of instruction.</p>
+<p>So both variables take a time <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-78-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-474" style="width: 2.925em; display: inline-block;"><span style="display: inline-block; position: relative; width: 2.221em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-475"><span class="mi" id="MathJax-Span-476" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mo" id="MathJax-Span-477" style="font-family: STIXGeneral; padding-left: 0.327em;">∈</span><span class="mi" id="MathJax-Span-478" style="font-family: STIXGeneral; font-style: italic; padding-left: 0.327em;">T<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-78">t\in T</script> and student <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-79-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-479" style="width: 4.819em; display: inline-block;"><span style="display: inline-block; position: relative; width: 3.628em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-480"><span class="texatom" id="MathJax-Span-481"><span class="mrow" id="MathJax-Span-482"><span class="mtext" id="MathJax-Span-483" style="font-family: STIXGeneral;">Bob</span></span></span><span class="mo" id="MathJax-Span-484" style="font-family: STIXGeneral; padding-left: 0.327em;">∈</span><span class="mi" id="MathJax-Span-485" style="font-family: STIXGeneral; padding-left: 0.327em;">Ω</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.075em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-79">\textrm{Bob}\in\Omega</script> and yield back two values:</p>
+<p><span class="MathJax_Preview"></span><div class="MathJax_Display" role="textbox" aria-readonly="true" style="text-align: center;"><span class="MathJax" id="MathJax-Element-80-Frame" style=""><nobr><span class="math" id="MathJax-Span-486" style="width: 16.832em; display: inline-block;"><span style="display: inline-block; position: relative; width: 12.719em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.572em 1000.003em 2.817em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-487"><span class="msubsup" id="MathJax-Span-488"><span style="display: inline-block; position: relative; width: 1.031em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.762em -0.43em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-489" style="font-family: STIXGeneral; font-style: italic;">Q</span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -1.999em; left: 0.706em;"><span class="mi" id="MathJax-Span-490" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-491" style="font-family: STIXGeneral;">(</span><span class="texatom" id="MathJax-Span-492"><span class="mrow" id="MathJax-Span-493"><span class="mtext" id="MathJax-Span-494" style="font-family: STIXGeneral;">Bob</span></span></span><span class="mo" id="MathJax-Span-495" style="font-family: STIXGeneral;">)</span><span class="mspace" id="MathJax-Span-496" style="height: 0.003em; vertical-align: 0.003em; width: 2.275em; display: inline-block; overflow: hidden;"></span><span class="texatom" id="MathJax-Span-497"><span class="mrow" id="MathJax-Span-498"><span class="mtext" id="MathJax-Span-499" style="font-family: STIXGeneral;">and</span></span></span><span class="mspace" id="MathJax-Span-500" style="height: 0.003em; vertical-align: 0.003em; width: 2.275em; display: inline-block; overflow: hidden;"></span><span class="msubsup" id="MathJax-Span-501"><span style="display: inline-block; position: relative; width: 1.139em; height: 0px;"><span style="position: absolute; clip: rect(1.626em 1000.003em 2.6em -0.484em); top: -2.432em; left: 0.003em;"><span class="mi" id="MathJax-Span-502" style="font-family: STIXGeneral; font-style: italic;">H<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.057em;"></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span><span style="position: absolute; top: -2.054em; left: 0.76em;"><span class="mi" id="MathJax-Span-503" style="font-size: 70.7%; font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span style="display: inline-block; width: 0px; height: 2.221em;"></span></span></span></span><span class="mo" id="MathJax-Span-504" style="font-family: STIXGeneral;">(</span><span class="texatom" id="MathJax-Span-505"><span class="mrow" id="MathJax-Span-506"><span class="mtext" id="MathJax-Span-507" style="font-family: STIXGeneral;">Bob</span></span></span><span class="mo" id="MathJax-Span-508" style="font-family: STIXGeneral;">)</span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 1.361em; vertical-align: -0.354em;"></span></span></nobr></span></div><script type="math/tex; mode=display" id="MathJax-Element-80">Q_t(\textrm{Bob})\qquad \textrm{and}\qquad H_t(\textrm{Bob})</script></p>
+<p>which are respectively, the score of Bob at the quiz and homework assignment of week <span class="MathJax_Preview"></span><span class="MathJax" id="MathJax-Element-81-Frame" role="textbox" aria-readonly="true" style=""><nobr><span class="math" id="MathJax-Span-509" style="width: 0.436em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.327em; height: 0px; font-size: 132%;"><span style="position: absolute; clip: rect(1.734em 1000.003em 2.6em -0.43em); top: -2.432em; left: 0.003em;"><span class="mrow" id="MathJax-Span-510"><span class="mi" id="MathJax-Span-511" style="font-family: STIXGeneral; font-style: italic;">t<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span></span><span style="display: inline-block; width: 0px; height: 2.438em;"></span></span></span><span style="border-left-width: 0.004em; border-left-style: solid; display: inline-block; overflow: hidden; width: 0px; height: 0.861em; vertical-align: -0.068em;"></span></span></nobr></span><script type="math/tex" id="MathJax-Element-81">t</script>. </p>
+<p>Answering the professor question will thus involve a <strong>temporal analysis</strong> of this two variables and identify <strong>upward</strong> or <strong>downward trends</strong> for any given students.</p>
+<p>We will come back to that late. For now, just keep in mind that <strong>your question or problem may involve a temporal aspect</strong>, whose analysis will necessite particular methods. </p>
+<p>You need to be aware of that and to be able to recognize any temporal aspect in your clas project question or problem. This will determine the type of data you'll need to gather and the type of analysis you'll need to perform on it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Further-data-analysis-ressources">Further data analysis ressources<a class="anchor-link" href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#Further-data-analysis-ressources">¶</a></h2>
+</div>
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="data-analysis-with-python">Data Analysis with Python</h3>
+<ul>
+<li><a href="http://proquest.safaribooksonline.com/book/programming/python/9781449323592">Python for Data Analysis</a>, by Wes McKinney, Springer (2012)</li>
+<li><a href="http://blog.wesmckinney.com/">Wes McKinney's Blog</a></li>
+<li><p><a href="https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks">Gitup page with iPython notebooks on data analysis (and more)</a></p>
+</li>
+<li><p><a href="http://nbviewer.ipython.org/urls/raw.github.com/ptwobrussell/Mining-the-Social-Web-2nd-Edition/master/ipynb/Chapter%204%20-%20Mining%20Google+.ipynb">Mining the social web</a></p>
+</li>
+</ul>
+<h3 id="data-analysis-with-r">Data Analysis with R</h3>
+<ul>
+<li><p><a href="http://link.springer.com/book/10.1007/978-1-4302-5807-0/page/1">Pro Data Visualization using R and JavaScript</a></p>
+</li>
+<li><p><a href="http://cran.r-project.org/doc/contrib/usingR.pdf">Using R for Data Analysis and Graphics</a> by J. H. Maindonald</p>
+</li>
+<li><p><a href="http://www.r-project.org/">The R Project for Statistical Computing</a></p>
+</li>
+<li><p><a href="http://profjsb.github.io/python-seminar/">Python Computing for Data Science</a></p>
+</li>
+<li><p><a href="http://www.pythonbootcamp.info/schedule">Berkeley Python Bootcamp 2013</a></p>
+</li>
+<li><p><a href="https://sites.google.com/site/pythonbootcamp2012b/agenda">Berkeley Python Bootcamp 2012</a></p>
+</li>
+<li><p><a href="http://www.astro.cornell.edu/staff/loredo/statpy/">Statistical Computing with Python</a></p>
+</li>
+</ul>
+<h3 id="coursera-data-science-lectures">Coursera Data Science lectures</h3>
+<h4 id="directly-related-to-the-class">Directly related to the class</h4>
+<ul>
+<li><p><a href="https://class.coursera.org/dataanalysis-002/class">Data Analysis (R)</a></p>
+</li>
+<li><p><a href="https://class.coursera.org/compdata-003/class">Computing for Data Analyis (R)</a></p>
+</li>
+<li><p><a href="https://class.coursera.org/introstats-001/class/index">Statistics: Making Sense of Data (R)</a></p>
+</li>
+</ul>
+<h4 id="to-further-explore-if-you-have-liked-and-finished-all-of-the-above-">To further explore if you have liked and finished all of the above...</h4>
+<ul>
+<li><p><a href="https://class.coursera.org/networksonline-001/class">Social and Economic Networks: Models and Analysis</a></p>
+</li>
+<li><p><a href="https://class.coursera.org/bigdata-edu-001/class">Big Data in Education</a></p>
+</li>
+<li><p><a href="https://class.coursera.org/bigdata-003/wiki/view?page=ProgrammingAssignmentsHW3">Web Intelligence and Big Data (Python)</a></p>
+</li>
+<li><p><a href="https://class.coursera.org/ml-003/class">Machine Learning (Octave)</a></p>
+</li>
+<li><p><a href="https://class.coursera.org/pgm-003/class">Probabilistic Graphical Models (Octave)</a></p>
+</li>
+</ul>
+<h4 id="further-upcoming-coursera-lectures-you-may-want-to-enroll-in-and-get-a-certificate-here-https-www-coursera-org-courses-orderby-upcoming-lngs-en-cats-stats-">Further upcoming coursera lectures you may want to enroll in (and get a certificate) <a href="https://www.coursera.org/courses?orderby=upcoming&lngs=en&cats=stats">here</a></h4>
+</div>
+</div>
+</div>
+
+
+     <!-- <hr/> -->
+     <div class="row hidden-print">
+      <div class="span12 text-center">
+        <a href="http://nbviewer.ipython.org/urls/db.tt/T3Xfq0Ip#">Back to top</a>
+      </div>
+    </div>
+
+     <!-- Footer
+     ================================================== -->
+      
+      <footer class="footer hidden-print">
+      <div class="span12 row-fluid footer-row">
+          <div class="span4">
+            <p>This web site does not host notebooks, it only renders notebooks available on other websites.</p>
+          </div>
+
+          <div class="span4">
+            <p>Thanks to <a href="http://www.rackspace.com/">Rackspace</a> for hosting.</p>
+            <p>nbviewer GitHub <a href="https://github.com/ipython/nbviewer">repository</a>.</p>
+            <p>nbviewer <a href="https://github.com/ipython/nbviewer/blob/master/LICENSE.txt" target="_blank">license</a>.</p>
+          </div>
+
+          <div class="span4">
+            
+
+              
+                <p>
+                    nbviewer version:
+                    <a href="https://github.com/ipython/nbviewer/commit/fa9f5980ddb257274275b60d202eca62fad9f58f">fa9f598</a>
+                </p>
+              
+            
+
+<p class="text-muted">
+    IPython version: 3.0.0-dev
+    
+    (<a href="https://github.com/ipython/ipython/commit/ad534f8">
+      ad534f8
+    </a>)
+    
+</p>
+
+
+            
+
+            
+
+<p class="text-muted">
+Rendered <span class="date" data-date="Sun, 11 May 2014 18:26:03 UTC" title="Sun, 11 May 2014 18:26:03 UTC">3 minutes ago</span>
+</p>
+
+
+          </div>
+      </div>
+      </footer>
+      
+
+    </div><!-- /container -->
+
+    <script src="./R Data Analysis Process_files/bootstrap-collapse.js"></script>
+    <script src="./R Data Analysis Process_files/headroom.min.js"></script>
+    <script src="./R Data Analysis Process_files/jQuery.headroom.min.js"></script>
+
+
+    
+    
+    
+    <script>
+    $(document).ready(
+                function(){
+                    $("#menubar").headroom({
+                        "tolerance": 5,
+                        "offset": 205,
+                        "classes": {
+                            "initial": "animated",
+                            "pinned": "slideInDown",
+                            "unpinned": "slideOutUp"
+                        }
+                    })
+                }
+            );
+    </script>
+
+
+    <!-- Analytics
+    ================================================== -->
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-38683231-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    <script>
+        var update_date  = function(){
+            var str = window.moment($('.date').data('date')).fromNow();
+            $('.date').text(str);
+        }
+        setInterval(update_date , 61*1000);
+        $(update_date);
+    </script>
+    <!--NEW RELIC Stop Perf Measurement-->
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"beacon-5.newrelic.com","queueTime":0,"licenseKey":"7c83165904","agent":"js-agent.newrelic.com/nr-411.min.js","transactionName":"Y1YAMUFQXEZYUEcIVlocJBBdUkZcVl0cD1tCWgcSVkMcXVhdVw1cRkBYBlJSWlBdbF4ETVxcBg==","applicationID":"3045974","errorBeacon":"jserror.newrelic.com","applicationTime":4671}</script>
+    <!--NEW RELIC End-->
+  
+<script src="./R Data Analysis Process_files/nr-411.min.js"></script><script type="text/javascript" src="./R Data Analysis Process_files/7c83165904"></script><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: STIXSizeOneSym, sans-serif;">ˆ</div></body></html>
